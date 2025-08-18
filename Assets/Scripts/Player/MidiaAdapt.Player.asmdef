@@ -2,7 +2,7 @@
     "name": "MidiaAdapt.Player",
     "rootNamespace": "",
     "references": [
-        "GUID:75469ad4d38634e559750d17036d5f7c"
+        "GUID:795bc9749db3c7b42bce902d5511bd55"
     ],
     "includePlatforms": [
         "Android",

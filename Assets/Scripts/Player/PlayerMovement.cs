@@ -1,20 +1,13 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+using MidiaAdapt.Core;
 
 namespace MidiaAdapt.Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        [SerializeField] InputAction _moveAction;
-
         [SerializeField] float _speedMovement = 5f;
 
         CharacterController _cc;
-
-        private void OnEnable()
-        {
-            _moveAction.Enable();
-        }
 
         void Awake()
         {
