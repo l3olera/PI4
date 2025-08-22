@@ -472,7 +472,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3543934616467623544, guid: faa867c44575c9642af55a330f2815b7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2405598563729449907, guid: faa867c44575c9642af55a330f2815b7, type: 3}
@@ -498,7 +499,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speedMovement: 5
   _speedRotation: 5
-  _jumpForce: 5
+  _jumpHeight: 5
+  gravity: -9.81
 --- !u!1001 &6469253111581793940
 PrefabInstance:
   m_ObjectHideFlags: 0

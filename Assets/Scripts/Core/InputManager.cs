@@ -42,25 +42,30 @@ namespace MidiaAdapt.Core
 
             Instance = this; // Set the singleton instance
 
-            m_moveAction = inputActions.FindAction("Move");
-            m_lookAction = inputActions.FindAction("Look");
-            m_jumpAction = inputActions.FindAction("Jump");
+            m_moveAction = inputActions.FindAction("Move"); //Setup move input action
+            m_lookAction = inputActions.FindAction("Look"); //Setup look input action
+            m_jumpAction = inputActions.FindAction("Jump"); //Setup jump input action
         }
 
         void Update()
         {
-            MoveAmt = m_moveAction.ReadValue<Vector2>();
-            LookAmt = m_lookAction.ReadValue<Vector2>();
+            MoveAmt = m_moveAction.ReadValue<Vector2>(); //Read movement input value
+            LookAmt = m_lookAction.ReadValue<Vector2>(); //Read look input value
 
-            if (m_jumpAction.WasPressedThisFrame())
+            if (m_jumpAction.WasPressedThisFrame()) //Check if jump input was pressed this frame
             {
-                OnJumpInput?.Invoke(true);
+                TriggerJumpInput(true);
             }
 
             if (m_jumpAction.WasReleasedThisFrame())
             {
-                OnJumpInput?.Invoke(false);
+                TriggerJumpInput(false);
             }
+        }
+
+        void TriggerJumpInput(bool isJumping)
+        {
+            OnJumpInput?.Invoke(isJumping);
         }
     }
 }

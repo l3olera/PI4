@@ -14,6 +14,7 @@ namespace MidiaAdapt.Player
         [SerializeField] float gravity = -9.81f;
 
         CharacterController _cc;
+        Camera _mainCamera;
 
         Vector2 _moveInput;
         Vector2 _lookInput;
@@ -38,8 +39,6 @@ namespace MidiaAdapt.Player
         // Update is called once per frame
         void FixedUpdate()
         {
-            _moveInput = InputManager.Instance.MoveAmt;
-
             Walking();
             Rotating();
             Jumping();
@@ -47,6 +46,8 @@ namespace MidiaAdapt.Player
 
         void Walking()
         {
+            _moveInput = InputManager.Instance.MoveAmt;
+
             Vector3 moveDirection = new(_moveInput.x * _speedMovement, 0, _moveInput.y * _speedMovement);
             _cc.Move(moveDirection * Time.deltaTime);
         }
