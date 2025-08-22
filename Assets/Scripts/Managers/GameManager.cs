@@ -8,16 +8,15 @@ namespace MidiaAdapt.Managers
 
         void Awake()
         {
-           if(Instance == null)
-           {
-               DontDestroyOnLoad(gameObject); // Keep this instance across scenes
-           }
-           else
-           {
-               Destroy(gameObject); // Ensure only one instance exists
-           }
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+            }else
+            {
+                Instance = this;
+            }
 
-           Instance = this; // Set the singleton instance
+            DontDestroyOnLoad(gameObject); // Keep this instance across scenes
         }
     }
 }
