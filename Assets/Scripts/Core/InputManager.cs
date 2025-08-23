@@ -11,12 +11,13 @@ namespace MidiaAdapt.Core
         public static event Action<bool> OnShootInput;
 
         public InputActionAsset inputActions;
-        bool _isShooting;
+
+        public static bool isShooting;
 
         void OnEnable()
         {
            inputActions.FindActionMap("Player").Enable();
-           inputActions.FindAction("Shoot").performed += ctx => OnShootInput?.Invoke(!_isShooting);
+           inputActions.FindAction("Shoot").performed += ctx => OnShootInput?.Invoke(!isShooting);
         }
         void OnDisable()
         {
