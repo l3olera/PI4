@@ -8,13 +8,15 @@ namespace MidiaAdapt.Core
     {
         public static InputManager Instance { get; private set; }
 
-        public static event Action<bool> OnJumpInput;
+        public static event Action<bool> OnShootInput;
 
         public InputActionAsset inputActions;
+        bool _isShooting;
 
         void OnEnable()
         {
            inputActions.FindActionMap("Player").Enable();
+           inputActions.FindAction("Shoot").performed += ctx => OnShootInput?.Invoke(!_isShooting);
         }
         void OnDisable()
         {
