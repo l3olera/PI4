@@ -8,6 +8,7 @@ namespace MidiaAdapt.Weapon
 
         public override void Shoot()
         {
+            /*Lembrar de fazer o pool de balas depois e repense em fazer essa lógica na base da weapon*/
             if (_currentAmmo > 0)
             {
                 Debug.Log("Rifle fired");
