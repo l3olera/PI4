@@ -8,21 +8,21 @@ namespace MidiaAdapt.Core.Managers
     {
         public static InputManager Instance { get; private set; }
 
-        public static event Action<bool> OnShootInput;
+        public static event Action<bool> OnShootInputPerformed;
+        public static event Action<bool> OnRechargeInputPerformed;
 
         public static bool IsShooting;
 
         public InputActionAsset inputActions;
+
         void OnEnable()
         {
            inputActions.FindActionMap("Player").Enable();
-           inputActions.FindAction("Shoot").performed += Shoot;
         }
 
         void OnDisable()
         {
             inputActions.FindActionMap("Player").Disable();
-            inputActions.FindAction("Shoot").performed -= Shoot;
         }
 
         void Awake()
@@ -37,9 +37,30 @@ namespace MidiaAdapt.Core.Managers
             }
         }
 
-        void Shoot(InputAction.CallbackContext ctx)
+        void Update()
         {
-            OnShootInput?.Invoke(!IsShooting);
+            float shootValue = inputActions.FindAction("Shoot").ReadValue<float>();
+
+
+            if (shootValue > 0.5f) // só dispara se o gatilho passar de 50%
+            {
+                OnShoot(true);
+            }
+            else
+            {
+                OnShoot(false);
+            }
+        }
+
+        void OnShoot(bool value)
+        {
+            IsShooting = value;
+            OnShootInputPerformed?.Invoke(value);
+        }
+
+        void Recharge()
+        {
+
         }
     }
 }

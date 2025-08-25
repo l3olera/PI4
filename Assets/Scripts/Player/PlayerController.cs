@@ -14,12 +14,12 @@ namespace MidiaAdapt.Player
 
         void OnEnable()
         {
-            InputManager.OnShootInput += HandleShootInput;
+            InputManager.OnShootInputPerformed += HandleShootInput;
         }
 
         void OnDisable()
         {
-            InputManager.OnShootInput -= HandleShootInput;
+            InputManager.OnShootInputPerformed -= HandleShootInput;
         }
 
         void Awake()
