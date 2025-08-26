@@ -9,14 +9,13 @@ namespace MidiaAdapt.Weapon
         public override void Shoot()
         {
             /*Lembrar de fazer o pool de balas depois e repense em fazer essa lógica na base da weapon*/
-            if (_currentAmmo > 0)
+            if (_currentAmmo > 0 && !isReloading)
             {
-                Debug.Log("Rifle fired");
                 if (Time.time >= _nextTimeToFire)
                 {
                     _nextTimeToFire = Time.time + 1f / _fireRate;
                     Instantiate(_bulletPrefab, _firePoint.position, _firePoint.rotation);
-                    _currentAmmo--;
+                    RemoveAmmo(1);
                 }
             }
         }

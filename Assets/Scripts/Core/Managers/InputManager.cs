@@ -9,7 +9,7 @@ namespace MidiaAdapt.Core.Managers
         public static InputManager Instance { get; private set; }
 
         public static event Action<bool> OnShootInputPerformed;
-        public static event Action<bool> OnRechargeInputPerformed;
+        public static event Action OnReloadInputPerformed;
 
         public static bool IsShooting;
 
@@ -18,11 +18,15 @@ namespace MidiaAdapt.Core.Managers
         void OnEnable()
         {
            inputActions.FindActionMap("Player").Enable();
+
+           inputActions.FindAction("Reload").performed += OnReload;
         }
 
         void OnDisable()
         {
             inputActions.FindActionMap("Player").Disable();
+
+            inputActions.FindAction("Reload").performed -= OnReload;
         }
 
         void Awake()
@@ -58,9 +62,9 @@ namespace MidiaAdapt.Core.Managers
             OnShootInputPerformed?.Invoke(value);
         }
 
-        void Recharge()
+        void OnReload(InputAction.CallbackContext ctx)
         {
-
+            OnReloadInputPerformed?.Invoke();
         }
     }
 }
