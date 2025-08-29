@@ -2,9 +2,9 @@ using UnityEngine;
 using TMPro;
 using MidiaAdapt.Core.Managers;
 
-namespace MidiaAdapt.UI
+namespace MidiaAdapt.UI.HUD
 {
-    public class UIManager : MonoBehaviour
+    public class HUDManager : MonoBehaviour
     {
         [SerializeField] TextMeshProUGUI _text_adviseReload;
         [SerializeField] TextMeshProUGUI _text_reload;
