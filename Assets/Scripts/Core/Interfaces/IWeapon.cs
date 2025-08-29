@@ -1,8 +1,12 @@
+using UnityEngine;
+
 namespace MidiaAdapt.Core.Interfaces
 {
-	public interface IWeapon
+    public interface IWeapon
 	{
-		void Shoot();
+		 [SerializeField] int scoreMaxAmmo { get; }
+
+        void Shoot();
 		void Reload();
 	}
 

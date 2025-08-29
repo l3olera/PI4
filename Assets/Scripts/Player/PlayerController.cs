@@ -14,12 +14,14 @@ namespace MidiaAdapt.Player
 
         void OnEnable()
         {
-            InputManager.OnShootInput += HandleShootInput;
+            InputManager.OnShootInputPerformed += HandleShootInput;
+            InputManager.OnReloadInputPerformed += HandleReloadInputPerformed;
         }
 
         void OnDisable()
         {
-            InputManager.OnShootInput -= HandleShootInput;
+            InputManager.OnShootInputPerformed -= HandleShootInput;
+            InputManager.OnReloadInputPerformed -= HandleReloadInputPerformed;
         }
 
         void Awake()
@@ -37,21 +39,26 @@ namespace MidiaAdapt.Player
         void Start()
         {
             EquipWeapon(_equippedWeapon ?? (IWeapon)_startinWeapon);
+            
         }
 
         public void EquipWeapon(IWeapon weapon)
         {
             _equippedWeapon = weapon;
+            PlayerWeaponManager.Instance.playerCurrentEquippedWeapon = _equippedWeapon;
         }
 
         void HandleShootInput(bool shooting)
         {
-            Debug.Log("Shoot input received: " + shooting);
-            Debug.Log("Equipped weapon: " + (_equippedWeapon));
             if(_equippedWeapon != null && shooting)
             {
                 _equippedWeapon.Shoot();
             }
+        }
+
+        void HandleReloadInputPerformed()
+        {
+            _equippedWeapon?.Reload();
         }
     }
 }
