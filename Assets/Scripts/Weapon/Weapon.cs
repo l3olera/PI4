@@ -1,9 +1,7 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Pool;
 using MidiaAdapt.Core.Interfaces;
 using MidiaAdapt.Core.Managers;
-using MidiaAdapt.Weapon.Projectiles;
 
 namespace MidiaAdapt.Weapon
 {
@@ -13,60 +11,44 @@ namespace MidiaAdapt.Weapon
         public bool isReloading;
 
         [Header("Componentes da arma")]
-        [SerializeField] Projectile _projectilePrefab;
-        [SerializeField] Transform _firePoint;
+        [SerializeField] Camera _playerCamera;
 
         [Header("Configuração da arma")]
         public int _currentAmmo;
         [SerializeField] int _ammoCapacity;
-
+        [SerializeField] int _damage = 10;
         [Tooltip("Quantitade de bala por segundo que a arma pode disparar")]
         [SerializeField] float _fireRate;
+        [SerializeField] float _range;
         [SerializeField] float _reloadTime;
-        [SerializeField] float _projectileVelocity;
+        [SerializeField] LayerMask _hittableLayers;
 
         float _nextTimeToFire = 0f;
 
-        IObjectPool<Projectile> _projectilePool;
-
-        [Header("Pool de balas")]
-        [SerializeField] bool _collectionCheck = true; //Joga um erro se tentar devolver um objeto já na pool
-
-        [SerializeField] int defaultCapacity = 10;
-        [SerializeField] int maxSize = 20;
-
-        void Awake()
-        {
-            _projectilePool = new ObjectPool<Projectile>(
-                createFunc: CreateProjectile,
-                actionOnGet: OnGetFromPool,
-                actionOnRelease: OnReleaseToPool,
-                actionOnDestroy: OnDestroyPooledObject,
-                collectionCheck: _collectionCheck,
-                defaultCapacity: defaultCapacity,
-                maxSize: maxSize);
-        }
-
         void Start()
         {
+            if(_playerCamera == null)
+                _playerCamera = Camera.main;
+
             SetMaxAmmo(_ammoCapacity); //Inicia a arma com o carregador cheio
             AddAmmo(_ammoCapacity);
         }
 
         public void Shoot()
         {
-            if (_currentAmmo > 0 && !isReloading && _projectilePool != null)
+            if (_currentAmmo > 0 && !isReloading)
             {
                 if (Time.time >= _nextTimeToFire)
                 {
-                    Projectile projectileObject = GetProjectile();
+                    Ray ray = _playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f)); //Cria um raio a partir do centro da tela
 
-                    if (projectileObject == null)
-                        return;
-
-                    projectileObject.transform.SetPositionAndRotation(_firePoint.position, _firePoint.rotation); //Define a posição e rotação do projétil para a posição do ponto de disparo
-
-                    projectileObject.Launch(_projectileVelocity);
+                    if (Physics.Raycast(ray, out RaycastHit hitInfo, _range, _hittableLayers))
+                    {
+                        if (hitInfo.collider.TryGetComponent<IDamageable>(out IDamageable damageable))
+                        {
+                            damageable.TakeDamage(_damage); //Aplica o dano ao objeto atingido
+                        }
+                    }
 
                     RemoveAmmo(1);
 
@@ -74,6 +56,7 @@ namespace MidiaAdapt.Weapon
                 }
             }
         }
+
         public void Reload()
         {
             if (isReloading || _currentAmmo == _ammoCapacity) //Impede o jogador de recarregar se já estiver recarregando ou se o carregador estiver cheio
@@ -107,12 +90,7 @@ namespace MidiaAdapt.Weapon
             }
             PlayerWeaponManager.Instance.OnAmmoChanged(_currentAmmo);
         }
-        
-        Projectile GetProjectile()
-        {
-            return _projectilePool.Get();
-        }
-
+ 
         IEnumerator ReloadCourotine()
         {
             isReloading = true;
@@ -126,34 +104,6 @@ namespace MidiaAdapt.Weapon
             isReloading = false;
 
             PlayerWeaponManager.Instance.OnFinishedReloading();
-        }
-
-        // Invoca uma instância do projétil e popula o pool das balas
-        Projectile CreateProjectile()
-        {
-            Projectile projectileInstance = Instantiate(_projectilePrefab);
-            projectileInstance.BulletPool = _projectilePool;
-            return projectileInstance;
-        }
-
-        //Função chamada quando um projétil é retirado da pool
-        void OnGetFromPool(Projectile pooledObject)
-        {
-            pooledObject.gameObject.SetActive(true);
-        }
-
-        //Função chamada quando um projétil é devolvido para a pool
-        void OnReleaseToPool(Projectile pooledObject)
-        {
-            pooledObject.gameObject.SetActive(false);
-        }
-
-        //Função chamada é excedido o tamanho máximo de items na pool. Assim, destruindo o objeto recente criado
-        void OnDestroyPooledObject(Projectile pooledObject)
-        {
-            if (pooledObject == null || pooledObject.gameObject == null) return;
-
-            Destroy(pooledObject.gameObject);
         }
     }
 }

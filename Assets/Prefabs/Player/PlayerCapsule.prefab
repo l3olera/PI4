@@ -408,13 +408,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rifle
       objectReference: {fileID: 0}
+    - target: {fileID: 4457798289484612858, guid: a84f886a48c19e24e9bfb6e9c851530e, type: 3}
+      propertyPath: _range
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4457798289484612858, guid: a84f886a48c19e24e9bfb6e9c851530e, type: 3}
+      propertyPath: _hittableLayers.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 4813416923511575245, guid: a84f886a48c19e24e9bfb6e9c851530e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.328
+      value: 0.248
       objectReference: {fileID: 0}
     - target: {fileID: 4813416923511575245, guid: a84f886a48c19e24e9bfb6e9c851530e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.889
+      value: 1.035
       objectReference: {fileID: 0}
     - target: {fileID: 4813416923511575245, guid: a84f886a48c19e24e9bfb6e9c851530e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -449,7 +457,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4962068451926988696, guid: a84f886a48c19e24e9bfb6e9c851530e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a84f886a48c19e24e9bfb6e9c851530e, type: 3}

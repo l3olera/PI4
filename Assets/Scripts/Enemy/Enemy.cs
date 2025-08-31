@@ -16,8 +16,9 @@ namespace MidiaAdapt.Enemy
         public void TakeDamage(int amount)
         {
             _currentHealth -= amount;
-            
-            if(_currentHealth <= 0)
+            Debug.Log($"{gameObject.name} took {amount} damage. Current health: {_currentHealth}");
+
+            if (_currentHealth <= 0)
             {
                 Die();
             }
