@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7abb9cb59ddc6044ab78cd14392d0e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startinWeapon: {fileID: 0}
+  _startinWeapon: {fileID: 5840996255836193063}
 --- !u!114 &8643388109345239457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,3 +458,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4813416923511575245, guid: a84f886a48c19e24e9bfb6e9c851530e, type: 3}
   m_PrefabInstance: {fileID: 7841370346217522653}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5840996255836193063 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4457798289484612858, guid: a84f886a48c19e24e9bfb6e9c851530e, type: 3}
+  m_PrefabInstance: {fileID: 7841370346217522653}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2f9974e893917743bc4fe6140e8466f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
