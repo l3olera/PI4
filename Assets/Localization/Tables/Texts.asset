@@ -28,8 +28,8 @@ MonoBehaviour:
         m_Collection: {fileID: 11400000}
         m_ColumnsList:
         - rid: 5199137556176830753
-        - rid: 5199137556176830754
         - rid: 5199137556176830755
+        - rid: 5199137556176830754
         m_ConnectedFile: Assets/Localization/CSV/TranslatesText.csv
     - rid: 5199137556176830753
       type: {class: KeyIdColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns, asm: Unity.Localization.Editor}
