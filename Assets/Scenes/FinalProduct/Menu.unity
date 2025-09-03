@@ -6566,11 +6566,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8534921028343833070, guid: 7d8ee238b1188a9418e8aaf006090978, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8825388716262394609, guid: 7d8ee238b1188a9418e8aaf006090978, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8879105810309488064, guid: 7d8ee238b1188a9418e8aaf006090978, type: 3}
       propertyPath: m_AnchorMax.x
