@@ -1,3 +1,4 @@
+using MidiaAdapt.Core;
 using UnityEngine;
 
 namespace MidiaAdapt.UI.Menu
@@ -5,6 +6,10 @@ namespace MidiaAdapt.UI.Menu
     public class MenuManager : MonoBehaviour
     {
         [Header("Panel References")]
+        [SerializeField] PanelSwitcher _switcher;
+        [SerializeField]
+        GameObject[] _panels;
+
         [SerializeField] GameObject _settingsMenu;
         [SerializeField] GameObject _creditsMenu;
         [SerializeField] GameObject _networkMenu;
@@ -16,6 +21,26 @@ namespace MidiaAdapt.UI.Menu
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
+            if(_settingsMenu != null && _settingsMenu.activeSelf)
+            {
+                _settingsMenu.SetActive(false);
+            }
+
+            if (_creditsMenu != null && _creditsMenu.activeSelf)
+            {
+                _creditsMenu.SetActive(false);
+            }
+
+            if (_networkMenu != null && _networkMenu.activeSelf)
+            {
+                _networkMenu.SetActive(false);
+            }
+
+            if (_quitMenu != null && _quitMenu.activeSelf)
+            {
+                _quitMenu.SetActive(false);
+            }
         }
 
         public void StartGame()
@@ -23,36 +48,24 @@ namespace MidiaAdapt.UI.Menu
             SceneLoader.Instance.LoadScene(nextSceneName);
         }
 
-        public void ToggleSettings(bool active)
+        public void ToggleSettings()
         {
-            ToggleObject(_settingsMenu, active);
-            ToggleObject(_creditsMenu, false);
-            ToggleObject(_networkMenu, false);
-            ToggleObject(_quitMenu, false);
+            TogglePanel(_settingsMenu);
         }
 
-        public void ToggleCredits(bool active)
+        public void ToggleCredits()
         {
-            ToggleObject(_creditsMenu, active);
-            ToggleObject(_settingsMenu, false);
-            ToggleObject(_networkMenu, false);
-            ToggleObject(_quitMenu, false);
+            TogglePanel(_creditsMenu);
         }
 
         public void ToggleNetworkMenu()
         {
-            ToggleObject(_networkMenu, !_networkMenu.activeSelf);
-            ToggleObject(_settingsMenu, false);
-            ToggleObject(_creditsMenu, false);
-            ToggleObject(_quitMenu, false);
+            TogglePanel(_networkMenu);
         }
 
         public void ToggleQuitMenu()
         {
-            ToggleObject(_quitMenu, !_quitMenu.activeSelf);
-            ToggleObject(_settingsMenu, false);
-            ToggleObject(_creditsMenu, false);
-            ToggleObject(_networkMenu, false);
+            TogglePanel(_quitMenu);
         }
 
         public void QuitGame()
@@ -64,10 +77,13 @@ namespace MidiaAdapt.UI.Menu
 #endif
         }
 
-        void ToggleObject(GameObject obj, bool status)
+        void TogglePanel(GameObject obj)
         {
-            obj.SetActive(status);
+            if (obj == null) return;
+
+            _switcher.TogglePanel(obj, _panels);
         }
+        
     }
 
 }
