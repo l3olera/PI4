@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MidiaAdapt.UI.Menu
+namespace Player47.UI.Menu
 {
     /// <summary>
     /// Responsável por controlar as configuração do jogo, fazendo as mecanicas funcionarem.

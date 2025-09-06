@@ -1,8 +1,8 @@
-using MidiaAdapt.Core;
 using UnityEngine;
 using UnityEngine.UI;
+using Player47.Core.Service;
 
-namespace MidiaAdapt.UI.Menu
+namespace Player47.UI.Menu
 {
     /// <summary>
     /// Responsável por gerenciar as telas da configuração do jogo, indicando para onde cada botão deve levar o usuário.

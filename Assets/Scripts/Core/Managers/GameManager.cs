@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MidiaAdapt.Core.Managers
+namespace Player47.Core.Managers
 {
     public class GameManager : MonoBehaviour
     {

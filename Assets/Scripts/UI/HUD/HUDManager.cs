@@ -1,8 +1,8 @@
 using UnityEngine;
 using TMPro;
-using MidiaAdapt.Core.Managers;
+using Player47.Domain.Player;
 
-namespace MidiaAdapt.UI.HUD
+namespace Player47.UI.HUD
 {
     public class HUDManager : MonoBehaviour
     {
@@ -11,16 +11,16 @@ namespace MidiaAdapt.UI.HUD
 
         void OnEnable()
         {
-            PlayerWeaponManager.BecomeReloading += WeaponManager_ShowAdviseReload;
-            PlayerWeaponManager.FinishedReloading += WeaponManager_HideAdviseReload;
-            PlayerWeaponManager.AmmoChanged += WeaponManager_AmmoChanged;
+            PlayerWeaponHandler.BecomeReloading += WeaponManager_ShowAdviseReload;
+            PlayerWeaponHandler.FinishedReloading += WeaponManager_HideAdviseReload;
+            PlayerWeaponHandler.AmmoChanged += WeaponManager_AmmoChanged;
         }
 
         void OnDisable()
         {
-            PlayerWeaponManager.BecomeReloading -= WeaponManager_ShowAdviseReload;
-            PlayerWeaponManager.FinishedReloading -= WeaponManager_HideAdviseReload;
-            PlayerWeaponManager.AmmoChanged -= WeaponManager_AmmoChanged;
+            PlayerWeaponHandler.BecomeReloading -= WeaponManager_ShowAdviseReload;
+            PlayerWeaponHandler.FinishedReloading -= WeaponManager_HideAdviseReload;
+            PlayerWeaponHandler.AmmoChanged -= WeaponManager_AmmoChanged;
         }
 
         public void WeaponManager_ShowAdviseReload()
@@ -37,7 +37,7 @@ namespace MidiaAdapt.UI.HUD
         {
             if (_text_reload != null)
             {
-                _text_reload.text = $"{amount} / {PlayerWeaponManager.Instance.playerCurrentEquippedWeapon?.scoreMaxAmmo}";
+                _text_reload.text = $"{amount} / {PlayerWeaponHandler.Instance.playerCurrentEquippedWeapon?.scoreMaxAmmo}";
             }
         }
     }

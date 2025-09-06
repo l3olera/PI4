@@ -1,7 +1,8 @@
-using MidiaAdapt.Core;
 using UnityEngine;
+using Player47.Core.Managers;
+using Player47.Core.Service;
 
-namespace MidiaAdapt.UI.Menu
+namespace Player47.UI.Menu
 {
     public class MenuManager : MonoBehaviour
     {
