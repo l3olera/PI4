@@ -1,0 +1,16 @@
+{
+    "name": "Player47.Domain.Enemy",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e0ae9e3f5616a3f4191ce999933dd217"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

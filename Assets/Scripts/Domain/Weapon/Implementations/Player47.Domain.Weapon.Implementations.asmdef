@@ -1,0 +1,18 @@
+{
+    "name": "Player47.Domain.Weapon.Implementations",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e0ae9e3f5616a3f4191ce999933dd217",
+        "GUID:12e299030aa67014d87284eb87264a88",
+        "GUID:de7398135b63a8748a16910337be56d2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

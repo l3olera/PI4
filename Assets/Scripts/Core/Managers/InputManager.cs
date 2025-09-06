@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace MidiaAdapt.Core.Managers
+namespace Player47.Core.Managers
 {
     public class InputManager : MonoBehaviour
     {

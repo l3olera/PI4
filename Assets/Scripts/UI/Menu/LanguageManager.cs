@@ -1,8 +1,8 @@
-using MidiaAdapt.Core.Localization;
 using UnityEngine;
 using UnityEngine.UI;
+using Player47.Core.Service;
 
-namespace MidiaAdapt.UI.Menu
+namespace Player47.UI.Menu
 {
     public class LanguageManager : MonoBehaviour
     {
