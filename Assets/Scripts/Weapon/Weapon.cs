@@ -5,6 +5,9 @@ using MidiaAdapt.Core.Managers;
 
 namespace MidiaAdapt.Weapon
 {
+    /// <summary>
+    /// Arma que pode atirar, recarregar e causar dano a objetos que implementam a interface IDamageable.
+    /// </summary>
     public class Weapon : MonoBehaviour, IWeapon
     {        
         public int scoreMaxAmmo { get; private set;  }
@@ -40,17 +43,9 @@ namespace MidiaAdapt.Weapon
             {
                 if (Time.time >= _nextTimeToFire)
                 {
-                    Ray ray = _playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f)); //Cria um raio a partir do centro da tela
+                    DetectHit(); //Detecta se o tiro atingiu algo e aplica o dano
 
-                    if (Physics.Raycast(ray, out RaycastHit hitInfo, _range, _hittableLayers))
-                    {
-                        if (hitInfo.collider.TryGetComponent<IDamageable>(out IDamageable damageable))
-                        {
-                            damageable.TakeDamage(_damage); //Aplica o dano ao objeto atingido
-                        }
-                    }
-
-                    RemoveAmmo(1);
+                    RemoveAmmo(1); //Remove uma bala do carregador
 
                     _nextTimeToFire = Time.time + 1f / _fireRate; //Armazena o tempo para o próximo tiro
                 }
@@ -64,6 +59,10 @@ namespace MidiaAdapt.Weapon
             StartCoroutine(ReloadCourotine());
         }
 
+        /// <summary>
+        /// Define o máximo e a capacidade de munição do carregador.
+        /// </summary>
+        /// <param name="amount">Quantidade a ser definido o máximo da capacidade</param>
         public void SetMaxAmmo(int amount)
         {
             _ammoCapacity = amount;
@@ -71,6 +70,10 @@ namespace MidiaAdapt.Weapon
             AddAmmo(_ammoCapacity); //Inicia a arma com o carregador cheio
         }
 
+        /// <summary>
+        /// Adiciona uma quantidade específica de munição do carregador.
+        /// </summary>
+        /// <param name="amount">Quantidade de munição a ser adcionada</param>
         public void AddAmmo(int amount)
         {
             _currentAmmo += amount;
@@ -81,6 +84,10 @@ namespace MidiaAdapt.Weapon
             PlayerWeaponManager.Instance.OnAmmoChanged(_currentAmmo);
         }
 
+        /// <summary>
+        /// Remove uma quantidade específica de munição do carregador.
+        /// </summary>
+        /// <param name="amount">Quantidade de munição a ser tirada</param>
         public void RemoveAmmo(int amount)
         {
             _currentAmmo -= amount;
@@ -104,6 +111,24 @@ namespace MidiaAdapt.Weapon
             isReloading = false;
 
             PlayerWeaponManager.Instance.OnFinishedReloading();
+        }
+
+        /// <summary>
+        /// Detecta se o tiro atingiu um objeto que pode receber dano e aplica o dano.
+        /// </summary>
+        void DetectHit()
+        {
+            Ray ray = _playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f)); //Cria um raio a partir do centro da tela
+#if UNITY_EDITOR
+            Debug.DrawRay(ray.origin, ray.direction * _range, Color.red, 1f); //Desenha o raio para fins de depuração
+#endif
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, _range, _hittableLayers))
+            {
+                if (hitInfo.collider.TryGetComponent<IDamageable>(out IDamageable damageable))
+                {
+                    damageable.TakeDamage(_damage); //Aplica o dano ao objeto atingido
+                }
+            }
         }
     }
 }

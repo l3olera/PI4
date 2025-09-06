@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
+  _damage: 0
 --- !u!1 &142081110
 GameObject:
   m_ObjectHideFlags: 0
