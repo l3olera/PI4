@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 using Player47.Domain.Combat;
+using Player47.Domain.Enemy.States;
 
 namespace Player47.Domain.Enemy
 {
@@ -18,11 +19,16 @@ namespace Player47.Domain.Enemy
         }
 
         [SerializeField] protected Stats _stats;
+        EnemyState _currentState;
         protected int _currentHealth;
 
         [Header("Components")]
         [SerializeField] protected NavMeshAgent _agent;
         [SerializeField] protected Animator _anim;
+
+        [Header("Movements and Detection")]
+        [SerializeField] protected Transform _player; // Referência a posição do jogador
+        [SerializeField] protected Transform[] _waypoints; // Pontos de patrulha
 
         public static event Action OnEnemyDied; // evento estático para notificar quando qualquer inimigo morrer    
 
@@ -37,6 +43,12 @@ namespace Player47.Domain.Enemy
         protected virtual void Start()
         {
             _currentHealth = _stats.maxHealth;
+            _currentState = new IdleEnemyState(gameObject, _agent, _anim, _player, _waypoints); // Estado inicial genérico  
+        }
+
+        protected virtual void Update()
+        {
+            _currentState = _currentState?.Process();
         }
 
         public void TakeDamage(int amount)
@@ -55,7 +67,6 @@ namespace Player47.Domain.Enemy
 
         }
 
-
         protected virtual void Die()
         {
             _anim.SetTrigger("isDying");
@@ -67,6 +78,11 @@ namespace Player47.Domain.Enemy
         public void OnDeathAnimationEnd()
         {
             Destroy(gameObject);    // destrói o inimigo só no final
+        }
+
+        public void CanSeePlayer()
+        {
+
         }
     }
 }
