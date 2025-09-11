@@ -21,24 +21,32 @@ namespace Player47.Domain.Enemy
         public STATE stateName;
         protected EVENT _stage;
         protected EnemyState _nextState;
+        protected Enemy _classEnemy;
 
         protected GameObject _enemy;
         protected NavMeshAgent _agent;
         protected Animator _animator;
         protected Transform _player;
-        protected Transform[] _waypoints;
+        protected Transform[] _waypoints; 
+        protected float _speed;
+        protected float _attackRange;
 
-        public EnemyState(GameObject enemy, NavMeshAgent agent, Animator animator, Transform player, Transform[] waypoints)
+        public EnemyState(GameObject enemy, NavMeshAgent agent, Animator animator, Transform player, Transform[] waypoints, float speed, float attackRange)
         {
             _enemy = enemy;
             _agent = agent;
             _animator = animator;
             _player = player;
             _waypoints = waypoints;
+            _speed = speed;
+            _attackRange = attackRange;
         }
 
         public virtual void Enter()
         {
+            if(_enemy.TryGetComponent<Enemy>(out Enemy enemy))
+                _classEnemy = enemy;
+
             _stage = EVENT.UPDATE;
         }
 

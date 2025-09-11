@@ -1,8 +1,8 @@
+using Player47.Domain.Combat;
+using Player47.Domain.Enemy.States;
 using System;
 using UnityEngine;
 using UnityEngine.AI;
-using Player47.Domain.Combat;
-using Player47.Domain.Enemy.States;
 
 namespace Player47.Domain.Enemy
 {
@@ -11,10 +11,20 @@ namespace Player47.Domain.Enemy
         [Serializable]
         public struct Stats
         {
+            [Header("General")]
             public int maxHealth;
+            public float moveSpeed;
+
+            [Header("Attack")]
             public float damage;
             public float damageInterval;
-            public float moveSpeed;
+            public float attackRange;
+            
+            [Header("Vision")]
+            public float visionRange;
+            public float visionAngle;
+
+            [Header("Drop")]
             public int soulsToDrop;
         }
 
@@ -43,7 +53,7 @@ namespace Player47.Domain.Enemy
         protected virtual void Start()
         {
             _currentHealth = _stats.maxHealth;
-            _currentState = new IdleEnemyState(gameObject, _agent, _anim, _player, _waypoints); // Estado inicial genérico  
+            _currentState = new IdleEnemyState(gameObject, _agent, _anim, _player, _waypoints, _stats.moveSpeed, _stats.attackRange); // Estado inicial genérico  
         }
 
         protected virtual void Update()
@@ -62,13 +72,14 @@ namespace Player47.Domain.Enemy
             }
         }
 
-        public void Attack()
+        public virtual void Attack()
         {
 
         }
 
         protected virtual void Die()
         {
+            _agent.isStopped = true; // Para de se mover
             _anim.SetTrigger("isDying");
             OnEnemyDied?.Invoke();  // dispara o evento de morte
             //_agent.isStopped = true; //Para de se mover
@@ -80,9 +91,17 @@ namespace Player47.Domain.Enemy
             Destroy(gameObject);    // destrói o inimigo só no final
         }
 
-        public void CanSeePlayer()
+        public virtual bool CanSeePlayer()
         {
+            Vector3 direction = _player.position - transform.position;
+            float angle = Vector3.Angle(direction, transform.forward);
 
+            if (direction.magnitude < _stats.visionRange && angle < _stats.visionAngle)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
