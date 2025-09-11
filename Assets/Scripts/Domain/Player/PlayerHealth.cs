@@ -16,7 +16,7 @@ namespace Player47.Domain.Player
         public void TakeDamage(int amount)
         {
             _currentHealth -= amount;
-            Debug.Log($"<color=greem>Player perdeu dano e esta atualmente com: {_currentHealth}</color>");
+            Debug.Log($"<color=green>Player perdeu dano e esta atualmente com: {_currentHealth}</color>");
             if (_currentHealth <= 0)
             {
                 Die();

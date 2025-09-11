@@ -6,15 +6,11 @@ namespace Player47.Domain.Enemy.Weapon
     {
         public EnemyWeaponHitBox weaponHitBox;
 
-        public void DealDamage()
-        {
-            Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, attackRadius, playerLayer);
-        }
-
         public void EnableWeaponHitBox()
         {
             if(weaponHitBox == null) return;
 
+            Debug.Log("Ativando hitbox da arma do inimigo");
             weaponHitBox.EnableDamage();
         }
 

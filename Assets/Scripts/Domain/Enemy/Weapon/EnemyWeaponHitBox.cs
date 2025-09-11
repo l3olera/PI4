@@ -11,7 +11,7 @@ namespace Player47.Domain.Enemy.Weapon
 
         void Start()
         {
-            GetComponentInParent<EnemyWeaponController>().weaponHitBox = this;  
+            GetComponentInParent<EnemyWeaponController>().weaponHitBox = this;  //Instancia o hitbox no seu controlador
         }
 
         void OnTriggerEnter(Collider other)
