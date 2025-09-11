@@ -1,13 +1,18 @@
 using Player47.Domain.Combat;
 using UnityEngine;
 
-namespace Player47.Domain.Enemy
+namespace Player47.Domain.Enemy.Weapon
 {
     public class EnemyWeaponHitBox : MonoBehaviour
     {
         public int damage;
 
         bool _canDamage;
+
+        void Start()
+        {
+            GetComponentInParent<EnemyWeaponController>().weaponHitBox = this;  
+        }
 
         void OnTriggerEnter(Collider other)
         {
@@ -26,7 +31,7 @@ namespace Player47.Domain.Enemy
         }
 
         //É chamado no fim da animação de ataque
-        public void DisableEnable()
+        public void DisableDamage()
         {
             _canDamage = false;
         }

@@ -1279,6 +1279,9 @@ PrefabInstance:
       addedObject: {fileID: 1257329635}
     - targetCorrespondingSourceObject: {fileID: 8272943599224061573, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1257329637}
+    - targetCorrespondingSourceObject: {fileID: 8272943599224061573, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1257329636}
     - targetCorrespondingSourceObject: {fileID: 8272943599224061569, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
       insertIndex: -1
@@ -1329,8 +1332,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.29404628, y: 0.49883163, z: 0.17935206}
-  m_Center: {x: -0.019098405, y: -0.5776361, z: 0.013000928}
+  m_Size: {x: 0.3046236, y: 0.57479453, z: 0.30194715}
+  m_Center: {x: -0.024387067, y: -0.5396547, z: 0.030949727}
 --- !u!1 &1257329631 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8272943599224061569, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
@@ -1409,6 +1412,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.3583765, y: 1.142718, z: 0.43679523}
   m_Center: {x: -0.002298355, y: 0.60469216, z: 0.038210392}
+--- !u!114 &1257329637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257329628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90c1a116a0865347a81977b9060f5ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponHitBox: {fileID: 0}
 --- !u!1 &1320596228
 GameObject:
   m_ObjectHideFlags: 0
