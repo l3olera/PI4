@@ -16,8 +16,7 @@ namespace Player47.Domain.Enemy
             public float moveSpeed;
 
             [Header("Attack")]
-            public float damage;
-            public float damageInterval;
+            public float attackInterval;
             public float attackRange;
             
             [Header("Vision")]
@@ -53,7 +52,7 @@ namespace Player47.Domain.Enemy
         protected virtual void Start()
         {
             _currentHealth = _stats.maxHealth;
-            _currentState = new IdleEnemyState(gameObject, _agent, _anim, _player, _waypoints, _stats.moveSpeed, _stats.attackRange); // Estado inicial genérico  
+            _currentState = new IdleEnemyState(gameObject, _agent, _anim, _player, _waypoints, _stats.moveSpeed, _stats.attackRange, _stats.attackInterval); // Estado inicial genérico  
         }
 
         protected virtual void Update()
@@ -70,11 +69,6 @@ namespace Player47.Domain.Enemy
             {
                 Die();
             }
-        }
-
-        public virtual void Attack()
-        {
-
         }
 
         protected virtual void Die()

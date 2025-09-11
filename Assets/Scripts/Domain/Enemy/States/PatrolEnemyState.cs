@@ -8,7 +8,7 @@ namespace Player47.Domain.Enemy.States
     {
         int _currentIndex = -1;
 
-        public PatrolEnemyState(GameObject enemy, NavMeshAgent agent, Animator animator, Transform player, Transform[] waypoints, float speed, float attackRange) : base(enemy, agent, animator, player, waypoints, speed, attackRange)
+        public PatrolEnemyState(GameObject enemy, NavMeshAgent agent, Animator animator, Transform player, Transform[] waypoints, float speed, float attackRange, float attackInterval) : base(enemy, agent, animator, player, waypoints, speed, attackRange, attackInterval)
         {
             stateName = STATE.PATROL;
             _agent.speed = _speed;
@@ -49,7 +49,7 @@ namespace Player47.Domain.Enemy.States
             if (_classEnemy.CanSeePlayer())
             {
                 Debug.Log("Viu o jogador");
-                _nextState = new ChaseEnemyState(_enemy, _agent, _animator, _player, _waypoints, _speed, _attackRange);
+                _nextState = new ChaseEnemyState(_enemy, _agent, _animator, _player, _waypoints, _speed, _attackRange, _attackInterval);
                 _stage = EVENT.EXIT;
             }
         }

@@ -22,6 +22,7 @@ namespace Player47.Domain.Enemy
         protected EVENT _stage;
         protected EnemyState _nextState;
         protected Enemy _classEnemy;
+        protected float _lastAttackTime;
 
         protected GameObject _enemy;
         protected NavMeshAgent _agent;
@@ -30,8 +31,9 @@ namespace Player47.Domain.Enemy
         protected Transform[] _waypoints; 
         protected float _speed;
         protected float _attackRange;
+        protected float _attackInterval;
 
-        public EnemyState(GameObject enemy, NavMeshAgent agent, Animator animator, Transform player, Transform[] waypoints, float speed, float attackRange)
+        public EnemyState(GameObject enemy, NavMeshAgent agent, Animator animator, Transform player, Transform[] waypoints, float speed, float attackRange, float attackInterval)
         {
             _enemy = enemy;
             _agent = agent;
@@ -40,6 +42,7 @@ namespace Player47.Domain.Enemy
             _waypoints = waypoints;
             _speed = speed;
             _attackRange = attackRange;
+            _attackInterval = attackInterval;
         }
 
         public virtual void Enter()

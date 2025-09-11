@@ -12,7 +12,7 @@ namespace Player47.Domain.Enemy.States
     {
         float idleTime = 2f;
 
-        public IdleEnemyState(GameObject enemy, NavMeshAgent agent, Animator animator, Transform player, Transform[] waypoints, float speed, float attackRange) : base(enemy, agent, animator, player, waypoints, speed, attackRange)
+        public IdleEnemyState(GameObject enemy, NavMeshAgent agent, Animator animator, Transform player, Transform[] waypoints, float speed, float attackRange, float attackInterval) : base(enemy, agent, animator, player, waypoints, speed, attackRange, attackInterval)
         {
             stateName = STATE.IDLE;
         }
@@ -31,7 +31,7 @@ namespace Player47.Domain.Enemy.States
             if (idleTime <= 0f)
             {
                 Debug.Log("Idle time ended, switching to Patrol");
-                _nextState = new PatrolEnemyState(_enemy, _agent, _animator, _player, _waypoints, _speed,_attackRange);
+                _nextState = new PatrolEnemyState(_enemy, _agent, _animator, _player, _waypoints, _speed,_attackRange, _attackInterval);
                 _stage = EVENT.EXIT;
             }
         }
