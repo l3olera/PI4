@@ -1,9 +1,9 @@
+﻿using Player47.Domain.Combat;
 using UnityEngine;
-using Player47.Domain.Combat;
 
 namespace Player47.Domain.Player
 {
-    public class Player : MonoBehaviour, IDamageable
+    public class PlayerHealth : MonoBehaviour, IDamageable
     {
         [SerializeField] int _maxHealth = 100;
         int _currentHealth;
@@ -16,7 +16,7 @@ namespace Player47.Domain.Player
         public void TakeDamage(int amount)
         {
             _currentHealth -= amount;
-
+            Debug.Log($"<color=green>Player perdeu dano e esta atualmente com: {_currentHealth}</color>");
             if (_currentHealth <= 0)
             {
                 Die();
@@ -28,5 +28,4 @@ namespace Player47.Domain.Player
             Debug.Log("Player Died");
         }
     }
-
 }

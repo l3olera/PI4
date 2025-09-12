@@ -2,6 +2,7 @@
     "name": "Player47.Domain.Enemy",
     "rootNamespace": "",
     "references": [
+        "GUID:795bc9749db3c7b42bce902d5511bd55",
         "GUID:e0ae9e3f5616a3f4191ce999933dd217"
     ],
     "includePlatforms": [],
