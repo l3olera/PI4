@@ -1338,12 +1338,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats:
     maxHealth: 100
-    moveSpeed: 1.5
+    moveSpeed: 4
     attackInterval: 0
     attackRange: 2
-    visionRange: 10
+    visionRange: 30
     visionAngle: 30
-    soulsToDrop: 5
+    soulsToDrop: 10
   _agent: {fileID: 1257329634}
   _anim: {fileID: 1257329627}
   _player: {fileID: 687711649}
