@@ -10,7 +10,7 @@ namespace Player47.Domain.Enemy.States
     /// </summary>
     public class IdleEnemyState : EnemyState
     {
-        float idleTime = 2f;
+        float idleTime = 1f;
 
         public IdleEnemyState(GameObject enemy, NavMeshAgent agent, Animator animator, Transform player, Transform[] waypoints, float speed, float attackRange, float attackInterval) : base(enemy, agent, animator, player, waypoints, speed, attackRange, attackInterval)
         {
@@ -27,7 +27,7 @@ namespace Player47.Domain.Enemy.States
         public override void Update()
         {
             idleTime -= Time.deltaTime;
-            Debug.Log("Idle... " + idleTime);
+
             if (idleTime <= 0f)
             {
                 Debug.Log("Idle time ended, switching to Patrol");

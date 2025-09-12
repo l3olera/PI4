@@ -7,19 +7,22 @@ namespace Player47.Domain.Enemy.Weapon
     {
         public int damage;
 
-        bool _canDamage;
+        bool _canDamage;//Controla se o inimigo pode causar dano ou não
+        bool _hasHit; //Para evitar que o inimigo acerte mais de uma vez no mesmo ataque
 
         void Start()
         {
             GetComponentInParent<EnemyWeaponController>().weaponHitBox = this;  //Instancia o hitbox no seu controlador
         }
 
-        void OnTriggerEnter(Collider other)
+        void OnTriggerStay(Collider other)
         {
-            if(_canDamage && other.CompareTag("Player")){
-                if(other.TryGetComponent<IDamageable>(out IDamageable damageable))
+            if (_canDamage && other.CompareTag("Player")){ 
+                if(_hasHit) return; //Se já acertou, não acerta de novo
+                if (other.TryGetComponent<IDamageable>(out IDamageable damageable))
                 {
                     damageable.TakeDamage(damage);
+                    _hasHit = true; //Marca que já acertou
                 }
             }
         }
@@ -28,6 +31,7 @@ namespace Player47.Domain.Enemy.Weapon
         public void EnableDamage()
         {
             _canDamage = true;
+            _hasHit = false;
         }
 
         //É chamado no fim da animação de ataque

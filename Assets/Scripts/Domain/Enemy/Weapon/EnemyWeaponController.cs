@@ -10,7 +10,6 @@ namespace Player47.Domain.Enemy.Weapon
         {
             if(weaponHitBox == null) return;
 
-            Debug.Log("Ativando hitbox da arma do inimigo");
             weaponHitBox.EnableDamage();
         }
 

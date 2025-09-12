@@ -1340,7 +1340,7 @@ MonoBehaviour:
     maxHealth: 100
     moveSpeed: 1.5
     attackInterval: 0
-    attackRange: 5
+    attackRange: 2
     visionRange: 10
     visionAngle: 30
     soulsToDrop: 5
@@ -1579,8 +1579,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3780116, y: 0.77957296, z: 0.7735059}
-  m_Center: {x: -0.07289417, y: 0.42903662, z: 1.2574708}
+  m_Size: {x: 0.6598239, y: 0.77957296, z: 0.8763418}
+  m_Center: {x: -0.047430754, y: 0.42903662, z: 1.1782918}
 --- !u!1 &1638983335
 GameObject:
   m_ObjectHideFlags: 0

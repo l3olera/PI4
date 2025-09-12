@@ -29,6 +29,7 @@ namespace Player47.Domain.Enemy.States
                     if(Vector3.Distance(_enemy.transform.position, _player.position) <= _attackRange)
                     {
                         _nextState = new AttackEnemyState(_enemy, _agent, _animator, _player, _waypoints, _speed, _attackRange, _attackInterval);
+                        _agent.isStopped = true;
                         _stage = EVENT.EXIT;
                     }
                 }
@@ -42,6 +43,7 @@ namespace Player47.Domain.Enemy.States
 
         public override void Exit()
         {
+            Debug.Log("Entrou no Exit do Chase");
             _animator.SetBool("isWalking", false);
             base.Exit();
         }
