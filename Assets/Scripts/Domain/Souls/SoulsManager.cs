@@ -4,6 +4,9 @@ using UnityEngine.Events;
 
 namespace Player47.Domain.Souls
 {
+    /// <summary>
+    /// Define e gerencia a quantidade de almas do jogador. Assim como, inscreve e desinscreve ouvintes para a mudança do valor.
+    /// </summary>
     public class SoulsManager : MonoBehaviour
     {
         public static SoulsManager Instance { get; private set; }
