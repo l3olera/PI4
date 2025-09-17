@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player47.Domain.Enemy
+namespace Player47.Domain.Enemy.States
 {
     public class DeathState : StateMachineBehaviour
     {
