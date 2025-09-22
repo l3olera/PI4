@@ -1,11 +1,22 @@
 ﻿using Player47.Core.Managers;
+using Player47.Core.Service;
 using UnityEngine;
 
 namespace Player47.Domain.Player
 {
+    /// <summary>
+    /// Responsável por controlar o estado da tocha do jogador.
+    /// </summary>
     public class TorchController : MonoBehaviour
     {
-        [SerializeField] GameObject _torchLight;
+        /// <summary>
+        /// Identifica se o player está com a tocha equipada e dispara evento quando o valor mudar por ser uma classe <see cref="Observer{T}"/>.
+        /// </summary>
+
+        [SerializeField] public static Observer<bool> IsTorchEquipped { get; } = new(false);
+
+        public static bool TorchEquippedValue => IsTorchEquipped.Value;
+
 
         void OnEnable()
         {
@@ -24,11 +35,7 @@ namespace Player47.Domain.Player
 
         public void ToggleTorch()
         {
-            Debug.Log("Entrou no toggle");
-            if (_torchLight != null)
-            {
-                _torchLight.SetActive(!_torchLight.activeSelf);
-            }
+            IsTorchEquipped.Value = !IsTorchEquipped.Value;
         }
     }
 }

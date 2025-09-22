@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 
 namespace Player47.Core.Managers
 {
+    /// <summary>
+    /// Responsável por gerenciar as entradas do jogador.
+    /// </summary>
     public class InputManager : MonoBehaviour
     {
         public static InputManager Instance { get; private set; }
