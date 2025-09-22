@@ -24,7 +24,7 @@ namespace Player47.Domain.Enemy
             public float visionAngle;
         }
 
-        [SerializeField] protected Stats _stats;
+        public Stats stats;
         EnemyState _currentState;
         protected int _currentHealth;
 
@@ -56,8 +56,8 @@ namespace Player47.Domain.Enemy
 
         protected virtual void Start()
         {
-            _currentHealth = _stats.maxHealth;
-            _currentState = new IdleEnemyState(gameObject, _agent, _anim, _player, _waypoints, _stats.moveSpeed, _stats.attackRange, _stats.attackInterval); // Estado inicial genérico  
+            _currentHealth = stats.maxHealth;
+            _currentState = new IdleEnemyState(gameObject, _agent, _anim, _player, _waypoints, stats.moveSpeed, stats.attackRange, stats.attackInterval); // Estado inicial genérico  
         }
 
         protected virtual void Update()
@@ -98,7 +98,7 @@ namespace Player47.Domain.Enemy
             Vector3 direction = _player.position - transform.position;
             float angle = Vector3.Angle(direction, transform.forward);
 
-            if (direction.magnitude < _stats.visionRange && angle < _stats.visionAngle)
+            if (direction.magnitude < stats.visionRange && angle < stats.visionAngle)
             {
                 return true;
             }
