@@ -11,7 +11,7 @@ namespace Player47.Domain.Player
 
         void Awake()
         {
-            if(gameObject.TryGetComponent<Animator>(out var animator))
+            if(_anim == null && gameObject.TryGetComponent<Animator>(out var animator))
             {
                 _anim = animator;
             }
