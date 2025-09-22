@@ -4,12 +4,16 @@ using UnityEngine.InputSystem;
 
 namespace Player47.Core.Managers
 {
+    /// <summary>
+    /// Responsável por gerenciar as entradas do jogador.
+    /// </summary>
     public class InputManager : MonoBehaviour
     {
         public static InputManager Instance { get; private set; }
 
         public static event Action<bool> OnShootInputPerformed;
         public static event Action OnReloadInputPerformed;
+        public static event Action OnTorchInputPerformed;
 
         public static bool IsShooting;
 
@@ -18,15 +22,18 @@ namespace Player47.Core.Managers
         void OnEnable()
         {
            inputActions.FindActionMap("Player").Enable();
+           inputActions.FindActionMap("ToolsMap").Enable();
 
-           inputActions.FindAction("Reload").performed += OnReload;
+            inputActions.FindAction("Reload").performed += OnReload;
+           inputActions.FindAction("UseTorch").performed += OnUseTorch;
         }
 
         void OnDisable()
         {
             inputActions.FindActionMap("Player").Disable();
-
+            inputActions.FindActionMap("ToolsMap").Disable();
             inputActions.FindAction("Reload").performed -= OnReload;
+            inputActions.FindAction("UseTorch").performed -= OnUseTorch;
         }
 
         void Awake()
@@ -65,6 +72,12 @@ namespace Player47.Core.Managers
         void OnReload(InputAction.CallbackContext ctx)
         {
             OnReloadInputPerformed?.Invoke();
+        }
+
+        void OnUseTorch(InputAction.CallbackContext ctx)
+        {
+            Debug.Log("Ele usou a tocha");
+            OnTorchInputPerformed?.Invoke();
         }
     }
 }

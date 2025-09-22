@@ -14,14 +14,14 @@ namespace Player47.Domain.Player
 
         void OnEnable()
         {
-            InputManager.OnShootInputPerformed += HandleShootInput;
-            InputManager.OnReloadInputPerformed += HandleReloadInputPerformed;
+            InputManager.OnShootInputPerformed += InputManager_OnShootInputPerformed;
+            InputManager.OnReloadInputPerformed += InputManager_OnReloadInputPerformed;
         }
 
         void OnDisable()
         {
-            InputManager.OnShootInputPerformed -= HandleShootInput;
-            InputManager.OnReloadInputPerformed -= HandleReloadInputPerformed;
+            InputManager.OnShootInputPerformed -= InputManager_OnShootInputPerformed;
+            InputManager.OnReloadInputPerformed -= InputManager_OnReloadInputPerformed;
         }
 
         void Awake()
@@ -47,7 +47,7 @@ namespace Player47.Domain.Player
             PlayerWeaponHandler.Instance.playerCurrentEquippedWeapon = _equippedWeapon;
         }
 
-        void HandleShootInput(bool shooting)
+        void InputManager_OnShootInputPerformed(bool shooting)
         {
             if(_equippedWeapon != null && shooting)
             {
@@ -55,7 +55,7 @@ namespace Player47.Domain.Player
             }
         }
 
-        void HandleReloadInputPerformed()
+        void InputManager_OnReloadInputPerformed()
         {
             _equippedWeapon?.Reload();
         }
