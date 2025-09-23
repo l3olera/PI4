@@ -22,7 +22,7 @@ namespace Player47.Domain.Enemy
 
         void Enemy_EnemyDied(Enemy enemy)
         {
-            SoulsManager.Instance.AddSouls(enemy.soulReward);
+            SoulsManager.Instance.AddSouls(enemy.stats.soulReward);
         }
     }
 

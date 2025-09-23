@@ -1027,59 +1027,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7943882753904584245, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
+    - target: {fileID: 6935462268847708168, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
       propertyPath: _player
       value: 
       objectReference: {fileID: 687711649}
-    - target: {fileID: 7943882753904584245, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
-      propertyPath: soulReward
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7943882753904584245, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
-      propertyPath: stats.maxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7943882753904584245, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
-      propertyPath: stats.moveSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7943882753904584245, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
-      propertyPath: stats.attackRange
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7943882753904584245, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
-      propertyPath: stats.visionAngle
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 7943882753904584245, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
-      propertyPath: stats.visionRange
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 7943882753904584245, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
-      propertyPath: stats.attackInterval
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7943882753904584245, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
+    - target: {fileID: 6935462268847708168, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
       propertyPath: '_waypoints.Array.data[0]'
       value: 
       objectReference: {fileID: 1873806918}
-    - target: {fileID: 7943882753904584245, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
+    - target: {fileID: 6935462268847708168, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
       propertyPath: '_waypoints.Array.data[1]'
       value: 
       objectReference: {fileID: 1900308883}
-    - target: {fileID: 7943882753904584245, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
+    - target: {fileID: 6935462268847708168, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
       propertyPath: '_waypoints.Array.data[2]'
       value: 
       objectReference: {fileID: 1638983336}
-    - target: {fileID: 7943882753904584245, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
+    - target: {fileID: 6935462268847708168, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
       propertyPath: '_waypoints.Array.data[3]'
       value: 
       objectReference: {fileID: 1901079434}
-    - target: {fileID: 7943882753904584245, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
+    - target: {fileID: 6935462268847708168, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
       propertyPath: '_waypoints.Array.data[4]'
       value: 
       objectReference: {fileID: 877244653}
-    - target: {fileID: 7943882753904584245, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
+    - target: {fileID: 6935462268847708168, guid: 47b41978aba272c47ae5f4a2f7179c61, type: 3}
       propertyPath: '_waypoints.Array.data[5]'
       value: 
       objectReference: {fileID: 42508748}
