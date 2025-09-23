@@ -2,7 +2,7 @@
 
 namespace Player47.Domain.Enemy
 {
-    public class CiclopeEnemy : Enemy
+    public class CyclopsEnemy : Enemy
     {
         protected override void Start()
         {
