@@ -286,9 +286,9 @@ GameObject:
   - component: {fileID: 8272943599223628453}
   - component: {fileID: 8272943599214529815}
   - component: {fileID: 1598268604876911099}
-  - component: {fileID: 7943882753904584245}
   - component: {fileID: 6096334628884020298}
   - component: {fileID: 1050338418630420179}
+  - component: {fileID: 6935462268847708168}
   m_Layer: 6
   m_Name: deb_Goblin01
   m_TagString: Untagged
@@ -359,37 +359,6 @@ NavMeshAgent:
   m_BaseOffset: -0.03
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7943882753904584245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8272943599224061573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa6ad08fa7e59994ca25f27218d3c597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _stats:
-    maxHealth: 100
-    moveSpeed: 4
-    attackInterval: 0
-    attackRange: 2
-    visionRange: 30
-    visionAngle: 30
-  soulReward: 0
-  _agent: {fileID: 1598268604876911099}
-  _anim: {fileID: 8272943599214529815}
-  _hitBox: {fileID: 0}
-  _player: {fileID: 0}
-  _waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &6096334628884020298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,6 +393,30 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.3583765, y: 1.142718, z: 0.43679523}
   m_Center: {x: -0.002298355, y: 0.60469216, z: 0.038210392}
+--- !u!114 &6935462268847708168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8272943599224061573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d80847fb8e6d49d48b7ccbbf7d23ec7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 3de75ba7ccd735844af54354dd1e47dc, type: 2}
+  _agent: {fileID: 1598268604876911099}
+  _anim: {fileID: 8272943599214529815}
+  _hitBox: {fileID: 0}
+  _player: {fileID: 0}
+  _waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &8272943599224061575
 GameObject:
   m_ObjectHideFlags: 0

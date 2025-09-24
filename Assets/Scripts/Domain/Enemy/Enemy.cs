@@ -1,5 +1,6 @@
 using Player47.Domain.Combat;
 using Player47.Domain.Enemy.States;
+using Player47.Domain.Enemy.Vision;
 using System;
 using UnityEngine;
 using UnityEngine.AI;
@@ -8,28 +9,14 @@ namespace Player47.Domain.Enemy
 {
     public class Enemy : MonoBehaviour, IDamageable
     {
-        [Serializable]
-        public struct Stats
-        {
-            [Header("General")]
-            public int maxHealth;
-            public float moveSpeed;
+        public EnemyStatsSO stats;
 
-            [Header("Attack")]
-            public float attackInterval;
-            public float attackRange;
-            
-            [Header("Vision")]
-            public float visionRange;
-            public float visionAngle;
-        }
-
-        [SerializeField] protected Stats _stats;
         EnemyState _currentState;
         protected int _currentHealth;
 
-        [Header("Rewards")]
-        public int soulReward;
+
+        [Header("Vision")]
+        [SerializeField] protected IEnemyVision _vision;
 
         [Header("Components")]
         [SerializeField] protected NavMeshAgent _agent;
@@ -56,8 +43,8 @@ namespace Player47.Domain.Enemy
 
         protected virtual void Start()
         {
-            _currentHealth = _stats.maxHealth;
-            _currentState = new IdleEnemyState(gameObject, _agent, _anim, _player, _waypoints, _stats.moveSpeed, _stats.attackRange, _stats.attackInterval); // Estado inicial genérico  
+            _currentHealth = stats.maxHealth;
+            _currentState = new IdleEnemyState(gameObject, _agent, _anim, _player, _waypoints, stats.moveSpeed, stats.attackRange, stats.attackInterval); // Estado inicial genérico  
         }
 
         protected virtual void Update()
@@ -93,17 +80,9 @@ namespace Player47.Domain.Enemy
             Destroy(gameObject);    // destrói o inimigo só no final
         }
 
-        public virtual bool CanSeePlayer()
+        public bool CanSeePlayer()
         {
-            Vector3 direction = _player.position - transform.position;
-            float angle = Vector3.Angle(direction, transform.forward);
-
-            if (direction.magnitude < _stats.visionRange && angle < _stats.visionAngle)
-            {
-                return true;
-            }
-
-            return false;
+            return _vision.CanSeePlayer(transform, _player, stats);
         }
     }
 }
