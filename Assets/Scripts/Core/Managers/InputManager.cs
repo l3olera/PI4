@@ -14,6 +14,7 @@ namespace Player47.Core.Managers
         public static event Action<bool> OnShootInputPerformed;
         public static event Action OnReloadInputPerformed;
         public static event Action OnTorchInputPerformed;
+        public static event Action OnPauseInputPerformed;
 
         public static bool IsShooting;
 
@@ -23,15 +24,18 @@ namespace Player47.Core.Managers
         {
            inputActions.FindActionMap("Player").Enable();
            inputActions.FindActionMap("ToolsMap").Enable();
+           inputActions.FindActionMap("UI").Enable();
 
-            inputActions.FindAction("Reload").performed += OnReload;
+           inputActions.FindAction("Reload").performed += OnReload;
            inputActions.FindAction("UseTorch").performed += OnUseTorch;
+            inputActions.FindAction("Pause").performed += OnPause;
         }
 
         void OnDisable()
         {
             inputActions.FindActionMap("Player").Disable();
             inputActions.FindActionMap("ToolsMap").Disable();
+
             inputActions.FindAction("Reload").performed -= OnReload;
             inputActions.FindAction("UseTorch").performed -= OnUseTorch;
         }
@@ -76,8 +80,12 @@ namespace Player47.Core.Managers
 
         void OnUseTorch(InputAction.CallbackContext ctx)
         {
-            Debug.Log("Ele usou a tocha");
             OnTorchInputPerformed?.Invoke();
+        }
+
+        void OnPause(InputAction.CallbackContext ctx)
+        {
+            OnPauseInputPerformed?.Invoke();
         }
     }
 }
