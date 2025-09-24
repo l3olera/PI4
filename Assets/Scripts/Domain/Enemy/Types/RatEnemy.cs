@@ -1,8 +1,8 @@
-﻿using Player47.Domain.Enemy.Vision;
+using Player47.Domain.Enemy.Vision;
 
-namespace Player47.Domain.Enemy
+namespace Player47.Domain.Enemy.Types
 {
-    public class GoblinEnemy : Enemy
+    public class RatEnemy : Enemy
     {
         protected override void Start()
         {
@@ -10,5 +10,5 @@ namespace Player47.Domain.Enemy
 
             _vision = new NormalVision();
         }
-    }
+    } 
 }
