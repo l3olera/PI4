@@ -28,16 +28,18 @@ namespace Player47.Core.Managers
 
            inputActions.FindAction("Reload").performed += OnReload;
            inputActions.FindAction("UseTorch").performed += OnUseTorch;
-            inputActions.FindAction("Pause").performed += OnPause;
+           inputActions.FindAction("Pause").performed += OnPause;
         }
 
         void OnDisable()
         {
             inputActions.FindActionMap("Player").Disable();
             inputActions.FindActionMap("ToolsMap").Disable();
+            inputActions.FindActionMap("UI").Disable();
 
             inputActions.FindAction("Reload").performed -= OnReload;
             inputActions.FindAction("UseTorch").performed -= OnUseTorch;
+            inputActions.FindAction("Pause").performed -= OnPause;
         }
 
         void Awake()
