@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Player47.Core.Managers;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -95,7 +96,17 @@ namespace StarterAssets
 			}
 		}
 
-		private void Start()
+        void OnEnable()
+        {
+			PauseManager.IsGamePaused.AddListener(PauseManager_IsGamePaused);
+        }
+
+        void OnDisable()
+        {
+            PauseManager.IsGamePaused.RemoveListener(PauseManager_IsGamePaused);
+        }
+
+        private void Start()
 		{
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
@@ -122,7 +133,20 @@ namespace StarterAssets
 			CameraRotation();
 		}
 
-		private void GroundedCheck()
+		void PauseManager_IsGamePaused(bool isGamePaused)
+		{
+			if (isGamePaused)
+			{
+				RotationSpeed = 0;
+			}
+			else
+			{
+				RotationSpeed = 1;
+			}
+		}
+
+
+        private void GroundedCheck()
 		{
 			// set sphere position, with offset
 			Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);

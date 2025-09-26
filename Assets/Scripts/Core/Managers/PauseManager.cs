@@ -36,15 +36,16 @@ namespace Player47.Core.Managers
 
         public void PauseGame()
         {
+            IsGamePaused.Value = true;
+            CursorController.UnlockCursor();
             Time.timeScale = 0f;
-            
-            // Aqui voc� pode adicionar mais l��gica, como mostrar o menu de pausa
         }
 
         public void ResumeGame()
         {
+            IsGamePaused.Value = false;
+            CursorController.LockCursor();
             Time.timeScale = 1f;
-            // Aqui voc� pode adicionar mais l��gica, como esconder o menu de pausa
         }
     }
 }
