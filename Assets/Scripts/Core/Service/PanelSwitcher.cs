@@ -1,3 +1,4 @@
+using UnityEditorInternal;
 using UnityEngine;
 
 namespace Player47.Core.Service
@@ -7,6 +8,20 @@ namespace Player47.Core.Service
     /// </summary>
     public class PanelSwitcher : MonoBehaviour
     {
+        public static PanelSwitcher Instance { get; private set; }
+
+        void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+
         /// <summary>
         /// Alterna o estado do painel correspondente ao índice fornecido:
         /// Deve passar o array dos painéis.
