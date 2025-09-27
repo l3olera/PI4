@@ -71,6 +71,8 @@ namespace Player47.Core.Managers
 
         void OnShoot(bool value)
         {
+            if (PauseManager.IsGamePaused.Value) return;
+
             IsShooting = value;
             OnShootInputPerformed?.Invoke(value);
         }
