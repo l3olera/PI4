@@ -670,11 +670,6 @@ Transform:
   - {fileID: 556137561}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &813180154 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9024228350883326320, guid: e0cd2cd7e993b1842a41b0b5682a213a, type: 3}
-  m_PrefabInstance: {fileID: 6469253111581793940}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &877244652
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +851,54 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
   m_PrefabInstance: {fileID: 677438637}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1000053537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1000053538}
+  - component: {fileID: 1000053539}
+  m_Layer: 0
+  m_Name: LocalizationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1000053538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000053537}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1689655015}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1000053539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000053537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bbea885ff8abdf4ebbba7a03b540c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translations: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1118704388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,51 +1476,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 142081111}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1730244402
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1730244403}
-  - component: {fileID: 1730244404}
-  m_Layer: 0
-  m_Name: CinemachineController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1730244403
+--- !u!4 &1689655015 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7813382577323219320, guid: e0cd2cd7e993b1842a41b0b5682a213a, type: 3}
+  m_PrefabInstance: {fileID: 6469253111581793940}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1730244402}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 813180154}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1730244404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1730244402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7aad98c8bd142c4fb41a1c14ddc2713, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_cinemachineInput: {fileID: 0}
 --- !u!1 &1873806917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,9 +1741,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 9024228350883326320, guid: e0cd2cd7e993b1842a41b0b5682a213a, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 7813382577323219320, guid: e0cd2cd7e993b1842a41b0b5682a213a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1730244403}
+      addedObject: {fileID: 1000053538}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0cd2cd7e993b1842a41b0b5682a213a, type: 3}
 --- !u!1660057539 &9223372036854775807

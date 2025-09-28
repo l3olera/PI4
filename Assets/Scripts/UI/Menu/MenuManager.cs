@@ -1,5 +1,4 @@
 using UnityEngine;
-using Player47.Core.Managers;
 using Player47.Core.Service;
 
 namespace Player47.UI.Menu
@@ -20,8 +19,7 @@ namespace Player47.UI.Menu
 
         void Start()
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            CursorController.UnlockCursor();
 
             if(_settingsMenu != null && _settingsMenu.activeSelf)
             {
@@ -46,7 +44,7 @@ namespace Player47.UI.Menu
 
         public void StartGame()
         {
-            SceneLoader.Instance.LoadScene(nextSceneName);
+            SceneLoader.Instance.LoadSceneAsync(nextSceneName);
         }
 
         public void ToggleSettings()

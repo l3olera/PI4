@@ -1,0 +1,17 @@
+{
+    "name": "Player47.SceneManagement",
+    "rootNamespace": "",
+    "references": [
+        "GUID:795bc9749db3c7b42bce902d5511bd55",
+        "GUID:3473f215a774a3548bfec15a79c548c8"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
