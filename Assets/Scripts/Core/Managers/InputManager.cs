@@ -20,15 +20,20 @@ namespace Player47.Core.Managers
 
         public InputActionAsset inputActions;
 
+        InputAction _shootAction;
+
         void OnEnable()
         {
            inputActions.FindActionMap("Player").Enable();
            inputActions.FindActionMap("ToolsMap").Enable();
            inputActions.FindActionMap("UI").Enable();
 
+           _shootAction = inputActions.FindAction("Shoot");
+
            inputActions.FindAction("Reload").performed += OnReload;
            inputActions.FindAction("UseTorch").performed += OnUseTorch;
            inputActions.FindAction("Pause").performed += OnPause;
+           
         }
 
         void OnDisable()
@@ -56,7 +61,7 @@ namespace Player47.Core.Managers
 
         void Update()
         {
-            float shootValue = inputActions.FindAction("Shoot").ReadValue<float>();
+            float shootValue = _shootAction.ReadValue<float>();
 
 
             if (shootValue > 0.5f) // só dispara se o gatilho passar de 50%

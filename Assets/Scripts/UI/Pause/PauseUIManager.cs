@@ -16,7 +16,9 @@ namespace Player47.UI.Pause
 
         void OnEnable()
         {
+            Debug.Log("Ativado");
             PauseManager.IsGamePaused.AddListener(PauseManager_IsGamePaused);
+            PauseManager_IsGamePaused(PauseManager.IsGamePaused.Value); // já força atualizar com valor atual
         }
 
         void OnDisable()
@@ -26,13 +28,16 @@ namespace Player47.UI.Pause
 
         void PauseManager_IsGamePaused(bool active)
         {
+            Debug.Log("Entrou no handle do UI do pause");
             if (active)
             {
+                Debug.Log("Entrando no true");
                 m_pauseMenuUI.SetActive(true);
                 m_HUDMenuUi.SetActive(false);
             }
             else
             {
+                Debug.Log("Entrando no false");
                 m_pauseMenuUI.SetActive(false);
                 m_HUDMenuUi.SetActive(true);
             }

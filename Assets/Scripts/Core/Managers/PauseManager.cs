@@ -22,6 +22,11 @@ namespace Player47.Core.Managers
             InputManager.OnPauseInputPerformed -= InputManager_OnPauseInputPerformed;
         }
 
+        void Start()
+        {
+            IsGamePaused.Value = false;    
+        }
+
         void InputManager_OnPauseInputPerformed()
         {
             if (Time.timeScale == 0f)
