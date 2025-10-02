@@ -20,12 +20,12 @@ namespace Player47.Domain.Player
 
         void OnEnable()
         {
-            InputManager.OnTorchInputPerformed += InputManager_OnTorchInputPerformed;
+            InputManager.TorchInputPerformed += InputManager_OnTorchInputPerformed;
         }
 
         void OnDisable()
         {
-            InputManager.OnTorchInputPerformed -= InputManager_OnTorchInputPerformed;
+            InputManager.TorchInputPerformed -= InputManager_OnTorchInputPerformed;
         }
 
         void InputManager_OnTorchInputPerformed()

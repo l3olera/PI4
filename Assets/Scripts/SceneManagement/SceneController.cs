@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Player47.Core.Managers;
 using Player47.Core.Service;
 using Player47.UI;
 
@@ -19,6 +18,17 @@ namespace Player47.SceneManagement
         void OnDisable()
         {
             SceneManager.sceneLoaded -= HandleSceneLoaded;    
+        }
+
+        void Start()
+        {
+            if (SceneManager.GetActiveScene().name == "Menu")
+            {
+                UIManager.Instance.ShowHUDGameplay(false);
+                _player.SetActive(false);
+                _pauseManager.SetActive(false);
+                CursorController.UnlockCursor();
+            }
         }
 
         void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
