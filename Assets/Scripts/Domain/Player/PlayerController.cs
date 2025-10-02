@@ -14,14 +14,14 @@ namespace Player47.Domain.Player
 
         void OnEnable()
         {
-            InputManager.OnShootInputPerformed += InputManager_OnShootInputPerformed;
-            InputManager.OnReloadInputPerformed += InputManager_OnReloadInputPerformed;
+            InputManager.ShootInputPerformed += InputManager_OnShootInputPerformed;
+            InputManager.ReloadInputPerformed += InputManager_OnReloadInputPerformed;
         }
 
         void OnDisable()
         {
-            InputManager.OnShootInputPerformed -= InputManager_OnShootInputPerformed;
-            InputManager.OnReloadInputPerformed -= InputManager_OnReloadInputPerformed;
+            InputManager.ShootInputPerformed -= InputManager_OnShootInputPerformed;
+            InputManager.ReloadInputPerformed -= InputManager_OnReloadInputPerformed;
         }
 
         void Awake()

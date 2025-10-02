@@ -11,16 +11,19 @@ namespace Player47.Core.Managers
     {
         public static InputManager Instance { get; private set; }
 
-        public static event Action<bool> OnShootInputPerformed;
-        public static event Action OnReloadInputPerformed;
-        public static event Action OnTorchInputPerformed;
-        public static event Action OnPauseInputPerformed;
+        public static event Action<bool> ShootInputPerformed;
+        public static event Action<bool> AimInputPerformed;
+        public static event Action ReloadInputPerformed;
+        public static event Action TorchInputPerformed;
+        public static event Action PauseInputPerformed;
 
         public static bool IsShooting;
+        public static bool IsAiming;
 
         public InputActionAsset inputActions;
 
         InputAction _shootAction;
+        InputAction _aimAction;
 
         void OnEnable()
         {
@@ -29,8 +32,13 @@ namespace Player47.Core.Managers
            inputActions.FindActionMap("UI").Enable();
 
            _shootAction = inputActions.FindAction("Shoot");
+           _aimAction = inputActions.FindAction("Aim");
 
-           inputActions.FindAction("Reload").performed += OnReload;
+
+            _aimAction.started += ctx => OnAim(true);
+            _aimAction.canceled += ctx => OnAim(false);
+
+            inputActions.FindAction("Reload").performed += OnReload;
            inputActions.FindAction("UseTorch").performed += OnUseTorch;
            inputActions.FindAction("Pause").performed += OnPause;
            
@@ -41,6 +49,9 @@ namespace Player47.Core.Managers
             inputActions.FindActionMap("Player").Disable();
             inputActions.FindActionMap("ToolsMap").Disable();
             inputActions.FindActionMap("UI").Disable();
+
+            _aimAction.started -= ctx => OnAim(true);
+            _aimAction.canceled -= ctx => OnAim(false);
 
             inputActions.FindAction("Reload").performed -= OnReload;
             inputActions.FindAction("UseTorch").performed -= OnUseTorch;
@@ -62,6 +73,7 @@ namespace Player47.Core.Managers
         void Update()
         {
             float shootValue = _shootAction.ReadValue<float>();
+            float aimValue = _aimAction.ReadValue<float>();
 
 
             if (shootValue > 0.5f) // só dispara se o gatilho passar de 50%
@@ -79,22 +91,30 @@ namespace Player47.Core.Managers
             if (PauseManager.IsGamePaused.Value) return;
 
             IsShooting = value;
-            OnShootInputPerformed?.Invoke(value);
+            ShootInputPerformed?.Invoke(value);
         }
+
+        void OnAim(bool value)
+        {
+            if(PauseManager.IsGamePaused.Value || IsAiming == value) return;
+
+            IsAiming = value;
+            AimInputPerformed?.Invoke(value);
+        } 
 
         void OnReload(InputAction.CallbackContext ctx)
         {
-            OnReloadInputPerformed?.Invoke();
+            ReloadInputPerformed?.Invoke();
         }
 
         void OnUseTorch(InputAction.CallbackContext ctx)
         {
-            OnTorchInputPerformed?.Invoke();
+            TorchInputPerformed?.Invoke();
         }
 
         void OnPause(InputAction.CallbackContext ctx)
         {
-            OnPauseInputPerformed?.Invoke();
+            PauseInputPerformed?.Invoke();
         }
     }
 }

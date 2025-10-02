@@ -14,12 +14,12 @@ namespace Player47.Core.Managers
 
         void OnEnable()
         {
-            InputManager.OnPauseInputPerformed += InputManager_OnPauseInputPerformed;
+            InputManager.PauseInputPerformed += InputManager_OnPauseInputPerformed;
         }
 
         void OnDisable()
         {
-            InputManager.OnPauseInputPerformed -= InputManager_OnPauseInputPerformed;
+            InputManager.PauseInputPerformed -= InputManager_OnPauseInputPerformed;
         }
 
         void Start()
