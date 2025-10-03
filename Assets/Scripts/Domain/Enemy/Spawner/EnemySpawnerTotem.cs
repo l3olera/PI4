@@ -9,7 +9,7 @@ namespace Player47.Domain.Enemy.Spawner
         [SerializeField] GameObject m_enemyPrefab;
         [SerializeField] Transform[] m_wayPoints;
         [SerializeField] Transform[] m_spawnPoints;
-        [SerializeField] float m_spawnInterval = 3f;
+        [SerializeField] float m_spawnInterval = 5f;
         [SerializeField] int m_maxEnemiesAlive = 5;
 
 

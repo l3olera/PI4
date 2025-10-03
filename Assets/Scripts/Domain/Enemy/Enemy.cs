@@ -45,12 +45,13 @@ namespace Player47.Domain.Enemy
         protected virtual void Start()
         {
             _currentHealth = stats.maxHealth;
-            _currentState = new IdleEnemyState(gameObject, _agent, _anim, _player, _waypoints, stats.moveSpeed, stats.attackRange, stats.attackInterval); // Estado inicial genérico  
 
-            if(_player == null)
+            if (_player == null)
             {
                 _player = PlayerController.Instance.transform;
             }
+
+            _currentState = new IdleEnemyState(gameObject, _agent, _anim, _player, _waypoints, stats.moveSpeed, stats.attackRange, stats.attackInterval); // Estado inicial genérico  
         }
 
         protected virtual void Update()
