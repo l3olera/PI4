@@ -37,7 +37,8 @@ namespace Player47.UI.HUD
         {
             if (_text_reload != null)
             {
-                _text_reload.text = $"{amount} / {PlayerWeaponHandler.Instance.playerCurrentEquippedWeapon?.scoreMaxAmmo}";
+                _text_reload.SetText("{0} / {1}", amount, (float) PlayerWeaponHandler.Instance.playerCurrentEquippedWeapon?.scoreMaxAmmo);
+
             }
         }
     }

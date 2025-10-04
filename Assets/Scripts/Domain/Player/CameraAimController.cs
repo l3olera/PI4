@@ -1,8 +1,7 @@
-﻿using Cinemachine;
-using Player47.Core.Managers;
+﻿using Player47.Core.Managers;
 using System.Collections;
-using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEngine;
+using Cinemachine;
 
 namespace Player47.Domain.Player
 {
