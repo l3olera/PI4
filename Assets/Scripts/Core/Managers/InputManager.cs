@@ -90,6 +90,7 @@ namespace Player47.Core.Managers
         {
             if (PauseManager.IsGamePaused.Value) return;
 
+            Debug.Log("Atirou");
             IsShooting = value;
             ShootInputPerformed?.Invoke(value);
         }
