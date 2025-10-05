@@ -4,7 +4,7 @@ using Player47.Domain.Player;
 
 namespace Player47.UI.HUD
 {
-    public class HUDManager : MonoBehaviour
+    public class WeaponHUDManager : MonoBehaviour
     {
         [SerializeField] TextMeshProUGUI _text_adviseReload;
         [SerializeField] TextMeshProUGUI _text_reload;
@@ -37,8 +37,8 @@ namespace Player47.UI.HUD
         {
             if (_text_reload != null)
             {
-                _text_reload.SetText("{0} / {1}", amount, (float) PlayerWeaponHandler.Instance.playerCurrentEquippedWeapon?.scoreMaxAmmo);
-
+                Debug.Log("Atualizando munição no HUD");
+                _text_reload.SetText("{0} / {1}", amount, (float) PlayerWeaponHandler.Instance.playerCurrentEquippedWeapon?.ScoreMaxAmmo);
             }
         }
     }

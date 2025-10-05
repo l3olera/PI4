@@ -11,7 +11,7 @@ namespace Player47.Domain.Weapon.Implementations
     /// </summary>
     public class Weapon : MonoBehaviour, IWeapon
     {        
-        public int scoreMaxAmmo { get; private set;  }
+        public int ScoreMaxAmmo { get; private set;  }
         public bool isReloading;
 
         [Header("Componentes da arma")]
@@ -35,13 +35,13 @@ namespace Player47.Domain.Weapon.Implementations
                 _playerCamera = Camera.main;
 
             SetMaxAmmo(_ammoCapacity); //Inicia a arma com o carregador cheio
-            AddAmmo(_ammoCapacity);
         }
 
         public void Shoot()
         {
             if (_currentAmmo > 0 && !isReloading)
             {
+                Debug.Log("Shooting");
                 if (Time.time >= _nextTimeToFire)
                 {
                     DetectHit(); //Detecta se o tiro atingiu algo e aplica o dano
@@ -67,7 +67,7 @@ namespace Player47.Domain.Weapon.Implementations
         public void SetMaxAmmo(int amount)
         {
             _ammoCapacity = amount;
-            scoreMaxAmmo = _ammoCapacity;
+            ScoreMaxAmmo = _ammoCapacity;
             AddAmmo(_ammoCapacity); //Inicia a arma com o carregador cheio
         }
 
@@ -82,7 +82,8 @@ namespace Player47.Domain.Weapon.Implementations
             {
                 _currentAmmo = _ammoCapacity;
             }
-            PlayerWeaponHandler.Instance.OnAmmoChanged(_currentAmmo);
+
+            TriggerAmmoChanged();
         }
 
         /// <summary>
@@ -96,6 +97,12 @@ namespace Player47.Domain.Weapon.Implementations
             {
                 _currentAmmo = 0;
             }
+
+            TriggerAmmoChanged();
+        }
+
+        void TriggerAmmoChanged()
+        {
             PlayerWeaponHandler.Instance.OnAmmoChanged(_currentAmmo);
         }
  

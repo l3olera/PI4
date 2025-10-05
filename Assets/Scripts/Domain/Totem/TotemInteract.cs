@@ -1,15 +1,20 @@
-using Player47.Domain.Enemy.Spawner;
 using UnityEngine;
+using Player47.Core;
+using Player47.Domain.Enemy.Spawner;
 
 namespace Player47.Domain.Totem
 {
     /// <summary>
-    /// Respons·vel por controlar o comportamento de interaÁ„o do totem.
+    /// Respons√°vel por controlar o comportamento de intera√ß√£o do totem.
     /// </summary>
     public class TotemInteract : MonoBehaviour, IInteractable
     {
         [SerializeField] Animator _anim;
         [SerializeField] EnemySpawnerTotem _spawner;
+
+        [SerializeField] string m_translateKey = "TotemInteract";
+
+        public string TranslateKey => m_translateKey;
 
         void Awake()
         {
@@ -25,9 +30,10 @@ namespace Player47.Domain.Totem
         }
 
         public void Interact() { 
+            if(_spawner != null && !_spawner.isActive) return; //Impede o jogador de interagir com o totem se ele j√° estiver desativado
+
             _anim.SetTrigger("Disable");
             _spawner.DisableTotem();
         }
-
     }
 }
