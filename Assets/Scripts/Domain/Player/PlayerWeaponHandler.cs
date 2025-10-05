@@ -6,7 +6,7 @@ namespace Player47.Domain.Player
 {
     public class PlayerWeaponHandler : MonoBehaviour
     {
-        public static PlayerWeaponHandler Instance;
+        public static PlayerWeaponHandler Instance { get; private set; }
 
         public static event Action BecomeReloading; //Evento para notificar quando a arma começou a carregar
         public static event Action FinishedReloading; //Evento para notificar quando a arma terminou de carregar

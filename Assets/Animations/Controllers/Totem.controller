@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Deactive
+  m_Name: Disable
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -57,10 +57,10 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Toten
+  m_Name: Totem
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: IsDeactive
+  - m_Name: Disable
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -88,7 +88,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: IsDeactive
+    m_ConditionEvent: Disable
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6140186904564537403}
