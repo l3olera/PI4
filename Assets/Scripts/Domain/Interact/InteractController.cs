@@ -52,8 +52,10 @@ public class InteractController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"{other.name} entrou no trigger");
         if (other.TryGetComponent<IInteractable>(out var interactable))
         {
+            Debug.Log("Entrou no trigger de um interagível");
             interactables.Add(interactable);
         }
     }

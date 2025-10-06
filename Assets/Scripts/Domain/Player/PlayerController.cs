@@ -45,18 +45,14 @@ namespace Player47.Domain.Player
         {
             _equippedWeapon = weapon;
             PlayerWeaponHandler.Instance.playerCurrentEquippedWeapon = _equippedWeapon;
-            Debug.Log("Arma equipada: " + weapon);
-            Debug.Log("Arma equipada: " + _equippedWeapon);
+            PlayerWeaponHandler.Instance.OnAmmoChanged(_equippedWeapon.ScoreMaxAmmo);
         }
 
         void InputManager_OnShootInputPerformed(bool shooting)
         {
-            Debug.Log("Ele entra no input manager para atirar");
             Debug.Log(_equippedWeapon is null);
-            Debug.Log("Ele está atirando? " + shooting);
             if (_equippedWeapon != null && shooting)
             {
-                Debug.Log("Ele entra na arma equipada para atirar");
                 _equippedWeapon.Shoot();
             }
         }
