@@ -6,6 +6,7 @@ namespace Player47.Core
 	public interface IInteractable
 	{
 		string TranslateKey { get; }
+		bool CanShowText { get; }
 
         void Interact();
 	} 

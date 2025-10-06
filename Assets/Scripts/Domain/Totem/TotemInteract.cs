@@ -14,7 +14,10 @@ namespace Player47.Domain.Totem
 
         [SerializeField] string m_translateKey = "TotemInteract";
 
+        bool _canShowText = true;
+
         public string TranslateKey => m_translateKey;
+        public bool CanShowText => _canShowText;
 
         void Awake()
         {
@@ -34,6 +37,7 @@ namespace Player47.Domain.Totem
 
             _anim.SetTrigger("Disable");
             _spawner.DisableTotem();
+            _canShowText = false;
         }
     }
 }
