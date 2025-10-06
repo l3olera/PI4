@@ -28,8 +28,6 @@ namespace Player47.Core.Managers
 
         Action<InputAction.CallbackContext> _aimStartedDelegate;
         Action<InputAction.CallbackContext> _aimCanceledDelegate;
-        Action<InputAction.CallbackContext> _shootPerformedDelegate;
-        Action<InputAction.CallbackContext> _shootCanceledDelegate;
 
         void Awake()
         {
@@ -49,6 +47,7 @@ namespace Player47.Core.Managers
             inputActions.FindActionMap("Player").Enable();
             inputActions.FindActionMap("ToolsMap").Enable();
             inputActions.FindActionMap("UI").Enable();
+            inputActions.FindActionMap("Combat").Enable();
 
             // Pega as ações específicas de atirar e mirar
             _shootAction = inputActions.FindAction("Shoot");
@@ -59,12 +58,6 @@ namespace Player47.Core.Managers
             _aimCanceledDelegate = ctx => OnAim(false);
             _aimAction.started += _aimStartedDelegate;
             _aimAction.canceled += _aimCanceledDelegate;
-
-            // Assina eventos de tiro
-            _shootPerformedDelegate = ctx => OnShoot(true);
-            _shootCanceledDelegate = ctx => OnShoot(false);
-            _shootAction.performed += _shootPerformedDelegate;
-            _shootAction.canceled += _shootCanceledDelegate;
 
             // Assina os outros eventos
             inputActions.FindAction("Reload").performed += OnReload;
@@ -79,14 +72,11 @@ namespace Player47.Core.Managers
             inputActions.FindActionMap("Player").Disable();
             inputActions.FindActionMap("ToolsMap").Disable();
             inputActions.FindActionMap("UI").Disable();
+            inputActions.FindActionMap("Combat").Disable();
 
             // Remove eventos de mira
             _aimAction.started -= _aimStartedDelegate;
             _aimAction.canceled -= _aimCanceledDelegate;
-
-            // Remove eventos de tiro
-            _shootAction.performed -= _shootPerformedDelegate;
-            _shootAction.canceled -= _shootCanceledDelegate;
 
             // Remove outros eventos
             inputActions.FindAction("Reload").performed -= OnReload;
@@ -95,9 +85,23 @@ namespace Player47.Core.Managers
             inputActions.FindAction("Interact").performed -= OnInteract;
         }
 
+        void Update()
+        {
+            float value = _shootAction.ReadValue<float>();
+            
+            if(value > 0.5f)
+            {
+                OnShoot(true);
+            }
+            else
+            {
+                OnShoot(false);
+            }
+        }
+
         void OnShoot(bool value)
         {
-            if (PauseManager.IsGamePaused.Value) return;
+            if (PauseManager.IsGamePaused.Value || (!IsShooting && !value)) return;
 
             IsShooting = value;
             ShootInputPerformed?.Invoke(value);
