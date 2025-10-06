@@ -1,0 +1,17 @@
+{
+    "name": "Player47.Domain.Interact",
+    "rootNamespace": "",
+    "references": [
+        "GUID:795bc9749db3c7b42bce902d5511bd55",
+        "GUID:c0e29bb2097c81244b3cddea963fefad"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -45,11 +45,13 @@ namespace Player47.Domain.Player
         {
             _equippedWeapon = weapon;
             PlayerWeaponHandler.Instance.playerCurrentEquippedWeapon = _equippedWeapon;
+            PlayerWeaponHandler.Instance.OnAmmoChanged(_equippedWeapon.ScoreMaxAmmo);
         }
 
         void InputManager_OnShootInputPerformed(bool shooting)
         {
-            if(_equippedWeapon != null && shooting)
+            Debug.Log(_equippedWeapon is null);
+            if (_equippedWeapon != null && shooting)
             {
                 _equippedWeapon.Shoot();
             }

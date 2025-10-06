@@ -4,6 +4,8 @@ namespace Player47.Domain.Enemy.Spawner
 {
     public class EnemySpawnerTotem : MonoBehaviour
     {
+        public bool isActive = true;
+
         [Header("Configuração do Spawn")]
         [SerializeField] GameObject m_enemyPrefab;
         [SerializeField] Transform[] m_wayPoints;
@@ -11,14 +13,12 @@ namespace Player47.Domain.Enemy.Spawner
         [SerializeField] float m_spawnInterval = 5f;
         [SerializeField] int m_maxEnemiesAlive = 5;
 
-
-        bool m_isActive = true;
         float m_timer;
         int m_enemiesAlive = 0;
 
         void Update()
         {
-            if (!m_isActive) return;
+            if (!isActive) return;
 
             m_timer += Time.deltaTime;
 
@@ -55,7 +55,7 @@ namespace Player47.Domain.Enemy.Spawner
         // Método para desativar o totem
         public void DisableTotem()
         {
-            m_isActive = false;
+            isActive = false;
             Debug.Log("Totem desativado!");
         }
     }
