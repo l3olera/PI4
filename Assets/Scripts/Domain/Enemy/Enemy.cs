@@ -78,8 +78,8 @@ namespace Player47.Domain.Enemy
             
             _anim.SetTrigger("isDying");
 
-            OnDeath?.Invoke(this);  // dispara o evento de morte
             EnemyManager.Instance.InvokeEnemyDied(this);
+            OnDeath?.Invoke(this);  // dispara o evento de morte
         }
 
         // Essa função é chamada no final da animação pelo Animation Event
