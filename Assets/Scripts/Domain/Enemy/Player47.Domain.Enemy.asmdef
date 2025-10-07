@@ -2,10 +2,10 @@
     "name": "Player47.Domain.Enemy",
     "rootNamespace": "",
     "references": [
-        "GUID:795bc9749db3c7b42bce902d5511bd55",
-        "GUID:e0ae9e3f5616a3f4191ce999933dd217",
-        "GUID:63ba0b6ae55a4974b8797b63e30588aa",
-        "GUID:894f0bf9ac2700c439d7cf23ebf78e1b"
+        "Player47.Core",
+        "Player47.Domain.Combat",
+        "Player47.Domain.Souls",
+        "Player47.Domain.Player"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
