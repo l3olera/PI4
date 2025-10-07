@@ -54,6 +54,364 @@ MonoBehaviour:
     m_Localized: "Encerrar Sess\xE3o"
     m_Metadata:
       m_Items: []
+  - m_Id: 10
+    m_Localized: Pausar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: Usar Tocha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Localized: Andar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13
+    m_Localized: Interagir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14
+    m_Localized: Recarregar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15
+    m_Localized: Atirar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16
+    m_Localized: Mirar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17
+    m_Localized: Correr
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18
+    m_Localized: Pular
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19
+    m_Localized: Rede
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20
+    m_Localized: Criar Sala
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21
+    m_Localized: Entrar Sala
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22
+    m_Localized: "C\xF3digo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23
+    m_Localized: Desenvolvedores
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24
+    m_Localized: Ferramentas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25
+    m_Localized: Agradecimentos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26
+    m_Localized: "Tem certeza que deseja encerrar a atual sess\xE3o? O Oasis \xE9
+      online aberto 24 horas,  garanta que seu avatar esteja em local seguro."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27
+    m_Localized: Continuar Logado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28
+    m_Localized: "Ei \"#47\", acharam a localiza\xE7\xE3o da primeira chave pro egg,
+      n\xE3o consigo ir atr\xE1s agora, t\xF4 ocupado com... outra coisa mais importante.
+      Vai ter que ir sozinho irm\xE3o, boa sorte parceiro, cuidado muitas pessoas
+      j\xE1 devem estar l\xE1, vou te passar as coordenadas. Corre!!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29
+    m_Localized: Clique aqui para iniciar o jogo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30
+    m_Localized: "Faz algum tempo que n\xE3o jogo deixe-me ver se lembro dos comandos"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31
+    m_Localized: "Use o teclado para se movimentar, atirar, recarregar e interagir
+      com o jogo, caso precise consultar novamente o mapa de teclas, aperte \u201CESC\u201D
+      e jogo ser\xE1 pausado.\r\nSua barra de Vida fica posicionada logo abaixo e
+      sua muni\xE7\xE3o \xE9 infinita mas sua arma superaquece conforme o uso. Bom
+      jogo :)\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32
+    m_Localized: Termine o Tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33
+    m_Localized: Encontre a entrada da tumba
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34
+    m_Localized: "N\xE3o era para ter inimigos aqui"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35
+    m_Localized: "Mate os inimigos e desative os t\xF3tens de invoca\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36
+    m_Localized: "Preciso apagar esses totens, sen\xE3o os inimigos n\xE3o v\xE3o
+      parar de aparecer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37
+    m_Localized: Desativar totem
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38
+    m_Localized: Encontre a entrada da tumba
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39
+    m_Localized: Preciso de uma tocha para entrar na caverna
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40
+    m_Localized: Entre na tumba
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41
+    m_Localized: Atravesse a tumba
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42
+    m_Localized: Que lugar escuro, ainda bem que eu tenho uma tocha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43
+    m_Localized: Preciso tomar cuidado com essas armadilhas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44
+    m_Localized: "Os ciclopes me avistam com a tocha na m\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45
+    m_Localized: Aquele buraco me parece uma passagem
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46
+    m_Localized: 'Tumba '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47
+    m_Localized: "Esse lugar est\xE1 muito escuro, preciso acender alguns pontos
+      de luz"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48
+    m_Localized: A luz afasta os fantasmas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49
+    m_Localized: Melhor eu fazer algumas melhorias
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50
+    m_Localized: Melhore seu arsenal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51
+    m_Localized: Fonte
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52
+    m_Localized: Fonte de agua vida
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53
+    m_Localized: vida atual
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54
+    m_Localized: beber da agua = custo de              almas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55
+    m_Localized: Fornalha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56
+    m_Localized: Fornalha eterna
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57
+    m_Localized: Alcance atual
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58
+    m_Localized: Encantar tocha = custo de           almas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59
+    m_Localized: Bigorna
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60
+    m_Localized: Bigorna Encantada
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61
+    m_Localized: Cadencia atual
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62
+    m_Localized: Almentar cadencia = custo de           almas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63
+    m_Localized: Dano atual
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64
+    m_Localized: Almentar dano = custo de        almas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 65
+    m_Localized: "Abrir port\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 66
+    m_Localized: "Aten\xE7\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 67
+    m_Localized: "Garanta que tenha feito todas as melhorias poss\xEDveis na sala
+      de melhorias"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68
+    m_Localized: Voltar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 69
+    m_Localized: Prosseguir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70
+    m_Localized: Derrote o boss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71
+    m_Localized: "ESSE OGRO \xC9 ENORME!!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 72
+    m_Localized: "O altar \xE9 um ponto de curar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73
+    m_Localized: "Cure-se atrav\xE9s do altar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74
+    m_Localized: Finalmente essa foi quase
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75
+    m_Localized: Tem uma porta do lado do altar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 76
+    m_Localized: Saia da sala
+    m_Metadata:
+      m_Items: []
+  - m_Id: 77
+    m_Localized: Outros jogadores ?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78
+    m_Localized: Interagir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79
+    m_Localized: "Quem s\xE3o voc\xEAs ?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80
+    m_Localized: "N\xF3s somos jogadores iguais a voc\xEA, por\xE9m chegamos mais
+      cedo e estamos garantindo que somente os dignos do legado de Holiday tenham
+      a oportunidade de adquirir a primeira chave para o EGG secreto, voc\xEA passou
+      por todos os desafios que montamos horas antes de sua chegada, n\xE3o deve
+      demorar para outros jogadores chegarem tamb\xE9m, aguarde aqui conosco."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81
+    m_Localized: "Se voc\xEAs est\xE3o aqui, porque n\xE3o pegaram o EGG ainda ?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82
+    m_Localized: "Somente uma pessoa faz o desafio por dia. Formamos uma fila e voc\xEA
+      \xE9 o n\xFAmero 47 dessa fila"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83
+    m_Localized: "S\xE9rio ? Que droga, mas espera\u2026 quem foi o primeiro ?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84
+    m_Localized: "Um jogador chamado \u201CParzival\u201D.. achou o EGG alguns dias
+      antes, seu nome est\xE1 no placar da competi\xE7\xE3o, n\xE3o viu ?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 85
+    m_Localized: "N\xE3o\u2026 mas, o'que fazemos agora?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86
+    m_Localized: Protegemos a sala de desafio final a qualquer custo, a IOI deve
+      estar a caminho.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87
+    m_Localized: Certo, ficarei a postos.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 88
+    m_Localized: DESENVOLVEDORES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 89
+    m_Localized: PROFESSORES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90
+    m_Localized: APOIO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 91
+    m_Localized: AGRACIMENTOS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92
+    m_Localized: FERRAMENTAS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93
+    m_Localized: "CONC\xC9PTS"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 94
+    m_Localized: '"OBRIGADO POR JOGAR NOSSO JOGO"'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

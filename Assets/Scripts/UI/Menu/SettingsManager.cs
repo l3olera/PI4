@@ -11,8 +11,7 @@ namespace Player47.UI.Menu
 	{
         [Header("Panel Settings Options")]
 		[SerializeField] PanelSwitcher _switcher;
-		[SerializeField]
-		GameObject[] _panels;
+		[SerializeField] GameObject[] _panels;
 
         [SerializeField] GameObject _screeOptions;
 		[SerializeField] GameObject _languageOptions;
@@ -24,6 +23,9 @@ namespace Player47.UI.Menu
 
         void Start()
         {
+			if (_switcher == null)
+				_switcher = PanelSwitcher.Instance;
+
 			if(_screeOptions != null && !_screeOptions.activeSelf)
 			{
 				if(_toggleScreen != null && !_toggleScreen.isOn)

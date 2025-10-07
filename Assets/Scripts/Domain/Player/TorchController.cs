@@ -13,19 +13,19 @@ namespace Player47.Domain.Player
         /// Identifica se o player está com a tocha equipada e dispara evento quando o valor mudar por ser uma classe <see cref="Observer{T}"/>.
         /// </summary>
 
-        [SerializeField] public static Observer<bool> IsTorchEquipped { get; } = new(false);
+        public static Observer<bool> IsTorchEquipped { get; } = new(false);
 
         public static bool TorchEquippedValue => IsTorchEquipped.Value;
 
 
         void OnEnable()
         {
-            InputManager.OnTorchInputPerformed += InputManager_OnTorchInputPerformed;
+            InputManager.TorchInputPerformed += InputManager_OnTorchInputPerformed;
         }
 
         void OnDisable()
         {
-            InputManager.OnTorchInputPerformed -= InputManager_OnTorchInputPerformed;
+            InputManager.TorchInputPerformed -= InputManager_OnTorchInputPerformed;
         }
 
         void InputManager_OnTorchInputPerformed()

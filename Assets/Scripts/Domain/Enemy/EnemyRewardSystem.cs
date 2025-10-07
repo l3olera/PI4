@@ -12,12 +12,12 @@ namespace Player47.Domain.Enemy
     {
         void OnEnable()
         {
-            Enemy.EnemyDied += Enemy_EnemyDied;
+            EnemyManager.EnemyDied += Enemy_EnemyDied;
         }
 
         void OnDisable()
         {
-            Enemy.EnemyDied -= Enemy_EnemyDied;
+            EnemyManager.EnemyDied -= Enemy_EnemyDied;
         }
 
         void Enemy_EnemyDied(Enemy enemy)

@@ -1,6 +1,7 @@
 using Player47.Domain.Combat;
 using Player47.Domain.Enemy.States;
 using Player47.Domain.Enemy.Vision;
+using Player47.Domain.Player;
 using System;
 using UnityEngine;
 using UnityEngine.AI;
@@ -27,7 +28,7 @@ namespace Player47.Domain.Enemy
         [SerializeField] protected Transform _player; // Referência a posição do jogador
         [SerializeField] protected Transform[] _waypoints; // Pontos de patrulha
 
-        public static event Action<Enemy> EnemyDied; // evento estático para notificar quando qualquer inimigo morrer    
+        public event Action<Enemy> OnDeath; // evento estático para notificar quando qualquer inimigo morrer    
 
         void Awake()
         {
@@ -44,6 +45,12 @@ namespace Player47.Domain.Enemy
         protected virtual void Start()
         {
             _currentHealth = stats.maxHealth;
+
+            if (_player == null)
+            {
+                _player = PlayerController.Instance.transform;
+            }
+
             _currentState = new IdleEnemyState(gameObject, _agent, _anim, _player, _waypoints, stats.moveSpeed, stats.attackRange, stats.attackInterval); // Estado inicial genérico  
         }
 
@@ -71,13 +78,19 @@ namespace Player47.Domain.Enemy
             
             _anim.SetTrigger("isDying");
 
-            EnemyDied?.Invoke(this);  // dispara o evento de morte
+            OnDeath?.Invoke(this);  // dispara o evento de morte
+            EnemyManager.Instance.InvokeEnemyDied(this);
         }
 
         // Essa função é chamada no final da animação pelo Animation Event
         public void OnDeathAnimationEnd()
         {
             Destroy(gameObject);    // destrói o inimigo só no final
+        }
+
+        public void SetWaypoint(Transform[] waypoints)
+        {
+            _waypoints = waypoints;
         }
 
         public bool CanSeePlayer()

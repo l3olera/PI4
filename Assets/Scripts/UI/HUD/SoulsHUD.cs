@@ -22,7 +22,7 @@ namespace Player47.UI.HUD
 
         void UpdateSoulsUI(int newSouls)
         {
-            _soulsText.SetText("Souls: {0}", newSouls);
+            _soulsText.SetText("{0}", newSouls);
         }
     }
 }
