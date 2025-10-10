@@ -19,7 +19,7 @@ namespace Player47.Domain.Enemy.States
 
         public override void Enter()
         {
-            _agent.isStopped = true;
+            StopAgent();
             _animator.SetBool("isWalking", false);
             base.Enter();
         }

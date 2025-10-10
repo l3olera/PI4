@@ -33,6 +33,24 @@ namespace Player47.Domain.Enemy
         protected float _attackRange;
         protected float _attackInterval;
 
+        protected void StopAgent()
+        {
+            if (_agent != null)
+            {
+                _agent.acceleration = 0;
+                _agent.isStopped = true;
+            }
+        }
+
+        protected void StartAgent()
+        {
+            if (_agent != null)
+            {
+                _agent.acceleration = _classEnemy.stats.acceleration;
+                _agent.isStopped = false;
+            }
+        }
+
         public EnemyState(GameObject enemy, NavMeshAgent agent, Animator animator, Transform player, Transform[] waypoints, float speed, float attackRange, float attackInterval)
         {
             _enemy = enemy;
@@ -43,13 +61,13 @@ namespace Player47.Domain.Enemy
             _speed = speed;
             _attackRange = attackRange;
             _attackInterval = attackInterval;
+
+            if (_enemy.TryGetComponent<Enemy>(out Enemy e))
+                _classEnemy = e;
         }
 
         public virtual void Enter()
         {
-            if(_enemy.TryGetComponent<Enemy>(out Enemy enemy))
-                _classEnemy = enemy;
-
             _stage = EVENT.UPDATE;
         }
 
