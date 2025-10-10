@@ -38,7 +38,7 @@ namespace Player47.UI.HUD
             if (_text_reload != null)
             {
                 Debug.Log("Atualizando munição no HUD");
-                _text_reload.SetText("{0} / {1}", amount, (float) PlayerWeaponHandler.Instance.playerCurrentEquippedWeapon?.ScoreMaxAmmo);
+                _text_reload.SetText("{0} / {1}", amount, PlayerWeaponHandler.Instance.playerCurrentEquippedWeapon == null ? amount : (float) PlayerWeaponHandler.Instance.playerCurrentEquippedWeapon.ScoreMaxAmmo);
             }
         }
     }
