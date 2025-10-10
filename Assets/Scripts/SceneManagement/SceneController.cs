@@ -1,7 +1,8 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
+using Player47.Core.Managers;
 using Player47.Core.Service;
 using Player47.UI;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player47.SceneManagement
 {
@@ -9,6 +10,8 @@ namespace Player47.SceneManagement
     {
         [SerializeField] GameObject _player;
         [SerializeField] GameObject _pauseManager;
+
+        bool _wasInSceneGameplay;
 
         void OnEnable()
         {
@@ -39,13 +42,17 @@ namespace Player47.SceneManagement
                 _player.SetActive(false);
                 _pauseManager.SetActive(false);
                 CursorController.UnlockCursor();
+                _wasInSceneGameplay = false; // reseta a flag ao entrar no menu
             }
             else // gameplay
             {
+                if(_wasInSceneGameplay) return; // evita reativar se ja estava na cena de gameplay
+
                 UIManager.Instance.ShowHUDGameplay(true);
                 _player.SetActive(true);
                 _pauseManager.SetActive(true);
                 CursorController.LockCursor();
+                _wasInSceneGameplay = true; 
             }
         }
 
