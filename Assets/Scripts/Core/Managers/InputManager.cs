@@ -41,7 +41,26 @@ namespace Player47.Core.Managers
             }
         }
 
-        void OnEnable()
+        void OnDisable()
+        {
+            // Desativa mapas de ação
+            inputActions.FindActionMap("Player").Disable();
+            inputActions.FindActionMap("ToolsMap").Disable();
+            inputActions.FindActionMap("UI").Disable();
+            inputActions.FindActionMap("Combat").Disable();
+
+            // Remove eventos de mira
+            _aimAction.started -= _aimStartedDelegate;
+            _aimAction.canceled -= _aimCanceledDelegate;
+
+            // Remove outros eventos
+            inputActions.FindAction("Reload").performed -= OnReload;
+            inputActions.FindAction("UseTorch").performed -= OnUseTorch;
+            inputActions.FindAction("Pause").performed -= OnPause;
+            inputActions.FindAction("Interact").performed -= OnInteract;
+        }
+
+        void Start()
         {
             // Ativa os mapas de ação
             inputActions.FindActionMap("Player").Enable();
@@ -64,25 +83,6 @@ namespace Player47.Core.Managers
             inputActions.FindAction("UseTorch").performed += OnUseTorch;
             inputActions.FindAction("Pause").performed += OnPause;
             inputActions.FindAction("Interact").performed += OnInteract;
-        }
-
-        void OnDisable()
-        {
-            // Desativa mapas de ação
-            inputActions.FindActionMap("Player").Disable();
-            inputActions.FindActionMap("ToolsMap").Disable();
-            inputActions.FindActionMap("UI").Disable();
-            inputActions.FindActionMap("Combat").Disable();
-
-            // Remove eventos de mira
-            _aimAction.started -= _aimStartedDelegate;
-            _aimAction.canceled -= _aimCanceledDelegate;
-
-            // Remove outros eventos
-            inputActions.FindAction("Reload").performed -= OnReload;
-            inputActions.FindAction("UseTorch").performed -= OnUseTorch;
-            inputActions.FindAction("Pause").performed -= OnPause;
-            inputActions.FindAction("Interact").performed -= OnInteract;
         }
 
         void Update()
