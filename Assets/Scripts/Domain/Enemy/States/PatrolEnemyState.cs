@@ -12,11 +12,11 @@ namespace Player47.Domain.Enemy.States
         {
             stateName = STATE.PATROL;
             _agent.speed = _speed;
-            _agent.isStopped = false;
         }
 
         public override void Enter()
         {
+            StartAgent();
             float lastDist = Mathf.Infinity;
 
             for (int i = 0; i < _waypoints.Length; i++)

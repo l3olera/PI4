@@ -8,11 +8,11 @@ namespace Player47.Domain.Enemy.States
         public AttackEnemyState(GameObject enemy, NavMeshAgent agent, Animator animator, Transform player, Transform[] waypoints, float speed, float attackRange, float attackInterval) : base(enemy, agent, animator, player, waypoints, speed, attackRange, attackInterval)
         {
             stateName = STATE.ATTACK;
-            _agent.isStopped = true;
         }
 
         public override void Enter()
         {
+            StopAgent();
             //Debug.Log("Entrou no Attack");
             base.Enter();
         }
@@ -38,7 +38,7 @@ namespace Player47.Domain.Enemy.States
         
             if (Time.time >= _lastAttackTime + _attackInterval)
             {
-                _agent.isStopped = true;
+                StopAgent();
                 _animator.SetTrigger("isAttacking");
                 _lastAttackTime = Time.time;
             }

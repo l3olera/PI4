@@ -5,6 +5,7 @@ public class EnemyStatsSO : ScriptableObject
 {
     public int maxHealth;
     public float moveSpeed;
+    public float acceleration;
     public float attackInterval;
     public float attackRange;
     public float visionRange;

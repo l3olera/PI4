@@ -9,11 +9,11 @@ namespace Player47.Domain.Enemy.States
         {
             stateName = STATE.CHASE;
             _agent.speed = _speed * 2;
-            _agent.isStopped = false;
         }
 
         public override void Enter()
         {
+            StartAgent();
             _animator.SetBool("isWalking", true);
             base.Enter();
         }
