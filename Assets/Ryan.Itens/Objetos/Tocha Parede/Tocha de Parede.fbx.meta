@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a046be94aca000e4bb24b7bf1165508a
+guid: e1ced4fba06ffa3468aeb236a9bd0591
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,38 +7,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: 1064770_7482
-    second: {fileID: 2800000, guid: b8fb209f606685f47891cde29b512bf6, type: 3}
+      name: metal-texture-pictures-48xgj9hn2w2epewh
+    second: {fileID: 2800000, guid: 4eed9d2672eefc6489e5c2edf22bb484, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: 1113813_OPF7RR0
-    second: {fileID: 2800000, guid: 81caa6952ebe2ba479ab5766a288e027, type: 3}
+      name: rust_coarse_01_arm_2k
+    second: {fileID: 2800000, guid: 5e1196f55a981c3499fcf3447fece088, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: 5205775-fundo-de-aco-com-textura-de-metal-preto-gratis-vetor
-    second: {fileID: 2800000, guid: 8c71738322dae1c41880418b98903202, type: 3}
+      name: rust_coarse_01_rough_2k
+    second: {fileID: 2800000, guid: 2524f67d5ddc8c044a1d1fbeaf00ee28, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: 5297349_10861
-    second: {fileID: 2800000, guid: 505b10ec82220f44fb668894b5482bd8, type: 3}
+      name: wood_table_worn_arm_2k
+    second: {fileID: 2800000, guid: a18d670ba20ab6741ab237f09a918561, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: 841999_1256
-    second: {fileID: 2800000, guid: 17788be5ab88f5c4eb7e83b75dd1ec05, type: 3}
+      name: wood_table_worn_diff_2k
+    second: {fileID: 2800000, guid: 30cd7d6949738dd438df50572a5ca83d, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: 850633_O55GR10
-    second: {fileID: 2800000, guid: 023c3f745522aaa41a42a0b39e6da203, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: foto-de-padrao-de-textura-de-madeira
-    second: {fileID: 2800000, guid: 0952e251658fc734597da93670595cf0, type: 3}
+      name: wood_table_worn_rough_2k
+    second: {fileID: 2800000, guid: 3cae6fb41180d7448b2100b0ba91506c, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
