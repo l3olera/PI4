@@ -1,0 +1,41 @@
+﻿using System;
+using UnityEngine;
+
+namespace Player47.Domain.Totem
+{
+    public class TotemManager : MonoBehaviour
+    {
+        public static TotemManager Instance { get; private set; }
+
+        [SerializeField] int m_totalTotems = 4;
+        public int TotalTotems => m_totalTotems;
+
+        public int CurrentDeactivatedTotems { get; private set; } = 0;
+
+        public event Action AllTotemsDeactivated;
+
+        void Awake()
+        {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                Instance = this;
+            }
+        }
+
+        public void DeactivateTotem()
+        {
+            if(CurrentDeactivatedTotems >= TotalTotems) return;
+
+            CurrentDeactivatedTotems++;
+            if (CurrentDeactivatedTotems >= TotalTotems)
+            {
+                AllTotemsDeactivated?.Invoke();
+                CurrentDeactivatedTotems = TotalTotems;
+            }
+        }
+    }
+}

@@ -3286,6 +3286,22 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8119623639941274156, guid: e0cd2cd7e993b1842a41b0b5682a213a, type: 3}
+      propertyPath: translations.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119623639941274156, guid: e0cd2cd7e993b1842a41b0b5682a213a, type: 3}
+      propertyPath: translations.Array.data[1].key
+      value: EntranceTumb
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119623639941274156, guid: e0cd2cd7e993b1842a41b0b5682a213a, type: 3}
+      propertyPath: translations.Array.data[1].localizedString.m_TableEntryReference.m_KeyId
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119623639941274156, guid: e0cd2cd7e993b1842a41b0b5682a213a, type: 3}
+      propertyPath: translations.Array.data[1].localizedString.m_TableReference.m_TableCollectionName
+      value: GUID:16ae8b982f8e5ee458989b4a56cf5915
+      objectReference: {fileID: 0}
     - target: {fileID: 8733525913475380442, guid: e0cd2cd7e993b1842a41b0b5682a213a, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -4237,6 +4253,50 @@ PrefabInstance:
       addedObject: {fileID: 1331869662}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f3a70e0c7172f84094319e475953607, type: 3}
+--- !u!1 &336124330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 336124332}
+  - component: {fileID: 336124331}
+  m_Layer: 0
+  m_Name: Phase1Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &336124331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336124330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d64262298a0954f82b7efebafa8558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &336124332
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336124330}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 183.48627, y: 0.7703445, z: 184.80244}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &337243779
 GameObject:
   m_ObjectHideFlags: 0
@@ -9499,8 +9559,10 @@ GameObject:
   - component: {fileID: 726336580}
   - component: {fileID: 726336579}
   - component: {fileID: 726336578}
+  - component: {fileID: 726336581}
+  - component: {fileID: 726336582}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: InteractionEntrancePhase2_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9574,6 +9636,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -31.445, z: 0}
+--- !u!65 &726336581
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726336577}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1936915, y: 1, z: 1}
+  m_Center: {x: -0.09684506, y: 0, z: -0.000000003752257}
+--- !u!114 &726336582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726336577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ebc95df8fe5c8b498e8e0dd5ef36fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_translateKeyUI: EntranceTumb
+  m_canShowText: 1
+  m_canInteract: 0
 --- !u!1001 &729816915
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16418,6 +16516,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1440193449}
+  - component: {fileID: 1440193450}
   m_Layer: 0
   m_Name: Totens
   m_TagString: Untagged
@@ -16441,6 +16540,19 @@ Transform:
   - {fileID: 245246860}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1440193450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440193448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc7248be30f42a4c80eba7bdb39dd3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_totalTotems: 4
 --- !u!4 &1441824809 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 805631633455402101, guid: 7f3a70e0c7172f84094319e475953607, type: 3}
@@ -23997,3 +24109,4 @@ SceneRoots:
   - {fileID: 1440193449}
   - {fileID: 279050639}
   - {fileID: 937080977}
+  - {fileID: 336124332}

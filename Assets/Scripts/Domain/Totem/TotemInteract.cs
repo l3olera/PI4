@@ -35,9 +35,10 @@ namespace Player47.Domain.Totem
         public void Interact() { 
             if(_spawner != null && !_spawner.isActive) return; //Impede o jogador de interagir com o totem se ele já estiver desativado
 
-            _anim.SetTrigger("Disable");
             _spawner.DisableTotem();
             _canShowText = false;
+            TotemManager.Instance.DeactivateTotem();
+            _anim.SetTrigger("Disable");            
         }
     }
 }
