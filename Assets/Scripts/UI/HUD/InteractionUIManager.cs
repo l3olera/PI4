@@ -19,6 +19,7 @@ namespace Player47.UI.HUD
 
         public void ShowInteractionText(string textKey)
         {
+            Debug.Log($"Mostrando texto de interação: {textKey}");
             m_interactionUI.SetText(m_localization.GetTranslation(textKey));
         }
 

@@ -4,6 +4,7 @@ using Player47.Core;
 using Player47.Core.Managers;
 using Player47.UI.HUD;
 
+[RequireComponent(typeof(Rigidbody))]
 /// <summary>
 /// Controla a interação do jogador com objetos interativos <see cref="IInteractable"/>
 /// </summary>
@@ -16,6 +17,8 @@ public class InteractController : MonoBehaviour
     IInteractable m_lastInteractable = null;
     bool m_lastCanShowText;
 
+    Rigidbody m_rb;
+
     void OnEnable()
     {
         InputManager.InteractInputPerformed += OnInteractInput;
@@ -24,6 +27,16 @@ public class InteractController : MonoBehaviour
     void OnDisable()
     {
         InputManager.InteractInputPerformed -= OnInteractInput;
+    }
+
+    void Awake() 
+    {
+        if(TryGetComponent<Rigidbody>(out var rb))
+        {
+            m_rb = rb;
+            m_rb.isKinematic = true; //O rigidbody é usado apenas para detectar colisões, não para física
+            m_rb.useGravity = false;
+        }
     }
 
     void Update()
