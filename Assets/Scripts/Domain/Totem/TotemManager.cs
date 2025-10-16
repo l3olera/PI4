@@ -29,10 +29,13 @@ namespace Player47.Domain.Totem
         public void DeactivateTotem()
         {
             if(CurrentDeactivatedTotems >= TotalTotems) return;
+            
+            Debug.Log("Totem desativado.");
 
             CurrentDeactivatedTotems++;
             if (CurrentDeactivatedTotems >= TotalTotems)
             {
+                Debug.Log("Todos os totems foram desativados.");
                 AllTotemsDeactivated?.Invoke();
                 CurrentDeactivatedTotems = TotalTotems;
             }

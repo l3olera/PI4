@@ -21,6 +21,11 @@ namespace Player47.Domain.Phase1
 
         void OnEnable()
         {
+            if (TotemManager.Instance == null)
+                Debug.LogError("TotemManager ainda não foi inicializado!");
+            else
+                Debug.Log("EntranceTumb inscrita no evento!");
+
             TotemManager.Instance.AllTotemsDeactivated += OnAllTotemsDeactivated;
         }
 
@@ -38,6 +43,7 @@ namespace Player47.Domain.Phase1
 
         void OnAllTotemsDeactivated()
         {
+            Debug.Log("Entrada da tumba liberada.");
             m_canInteract = true;
         }
     }

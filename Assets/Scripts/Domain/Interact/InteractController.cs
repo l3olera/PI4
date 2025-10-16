@@ -13,6 +13,9 @@ public class InteractController : MonoBehaviour
 
     [SerializeField] InteractionUIManager m_interactionUI;
 
+    IInteractable m_lastInteractable = null;
+    bool m_lastCanShowText;
+
     void OnEnable()
     {
         InputManager.InteractInputPerformed += OnInteractInput;
@@ -21,6 +24,25 @@ public class InteractController : MonoBehaviour
     void OnDisable()
     {
         InputManager.InteractInputPerformed -= OnInteractInput;
+    }
+
+    void Update()
+    {
+        if (interactables.Count == 0) return;
+
+        IInteractable closest = GetClosestInteractable();
+        if (closest == null) return;
+
+        if (closest != m_lastInteractable || closest.CanShowText != m_lastCanShowText)
+        {
+            m_lastInteractable = closest;
+            m_lastCanShowText = closest.CanShowText;
+
+            if (closest.CanShowText)
+                m_interactionUI.ShowInteractionText(closest.TranslateKey);
+            else
+                m_interactionUI.HideInteractionText();
+        }
     }
 
     void OnInteractInput()
@@ -54,23 +76,9 @@ public class InteractController : MonoBehaviour
     {
         if (other.TryGetComponent<IInteractable>(out var interactable))
         {
-            interactables.Add(interactable);
-        }
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        //Se estiver dentro do trigger de um interagível, atualiza o texto para o mais próximo
-        if (other.TryGetComponent<IInteractable>(out var interactable))
-        {
-            if(interactables.Contains(interactable))
-            {
-                IInteractable closest = GetClosestInteractable();
-                if(closest != null && closest.CanShowText)
-                {
-                    m_interactionUI.ShowInteractionText(closest.TranslateKey);
-                }
-            }
+            Debug.Log($"{other.name} entrou no interactable");
+            if (!interactables.Contains(interactable))
+                interactables.Add(interactable);
         }
     }
 
@@ -79,6 +87,8 @@ public class InteractController : MonoBehaviour
         if (other.TryGetComponent<IInteractable>(out var interactable))
         {
             interactables.Remove(interactable);
+            m_lastInteractable = null;
+            m_lastCanShowText = false;
         }
 
         if(interactables.Count == 0)
