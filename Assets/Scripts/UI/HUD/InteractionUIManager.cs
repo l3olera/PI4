@@ -8,19 +8,25 @@ namespace Player47.UI.HUD
     {
         [SerializeField] TextMeshProUGUI m_interactionUI;
 
-        LocalizationManager m_localization;
+        [SerializeField] TextUITranslateSetter m_textSetter;
+
+        void Awake()
+        {
+            if (m_textSetter == null)
+            {
+                m_textSetter = FindFirstObjectByType<TextUITranslateSetter>();
+            }
+        }
 
         void Start()
         {
-            m_localization = LocalizationManager.Instance;
-
             HideInteractionText();
         }
 
         public void ShowInteractionText(string textKey)
         {
             Debug.Log($"Mostrando texto de interação: {textKey}");
-            m_interactionUI.SetText(m_localization.GetTranslation(textKey));
+            m_textSetter.SetTranslateText(m_interactionUI, textKey);
         }
 
         public void HideInteractionText()
