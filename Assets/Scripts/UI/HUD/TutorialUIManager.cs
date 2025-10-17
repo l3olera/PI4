@@ -10,7 +10,7 @@ namespace Player47.UI.HUD
         void Start()
         {
             InputManager.PauseInputPerformed += ExitTutorialHUD;
-
+            bool a = true;
             PauseManager.CanPause = false;
         }
 
