@@ -12,6 +12,8 @@ namespace Player47.Core.Managers
     {
         public static Observer<bool> IsGamePaused { get; } = new(false);
 
+        public static bool CanPause = true;
+
         void OnEnable()
         {
             InputManager.PauseInputPerformed += InputManager_OnPauseInputPerformed;
@@ -29,6 +31,8 @@ namespace Player47.Core.Managers
 
         void InputManager_OnPauseInputPerformed()
         {
+            if (!CanPause) return;
+
             if (Time.timeScale == 0f)
             {
                 ResumeGame();

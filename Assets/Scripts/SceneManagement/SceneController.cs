@@ -1,4 +1,3 @@
-using Player47.Core.Managers;
 using Player47.Core.Service;
 using Player47.UI;
 using UnityEngine;
@@ -35,7 +34,7 @@ namespace Player47.SceneManagement
         }
 
         void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
-        {
+        {                
             if (scene.name == "Menu")
             {
                 UIManager.Instance.ShowHUDGameplay(false);
@@ -46,13 +45,13 @@ namespace Player47.SceneManagement
             }
             else // gameplay
             {
-                if(_wasInSceneGameplay) return; // evita reativar se ja estava na cena de gameplay
+                if (_wasInSceneGameplay) return; // evita reativar se ja estava na cena de gameplay
 
                 UIManager.Instance.ShowHUDGameplay(true);
                 _player.SetActive(true);
                 _pauseManager.SetActive(true);
                 CursorController.LockCursor();
-                _wasInSceneGameplay = true; 
+                _wasInSceneGameplay = true;
             }
         }
 

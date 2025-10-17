@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Player47.UI.HUD
 {
-    public class TutorialHUDManager : MonoBehaviour
+    public class CharacterSpeakHUDManager : MonoBehaviour
     {
         [SerializeField] TextMeshProUGUI m_textTutorial;
 

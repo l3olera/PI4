@@ -1911,6 +1911,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -705.58496
       objectReference: {fileID: 0}
+    - target: {fileID: 8584129523173867765, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584129523173867765, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584129523173867765, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 8981414862971111170, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
       propertyPath: m_SizeDelta.x
       value: 84
@@ -1922,6 +1934,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3113375820597899292, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
+    - {fileID: 7178056843507673131, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4628731201461539600, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
       insertIndex: -1
