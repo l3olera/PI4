@@ -75,6 +75,8 @@ namespace StarterAssets
 
 		private const float _threshold = 0.01f;
 
+		private bool _canMove = true;
+
 		private bool IsCurrentDeviceMouse
 		{
 			get
@@ -98,12 +100,12 @@ namespace StarterAssets
 
         void OnEnable()
         {
-			PauseManager.IsGamePaused.AddListener(PauseManager_IsGamePaused);
+			InputManager.CanListenGameplayInputs.AddListener(InputManager_CanListenGameplayInputs);
         }
 
         void OnDisable()
         {
-            PauseManager.IsGamePaused.RemoveListener(PauseManager_IsGamePaused);
+            PauseManager.IsGamePaused.RemoveListener(InputManager_CanListenGameplayInputs);
         }
 
         private void Start()
@@ -123,6 +125,8 @@ namespace StarterAssets
 
 		private void Update()
 		{
+			if (!_canMove) return;
+
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
@@ -133,15 +137,17 @@ namespace StarterAssets
 			CameraRotation();
 		}
 
-		void PauseManager_IsGamePaused(bool isGamePaused)
+		void InputManager_CanListenGameplayInputs(bool canListen)
 		{
-			if (isGamePaused)
+			if (!canListen)
 			{
 				RotationSpeed = 0;
+				_canMove = false;
 			}
 			else
 			{
 				RotationSpeed = 1;
+				_canMove = true;
 			}
 		}
 

@@ -1,18 +1,23 @@
 ﻿using UnityEngine;
 using Player47.Core.Managers;
+using Player47.Core;
+using System;
 
 namespace Player47.UI.HUD
 {
-    public class TutorialUIManager : MonoBehaviour
+    public class TutorialUIManager : MonoBehaviour, ITutorialTrigger
     {
         [SerializeField] GameObject m_tutorialCanvas;
+
+        public event Action Triggered;
 
         void Start()
         {
             InputManager.PauseInputPerformed += ExitTutorialHUD;
 
+            Triggered?.Invoke();
             PauseManager.CanListenInputPause = false;
-            PauseManager.PauseGame();
+            InputManager.CanListenGameplayInputs.Value = false;
         }
 
 
@@ -20,8 +25,8 @@ namespace Player47.UI.HUD
             Debug.Log("Entrou no método que tira o tutorial do HUD");
             m_tutorialCanvas.SetActive(false);
 
-            PauseManager.ResumeGame();
             PauseManager.CanListenInputPause = true;
+            InputManager.CanListenGameplayInputs.Value = true;
             InputManager.PauseInputPerformed -= ExitTutorialHUD;
         }
     }

@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: -338}
-  m_SizeDelta: {x: 664.0938, y: 176.8461}
+  m_AnchoredPosition: {x: 10, y: -358.49103}
+  m_SizeDelta: {x: 664.0938, y: 135.8639}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7627706833790272516
 CanvasRenderer:
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 8
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -272,6 +272,16 @@ MonoBehaviour:
         m_TableCollectionName: GUID:16ae8b982f8e5ee458989b4a56cf5915
       m_TableEntryReference:
         m_KeyId: 41
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - key: ZoneTutorialPhase1
+    localizedString:
+      m_TableReference:
+        m_TableCollectionName: GUID:16ae8b982f8e5ee458989b4a56cf5915
+      m_TableEntryReference:
+        m_KeyId: 30
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
@@ -1521,15 +1531,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8634807002363567029, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34.4
+      value: -0.89
       objectReference: {fileID: 0}
     - target: {fileID: 8634807002363567029, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.31
+      value: 0.056
       objectReference: {fileID: 0}
     - target: {fileID: 8634807002363567029, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 134.3
+      value: -4.6
       objectReference: {fileID: 0}
     - target: {fileID: 8634807002363567029, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1735,15 +1745,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34.4
+      value: -0.89
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.685
+      value: 1.431
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 134.3
+      value: -4.6
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalRotation.w

@@ -17,11 +17,6 @@ namespace Player47.UI.HUD
             }
         }
 
-        void Start()
-        {
-            ClearTutorialText();
-        }
-
         public void SetTutorialText(string textKey)
         {
             m_textSetter.SetTranslateText(m_textTutorial, textKey);
