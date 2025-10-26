@@ -11,14 +11,17 @@ namespace Player47.UI.HUD
         {
             InputManager.PauseInputPerformed += ExitTutorialHUD;
 
-            PauseManager.CanPause = false;
+            PauseManager.CanListenInputPause = false;
+            PauseManager.PauseGame();
         }
 
 
         void ExitTutorialHUD() {
+            Debug.Log("Entrou no método que tira o tutorial do HUD");
             m_tutorialCanvas.SetActive(false);
-            
-            PauseManager.CanPause = true;
+
+            PauseManager.ResumeGame();
+            PauseManager.CanListenInputPause = true;
             InputManager.PauseInputPerformed -= ExitTutorialHUD;
         }
     }

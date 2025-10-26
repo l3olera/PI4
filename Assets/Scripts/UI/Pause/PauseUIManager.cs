@@ -1,4 +1,5 @@
 using Player47.Core.Managers;
+using Player47.Core.Service;
 using UnityEngine;
 
 namespace Player47.UI.Pause
@@ -29,15 +30,19 @@ namespace Player47.UI.Pause
         void PauseManager_IsGamePaused(bool active)
         {
             Debug.Log("Entrou no handle do UI do pause");
+            if (!PauseManager.CanListenInputPause) return;
+
             if (active)
             {
                 Debug.Log("Entrando no true");
+                CursorController.UnlockCursor();
                 m_pauseMenuUI.SetActive(true);
                 m_HUDMenuUi.SetActive(false);
             }
             else
             {
                 Debug.Log("Entrando no false");
+                CursorController.LockCursor();
                 m_pauseMenuUI.SetActive(false);
                 m_HUDMenuUi.SetActive(true);
             }
