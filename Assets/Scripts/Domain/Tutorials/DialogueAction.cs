@@ -1,6 +1,5 @@
 ﻿using Player47.Core;
 using Player47.UI.HUD;
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -12,6 +11,14 @@ namespace Player47.Domain.Tutorials
         public float durationText = 3f;
 
         [SerializeField] CharacterSpeakHUDManager m_speakHUDManager;
+
+        void Start()
+        {
+            if(m_speakHUDManager == null)
+            {
+                m_speakHUDManager = FindAnyObjectByType<CharacterSpeakHUDManager>();
+            }
+        }
 
         public void Execute()
         {

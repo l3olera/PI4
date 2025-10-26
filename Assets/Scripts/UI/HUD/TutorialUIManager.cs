@@ -16,6 +16,7 @@ namespace Player47.UI.HUD
             InputManager.PauseInputPerformed += ExitTutorialHUD;
 
             Triggered?.Invoke();
+            m_tutorialCanvas.SetActive(true);
             PauseManager.CanListenInputPause = false;
             InputManager.CanListenGameplayInputs.Value = false;
         }
