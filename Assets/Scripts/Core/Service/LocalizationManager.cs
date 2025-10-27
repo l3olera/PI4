@@ -113,6 +113,7 @@ namespace Player47.Core.Service
 
             // Notifica que as traduções estão prontas.
             OnFinishTranslations?.Invoke();
+            Debug.Log("<color=red>Terminou todas as traduções</color>");
         }
 
         /// <summary>
@@ -136,7 +137,7 @@ namespace Player47.Core.Service
         /// Altera o idioma do jogo.
         /// </summary>
         /// <param name="languageIndex">Índice do idioma na lista de Locales da Unity.</param>
-        public void SelectLanguage(int languageIndex)
+        public async void SelectLanguage(int languageIndex)
         {
             // Define o idioma na Unity Localization
             LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[languageIndex];
@@ -144,6 +145,10 @@ namespace Player47.Core.Service
             // Salva a preferência de idioma
             PlayerPrefs.SetInt("Language", languageIndex);
             PlayerPrefs.Save();
+
+            // Recarrega todas as traduções no novo idioma
+            _cachedTranslations.Clear();
+            await LoadAllTranslations();
         }
     }
 }

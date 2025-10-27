@@ -12,6 +12,8 @@ namespace Player47.Core.Managers
     {
         public static Observer<bool> IsGamePaused { get; } = new(false);
 
+        public static bool CanListenInputPause = true;
+
         void OnEnable()
         {
             InputManager.PauseInputPerformed += InputManager_OnPauseInputPerformed;
@@ -29,6 +31,8 @@ namespace Player47.Core.Managers
 
         void InputManager_OnPauseInputPerformed()
         {
+            if (!CanListenInputPause) return;
+
             if (Time.timeScale == 0f)
             {
                 ResumeGame();
@@ -39,17 +43,15 @@ namespace Player47.Core.Managers
             }
         }
 
-        public void PauseGame()
+        public static void PauseGame()
         {
             IsGamePaused.Value = true;
-            CursorController.UnlockCursor();
             Time.timeScale = 0f;
         }
 
-        public void ResumeGame()
+        public static void ResumeGame()
         {
             IsGamePaused.Value = false;
-            CursorController.LockCursor();
             Time.timeScale = 1f;
         }
     }

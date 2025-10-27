@@ -1,3 +1,4 @@
+using Player47.Core.Service;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -22,6 +23,8 @@ namespace Player47.Core.Managers
         public static bool IsAiming;
 
         public InputActionAsset inputActions;
+
+        public static Observer<bool> CanListenGameplayInputs = new(true);
 
         InputAction _shootAction;
         InputAction _aimAction;
@@ -58,6 +61,8 @@ namespace Player47.Core.Managers
             inputActions.FindAction("UseTorch").performed -= OnUseTorch;
             inputActions.FindAction("Pause").performed -= OnPause;
             inputActions.FindAction("Interact").performed -= OnInteract;
+
+            PauseManager.IsGamePaused.RemoveListener(PauseManager_IsGamePaused);
         }
 
         void Start()
@@ -83,6 +88,8 @@ namespace Player47.Core.Managers
             inputActions.FindAction("UseTorch").performed += OnUseTorch;
             inputActions.FindAction("Pause").performed += OnPause;
             inputActions.FindAction("Interact").performed += OnInteract;
+
+            PauseManager.IsGamePaused.AddListener(PauseManager_IsGamePaused);
         }
 
         void Update()
@@ -99,9 +106,14 @@ namespace Player47.Core.Managers
             }
         }
 
+        void PauseManager_IsGamePaused(bool isGamePaused)
+        {
+            CanListenGameplayInputs.Value = !isGamePaused;
+        }
+
         void OnShoot(bool value)
         {
-            if (PauseManager.IsGamePaused.Value || (!IsShooting && !value)) return;
+            if (!CanListenGameplayInputs.Value || (!IsShooting && !value)) return;
 
             IsShooting = value;
             ShootInputPerformed?.Invoke(value);
@@ -110,7 +122,7 @@ namespace Player47.Core.Managers
 
         void OnAim(bool value)
         {
-            if (PauseManager.IsGamePaused.Value || IsAiming == value) return;
+            if (!CanListenGameplayInputs.Value || IsAiming == value) return;
 
             IsAiming = value;
             AimInputPerformed?.Invoke(value);
@@ -118,13 +130,13 @@ namespace Player47.Core.Managers
 
         void OnReload(InputAction.CallbackContext ctx)
         {
-            if (PauseManager.IsGamePaused.Value) return;
+            if (!CanListenGameplayInputs.Value) return;
             ReloadInputPerformed?.Invoke();
         }
 
         void OnUseTorch(InputAction.CallbackContext ctx)
         {
-            if (PauseManager.IsGamePaused.Value) return;
+            if (!CanListenGameplayInputs.Value) return;
             TorchInputPerformed?.Invoke();
         }
 
@@ -135,7 +147,7 @@ namespace Player47.Core.Managers
 
         void OnInteract(InputAction.CallbackContext ctx)
         {
-            if (PauseManager.IsGamePaused.Value) return;
+            if (!CanListenGameplayInputs.Value) return;
             InteractInputPerformed?.Invoke();
         }
     }

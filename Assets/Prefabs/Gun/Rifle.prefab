@@ -123,16 +123,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isReloading: 0
-  _projectilePrefab: {fileID: 8572612949910413019, guid: 1ead79d22156c1d42a2b2b0a84b9b483, type: 3}
-  _firePoint: {fileID: 6012880353022959762}
+  _playerCamera: {fileID: 0}
   _currentAmmo: 0
   _ammoCapacity: 10
+  _damage: 10
   _fireRate: 5
+  _range: 0
   _reloadTime: 2
-  _projectileVelocity: 500
-  _collectionCheck: 1
-  defaultCapacity: 10
-  maxSize: 20
+  _hittableLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &4962068451926988696
 GameObject:
   m_ObjectHideFlags: 0
