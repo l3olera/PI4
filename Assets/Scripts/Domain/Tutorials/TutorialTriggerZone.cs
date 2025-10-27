@@ -9,13 +9,19 @@ namespace Player47.Domain.Tutorials
     {
         public event Action Triggered;
 
-        Collider m_collider;
+        Collider[] m_colliders;
         Rigidbody m_rigidbody;
 
         void Awake()
         {
-            m_collider = GetComponent<Collider>();
-            m_collider.isTrigger = true;
+            m_colliders = GetComponents<Collider>();
+            if (m_colliders.Length > 0)
+            {
+                foreach (Collider col in m_colliders) 
+                {
+                    col.isTrigger = true;
+                }
+            }
 
             m_rigidbody = GetComponent<Rigidbody>();
             m_rigidbody.useGravity = false;
@@ -27,7 +33,10 @@ namespace Player47.Domain.Tutorials
             if (other.CompareTag("Player"))
             {
                 Triggered?.Invoke();
-                m_collider.enabled = false;
+                foreach(Collider col in m_colliders)
+                {
+                    col.enabled = false;
+                }
             }
         }
     }
