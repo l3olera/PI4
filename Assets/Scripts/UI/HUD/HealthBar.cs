@@ -1,4 +1,4 @@
-using UnityEngine;
+ using UnityEngine;
 using UnityEngine.UI;
 using Player47.Domain.Player;
 
@@ -16,7 +16,7 @@ namespace Player47.UI.HUD
 
         void OnDisable()
         {
-            PlayerHealth.Instance.CurrentHealth.RemoveListener(UpdateBar);    
+           PlayerHealth.Instance.CurrentHealth.RemoveListener(UpdateBar);    
         }
 
         void Start()

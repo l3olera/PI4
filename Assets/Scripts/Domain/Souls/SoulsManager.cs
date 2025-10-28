@@ -1,4 +1,5 @@
 using Player47.Core.Service;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -40,6 +41,11 @@ namespace Player47.Domain.Souls
             {
                 _souls.Value = 0;
             }
+        }
+
+        public bool CanAfford(int cost)
+        {
+            return _souls.Value >= cost;
         }
 
         // Métodos para observadores se inscreverem

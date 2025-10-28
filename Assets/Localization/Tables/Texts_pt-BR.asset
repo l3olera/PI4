@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: pt-BR
   m_SharedData: {fileID: 11400000, guid: 16ae8b982f8e5ee458989b4a56cf5915, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 6749919003178172509
   m_TableData:
   - m_Id: 1
     m_Localized: "Usu\xE1rio: JogadorN\xBA470058"
@@ -237,23 +238,24 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 53
-    m_Localized: Fonte
+    m_Localized: Interagir com Fonte
     m_Metadata:
       m_Items: []
   - m_Id: 54
-    m_Localized: Fonte de agua vida
+    m_Localized: Fonte da vida
     m_Metadata:
       m_Items: []
   - m_Id: 55
     m_Localized: vida atual
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 6749919003178172509
   - m_Id: 56
-    m_Localized: beber da agua = custo de              almas
+    m_Localized: beber da agua = custo {0} almas
     m_Metadata:
       m_Items: []
   - m_Id: 57
-    m_Localized: Fornalha
+    m_Localized: Interagir com Fornalha
     m_Metadata:
       m_Items: []
   - m_Id: 58
@@ -269,7 +271,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 61
-    m_Localized: Bigorna
+    m_Localized: Interagir com Bigorna
     m_Metadata:
       m_Items: []
   - m_Id: 62
@@ -413,13 +415,23 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 95
-    m_Localized: "CONC\xC9PTS"
+    m_Localized: CONCEPTS
     m_Metadata:
       m_Items: []
   - m_Id: 96
     m_Localized: '"OBRIGADO POR JOGAR NOSSO JOGO"'
     m_Metadata:
       m_Items: []
+  - m_Id: 97
+    m_Localized: Interagir com
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 6749919003178172509
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 55
