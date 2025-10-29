@@ -14,22 +14,17 @@ namespace Player47.Domain.Upgrade
         [SerializeField] string m_key;
         [SerializeField] TextMeshProUGUI m_textButtonHealth;
 
-        protected override void Start()
-        {
-            base.Start();
-            TextUISmartStringSetter.Instance.SetText(m_textButtonHealth, m_key, currentStation.GetUpgrades()[0].Cost.ToString());
-        }
-
         public override void Open(UpgradeStation station)
         {
             base.Open(station);
+
             var upgrade = currentStation.GetUpgrades()[0];
             TextUISmartStringSetter.Instance.SetText(m_textButtonHealth, m_key, upgrade.Cost);
         }
 
         protected override void UpdateUI()
         {
-            m_textCurrentHealth.SetText(PlayerHealth.Instance.CurrentHealth.ToString());
+            m_textCurrentHealth.SetText(PlayerHealth.Instance.CurrentHealth.Value.ToString());
 
             var upgrade = currentStation.GetUpgrades()[0];
             TextUISmartStringSetter.Instance.SetText(m_textButtonHealth, m_key, upgrade.Cost);
