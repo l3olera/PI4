@@ -1,4 +1,6 @@
-﻿using Player47.Domain.Player;
+﻿using Player47.Core.Managers;
+using Player47.Core.Service;
+using Player47.Domain.Player;
 using Player47.Domain.Souls;
 using Player47.Domain.Upgrade.Actions;
 using Player47.UI;
@@ -18,6 +20,7 @@ namespace Player47.Domain.Upgrade
         protected virtual void Start()
         {
             player = FindFirstObjectByType<PlayerUpgradeStats>();
+            panel.SetActive(false);
         }
 
         public virtual void Open(UpgradeStation station)
@@ -25,6 +28,9 @@ namespace Player47.Domain.Upgrade
             currentStation = station;
             panel.SetActive(true);
             UpdateUI();
+            PauseManager.CanListenInputPause = false;
+            InputManager.CanListenGameplayInputs.Value = false;
+            CursorController.UnlockCursor();
         }
 
         protected abstract void UpdateUI();
@@ -40,7 +46,12 @@ namespace Player47.Domain.Upgrade
             UpdateUI();
         }
 
-        public void Close() => panel.SetActive(false);
+        public void Close() {
+            panel.SetActive(false);
+            CursorController.LockCursor();
+            InputManager.CanListenGameplayInputs.Value = true;
+            PauseManager.CanListenInputPause = true;
+        }
     }
 
 }
