@@ -12,9 +12,9 @@ namespace Player47.Domain.Upgrade
         [SerializeField] List<MonoBehaviour> upgradeComponents; // arraste scripts concretos no inspector
         readonly List<IUpgradeAction> _upgrades = new();
 
-        [SerializeField] string m_translateKey;
+        [SerializeField] string m_translateKeyInteract;
 
-        public string TranslateKey => m_translateKey;
+        public string TranslateKey => m_translateKeyInteract;
 
         public bool CanShowText => true;
 

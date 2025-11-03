@@ -5,6 +5,7 @@ namespace Player47.Domain.Upgrade.Actions
 {
     public class HealthUpgrade : MonoBehaviour, IUpgradeAction
     {
+        public IDUpgradeAction IdUpgrade => IDUpgradeAction.Health;
         public string KeyUpgradeName => "Aumentar Vida";
         public int Cost => 50; // Exemplo de custo
 

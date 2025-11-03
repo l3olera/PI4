@@ -19,7 +19,7 @@ namespace Player47.Domain.Player
 
         [SerializeField] Light m_torchLight;
 
-        public float Range { get; private set; } = 20f;
+        public static float Range { get; private set; } = 20f;
 
         void OnEnable()
         {

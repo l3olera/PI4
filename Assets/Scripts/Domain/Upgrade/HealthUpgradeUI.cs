@@ -2,6 +2,8 @@ using TMPro;
 using UnityEngine;
 using Player47.Domain.Player;
 using Player47.UI;
+using System.Collections.Generic;
+using Player47.Domain.Upgrade.Actions;
 
 namespace Player47.Domain.Upgrade
 {
@@ -14,20 +16,30 @@ namespace Player47.Domain.Upgrade
         [SerializeField] string m_key;
         [SerializeField] TextMeshProUGUI m_textButtonHealth;
 
+        IUpgradeAction m_upgradeActionHealth;
+
         public override void Open(UpgradeStation station)
         {
             base.Open(station);
 
-            var upgrade = currentStation.GetUpgrades()[0];
-            TextUISmartStringSetter.Instance.SetText(m_textButtonHealth, m_key, upgrade.Cost);
+            TextUISmartStringSetter.Instance.SetText(m_textButtonHealth, m_key, m_upgradeActionHealth.Cost);
+        }
+
+        public void TryUpgradeHealth()
+        {
+            TryUpgrade(m_upgradeActionHealth);
         }
 
         protected override void UpdateUI()
         {
+            if (m_upgradeActionHealth == null)
+            {
+                m_upgradeActionHealth = GetUpgradeById(IDUpgradeAction.Health);
+            }
+
             m_textCurrentHealth.SetText(PlayerHealth.Instance.CurrentHealth.Value.ToString());
 
-            var upgrade = currentStation.GetUpgrades()[0];
-            TextUISmartStringSetter.Instance.SetText(m_textButtonHealth, m_key, upgrade.Cost);
+            TextUISmartStringSetter.Instance.SetText(m_textButtonHealth, m_key, m_upgradeActionHealth.Cost);
         }
     }
 }

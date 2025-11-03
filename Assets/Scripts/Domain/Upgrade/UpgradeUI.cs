@@ -3,8 +3,7 @@ using Player47.Core.Service;
 using Player47.Domain.Player;
 using Player47.Domain.Souls;
 using Player47.Domain.Upgrade.Actions;
-using Player47.UI;
-using TMPro;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Player47.Domain.Upgrade
@@ -16,6 +15,7 @@ namespace Player47.Domain.Upgrade
 
         protected UpgradeStation currentStation;
 
+        protected List<IUpgradeAction> m_upgradesAction;
 
         protected virtual void Start()
         {
@@ -23,9 +23,27 @@ namespace Player47.Domain.Upgrade
             panel.SetActive(false);
         }
 
+        protected IUpgradeAction GetUpgradeById(IDUpgradeAction id)
+        {
+            if (m_upgradesAction != null && m_upgradesAction.Count > 0)
+            {
+                foreach (var action in m_upgradesAction)
+                {
+                    if (action.IdUpgrade == id)
+                    {
+                        return action;
+                    }
+                } 
+            }
+
+            return null;
+        } 
+
         public virtual void Open(UpgradeStation station)
         {
             currentStation = station;
+            m_upgradesAction = currentStation.GetUpgrades();
+
             panel.SetActive(true);
             UpdateUI();
             PauseManager.CanListenInputPause = false;

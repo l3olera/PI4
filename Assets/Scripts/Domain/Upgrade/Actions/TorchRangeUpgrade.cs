@@ -5,6 +5,7 @@ namespace Player47.Domain.Upgrade.Actions
 {
     public class TorchRangeUpgrade : MonoBehaviour, IUpgradeAction
     {
+        public IDUpgradeAction IdUpgrade => IDUpgradeAction.Range;
         public string KeyUpgradeName => "Aumentar Alcance da Tocha";
         public int Cost => 100;
 

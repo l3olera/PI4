@@ -28,6 +28,16 @@ namespace Player47.Domain.Souls
             }
         }
 
+#if UNITY_EDITOR
+        private void Update()
+        {
+            // Código de teste para adicionar almas pressionando a tecla "K"
+            if(Input.GetKeyDown(KeyCode.K))
+            {
+                AddSouls(100);
+            }
+        }
+#endif
         public void AddSouls(int amount)
         {
             _souls.Value += amount;

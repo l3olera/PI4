@@ -6,6 +6,7 @@ namespace Assets.Scripts.Domain.Upgrade.Actions
 {
     public class WeaponDamageUpgrade : MonoBehaviour, IUpgradeAction
     {
+        public IDUpgradeAction IdUpgrade => IDUpgradeAction.Damage;
         public string KeyUpgradeName => "Aumentar Dano da Arma";
         public int Cost => 75;
 

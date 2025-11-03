@@ -267,7 +267,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 60
-    m_Localized: Encantar tocha = custo de           almas
+    m_Localized: Encantar tocha = custo de {0} almas
     m_Metadata:
       m_Items: []
   - m_Id: 61
@@ -283,7 +283,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 64
-    m_Localized: Almentar cadencia = custo de           almas
+    m_Localized: Aumentar cadencia = custo de {0} almas
     m_Metadata:
       m_Items: []
   - m_Id: 65
@@ -291,7 +291,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 66
-    m_Localized: Almentar dano = custo de        almas
+    m_Localized: Aumentar dano = custo de {0} almas
     m_Metadata:
       m_Items: []
   - m_Id: 67

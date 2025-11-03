@@ -267,7 +267,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 60
-    m_Localized: Enchant torch = cost          of souls
+    m_Localized: Enchant torch = cost {0} of souls
     m_Metadata:
       m_Items: []
   - m_Id: 61
@@ -283,7 +283,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 64
-    m_Localized: Increase cadence = cost          of souls
+    m_Localized: Increase cadence = cost {0} of souls
     m_Metadata:
       m_Items: []
   - m_Id: 65
@@ -291,7 +291,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 66
-    m_Localized: Increase damage = cost          of souls
+    m_Localized: Increase damage = cost {0} of souls
     m_Metadata:
       m_Items: []
   - m_Id: 67
