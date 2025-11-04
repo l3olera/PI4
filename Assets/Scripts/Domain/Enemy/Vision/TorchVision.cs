@@ -5,7 +5,6 @@ namespace Player47.Domain.Enemy.Vision
 {
     public class TorchVision : IEnemyVision
     {
-
         public bool CanSeePlayer(Transform enemy, Transform player, EnemyStatsSO stats)
         {
             if (!TorchController.TorchEquippedValue) return false;

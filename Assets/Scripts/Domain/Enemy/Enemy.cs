@@ -15,7 +15,6 @@ namespace Player47.Domain.Enemy
         EnemyState _currentState;
         protected int _currentHealth;
 
-
         [Header("Vision")]
         [SerializeField] protected IEnemyVision _vision;
 

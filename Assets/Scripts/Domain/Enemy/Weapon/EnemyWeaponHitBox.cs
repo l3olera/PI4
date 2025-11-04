@@ -5,7 +5,7 @@ namespace Player47.Domain.Enemy.Weapon
 {
     public class EnemyWeaponHitBox : MonoBehaviour
     {
-        public int damage;
+        int m_damage;
 
         bool _canDamage;//Controla se o inimigo pode causar dano ou não
         bool _hasHit; //Para evitar que o inimigo acerte mais de uma vez no mesmo ataque
@@ -13,6 +13,7 @@ namespace Player47.Domain.Enemy.Weapon
         void Start()
         {
             GetComponentInParent<EnemyWeaponController>().weaponHitBox = this;  //Instancia o hitbox no seu controlador
+            m_damage = GetComponentInParent<Enemy>().stats.damage; //Pega o dano do inimigo
         }
 
         void OnTriggerStay(Collider other)
@@ -21,7 +22,7 @@ namespace Player47.Domain.Enemy.Weapon
                 if(_hasHit) return; //Se já acertou, não acerta de novo
                 if (other.TryGetComponent<IDamageable>(out IDamageable damageable))
                 {
-                    damageable.TakeDamage(damage);
+                    damageable.TakeDamage(m_damage);
                     _hasHit = true; //Marca que já acertou
                 }
             }
