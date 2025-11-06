@@ -15,7 +15,7 @@ MonoBehaviour:
   maxHealth: 20
   moveSpeed: 5
   acceleration: 2
-  damage: 0
+  damage: 5
   attackInterval: 2
   attackRange: 2
   visionRange: 20
