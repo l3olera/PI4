@@ -105,7 +105,7 @@ namespace StarterAssets
 
         void OnDisable()
         {
-            PauseManager.IsGamePaused.RemoveListener(InputManager_CanListenGameplayInputs);
+            InputManager.CanListenGameplayInputs.RemoveListener(InputManager_CanListenGameplayInputs);
         }
 
         private void Start()

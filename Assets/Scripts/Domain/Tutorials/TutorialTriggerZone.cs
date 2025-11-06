@@ -15,6 +15,7 @@ namespace Player47.Domain.Tutorials
         void Awake()
         {
             m_colliders = GetComponents<Collider>();
+
             if (m_colliders.Length > 0)
             {
                 foreach (Collider col in m_colliders) 

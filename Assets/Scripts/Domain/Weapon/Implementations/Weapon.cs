@@ -13,6 +13,8 @@ namespace Player47.Domain.Weapon.Implementations
     {        
         public int ScoreMaxAmmo { get; private set;  }
         public bool isReloading;
+        public int Damage => _damage;
+        public float FireRate => _fireRate;
 
         [Header("Componentes da arma")]
         [SerializeField] Camera _playerCamera;
@@ -137,6 +139,16 @@ namespace Player47.Domain.Weapon.Implementations
                     damageable.TakeDamage(_damage); //Aplica o dano ao objeto atingido
                 }
             }
+        }
+
+        public void IncreaseDamage(int amount)
+        {
+            _damage += amount;
+        }
+
+        public void IncreaseFireRate(float amountPerc)
+        {
+            _fireRate *= amountPerc;
         }
     }
 }

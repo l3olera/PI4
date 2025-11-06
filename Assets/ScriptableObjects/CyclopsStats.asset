@@ -15,8 +15,10 @@ MonoBehaviour:
   maxHealth: 150
   moveSpeed: 6
   acceleration: 2
+  damage: 30
   attackInterval: 1
   attackRange: 2
   visionRange: 15
   visionAngle: 45
   soulReward: 20
+  canAlwaysSee: 0

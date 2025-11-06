@@ -17,6 +17,9 @@ namespace Player47.Domain.Player
 
         public static bool TorchEquippedValue => IsTorchEquipped.Value;
 
+        [SerializeField] Light m_torchLight;
+
+        public static float Range { get; private set; } = 20f;
 
         void OnEnable()
         {
@@ -28,6 +31,11 @@ namespace Player47.Domain.Player
             InputManager.TorchInputPerformed -= InputManager_OnTorchInputPerformed;
         }
 
+        void Start()
+        {
+            SetRangeToLight();
+        }
+
         void InputManager_OnTorchInputPerformed()
         {
             ToggleTorch();
@@ -36,6 +44,17 @@ namespace Player47.Domain.Player
         public void ToggleTorch()
         {
             IsTorchEquipped.Value = !IsTorchEquipped.Value;
+        }
+
+        public void IncreaseRange(float percentage)
+        {
+            Range *= percentage;
+            SetRangeToLight();
+        }
+
+        void SetRangeToLight()
+        {
+            m_torchLight.range = Range;
         }
     }
 }

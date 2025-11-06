@@ -8,9 +8,9 @@ namespace Player47.Domain.Player
     {
         public static PlayerHealth Instance { get; private set; }
 
-        [SerializeField] int _maxHealth = 100;
+        [SerializeField] int m_maxHealth = 100;
 
-        public int MaxHealth => _maxHealth;
+        public int MaxHealth => m_maxHealth;
 
         public Observer<int> CurrentHealth = new(1);
 
@@ -28,8 +28,14 @@ namespace Player47.Domain.Player
         
         void Start()
         {
-            CurrentHealth.Value = _maxHealth;
+            CurrentHealth.Value = m_maxHealth;
             CurrentHealth.Invoke();
+        }
+
+        public void IncreaseMaxHealth(int amount)
+        {
+            m_maxHealth += amount;
+            CurrentHealth.Value = m_maxHealth;
         }
 
         public void TakeDamage(int amount)

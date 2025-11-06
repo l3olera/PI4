@@ -1,4 +1,4 @@
-using UnityEngine;
+ using UnityEngine;
 using UnityEngine.UI;
 using Player47.Domain.Player;
 
@@ -8,20 +8,16 @@ namespace Player47.UI.HUD
     {
         [SerializeField] Image _healthBar;
 
-        void OnEnable()
-        {
-            PlayerHealth.Instance.CurrentHealth.AddListener(UpdateBar);
-            Debug.Log("Se inscreveu");
-        }
-
         void OnDisable()
         {
-            PlayerHealth.Instance.CurrentHealth.RemoveListener(UpdateBar);    
+           PlayerHealth.Instance.CurrentHealth.RemoveListener(UpdateBar);    
         }
 
         void Start()
         {
-            if(_healthBar == null)
+            PlayerHealth.Instance.CurrentHealth.AddListener(UpdateBar);
+
+            if (_healthBar == null)
             {
                 _healthBar = GetComponent<Image>();
             }    
