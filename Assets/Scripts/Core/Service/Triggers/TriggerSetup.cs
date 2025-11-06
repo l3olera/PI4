@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player47.Core.Service
+namespace Player47.Core.Service.Triggers
 {
     [RequireComponent(typeof(Collider), typeof(Rigidbody))]
     public class TriggerSetup : MonoBehaviour

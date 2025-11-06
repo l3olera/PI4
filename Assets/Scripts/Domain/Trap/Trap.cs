@@ -1,5 +1,5 @@
 using UnityEngine;
-using Player47.Core.Service;
+using Player47.Core.Service.Triggers;
 using Player47.Domain.Combat;
 
 namespace Player47.Domain.Trap

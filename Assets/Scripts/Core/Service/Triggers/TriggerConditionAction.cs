@@ -1,7 +1,6 @@
-using Player47.Core;
 using UnityEngine;
 
-namespace Player47.Core.Service
+namespace Player47.Core.Service.Triggers
 {
     public class TriggerConditionAction : MonoBehaviour
     {

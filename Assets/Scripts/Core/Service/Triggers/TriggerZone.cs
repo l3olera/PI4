@@ -1,11 +1,8 @@
-using Player47.Core;
-using Player47.Core.Service;
 using System;
 using UnityEngine;
 
-namespace Player47.Domain.Tutorials
+namespace Player47.Core.Service.Triggers
 {
-    [RequireComponent(typeof(Collider),typeof(Rigidbody))]
     public class TriggerZone : TriggerSetup, IEventSource
     {
         public event Action Triggered;
