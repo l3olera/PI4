@@ -4,7 +4,7 @@ using Player47.Domain.Combat;
 
 namespace Player47.Domain.Trap
 {
-    public class Trap : Trigger
+    public class Trap : TriggerSetup
     {
         public int damage;
         [SerializeField] Animator m_anim;

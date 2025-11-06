@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Player47.Domain.Tutorials
 {
-    public class DialogueAction : MonoBehaviour, ITutorialAction
+    public class DialogueAction : MonoBehaviour, IAction
     {
         public string keyText;
         public float durationText = 3f;

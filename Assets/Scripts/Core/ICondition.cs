@@ -1,6 +1,6 @@
 namespace Player47.Core
 {
-	public interface ITutorialCondition
+	public interface ICondition
 	{
 		bool IsMet();
 	}

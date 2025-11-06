@@ -1,6 +1,6 @@
 ﻿namespace Player47.Core
 {
-    public interface ITutorialAction
+    public interface IAction
     {
         void Execute();
     }

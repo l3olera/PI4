@@ -5,7 +5,7 @@ using System;
 
 namespace Player47.UI.HUD
 {
-    public class TutorialUIManager : MonoBehaviour, ITutorialTrigger
+    public class TutorialUIManager : MonoBehaviour, IEventSource
     {
         [SerializeField] GameObject m_tutorialCanvas;
 

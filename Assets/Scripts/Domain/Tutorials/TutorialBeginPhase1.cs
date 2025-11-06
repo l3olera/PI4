@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Player47.Domain.Tutorials
 {
-    public class TutorialBeginPhase1 : MonoBehaviour, ITutorialTrigger
+    public class TutorialBeginPhase1 : MonoBehaviour, IEventSource
     {
         public event Action Triggered;
         bool _wasTriggered;
