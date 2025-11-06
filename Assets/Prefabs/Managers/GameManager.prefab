@@ -2059,7 +2059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.size
-      value: 13
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[3].key
@@ -2067,39 +2067,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[4].key
-      value: ZoneEnemyTutorial
+      value: MissionFoundTumb
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[5].key
-      value: ZoneTotemTutorial
+      value: ZoneEnemyTutorial
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[6].key
-      value: InteractFountainUpgrade
+      value: MissionEnemyPhase1
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[7].key
-      value: InteractFurnaceUpgrade
+      value: ZoneTotemTutorial
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[8].key
-      value: InteractAnvilUpgrade
+      value: MissionEndPhase1
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[9].key
-      value: ButtonFountainUpgrade
+      value: InteractFountainUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[10].key
-      value: ButtonFurnanceUpgrade
+      value: InteractFurnaceUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[11].key
-      value: ButtonAnvilUpgradeFireRate
+      value: InteractAnvilUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[12].key
+      value: ButtonFountainUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
+      propertyPath: translations.Array.data[13].key
+      value: ButtonFurnanceUpgrade
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
+      propertyPath: translations.Array.data[14].key
+      value: ButtonAnvilUpgradeFireRate
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
+      propertyPath: translations.Array.data[15].key
       value: ButtonAnvilUpgradeDamage
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
+      propertyPath: translations.Array.data[16].key
+      value: ReloadText
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[3].localizedString.m_TableEntryReference.m_KeyId
@@ -2107,39 +2123,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[4].localizedString.m_TableEntryReference.m_KeyId
-      value: 34
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[5].localizedString.m_TableEntryReference.m_KeyId
-      value: 36
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[6].localizedString.m_TableEntryReference.m_KeyId
-      value: 53
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[7].localizedString.m_TableEntryReference.m_KeyId
-      value: 57
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[8].localizedString.m_TableEntryReference.m_KeyId
-      value: 61
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[9].localizedString.m_TableEntryReference.m_KeyId
-      value: 56
+      value: 53
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[10].localizedString.m_TableEntryReference.m_KeyId
-      value: 60
+      value: 57
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[11].localizedString.m_TableEntryReference.m_KeyId
-      value: 64
+      value: 61
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[12].localizedString.m_TableEntryReference.m_KeyId
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
+      propertyPath: translations.Array.data[13].localizedString.m_TableEntryReference.m_KeyId
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
+      propertyPath: translations.Array.data[14].localizedString.m_TableEntryReference.m_KeyId
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
+      propertyPath: translations.Array.data[15].localizedString.m_TableEntryReference.m_KeyId
       value: 66
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
+      propertyPath: translations.Array.data[16].localizedString.m_TableEntryReference.m_KeyId
+      value: 23375245598425088
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[5].localizedString.m_TableReference.m_TableCollectionName
@@ -2173,6 +2205,22 @@ PrefabInstance:
       propertyPath: translations.Array.data[12].localizedString.m_TableReference.m_TableCollectionName
       value: GUID:16ae8b982f8e5ee458989b4a56cf5915
       objectReference: {fileID: 0}
+    - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
+      propertyPath: translations.Array.data[13].localizedString.m_TableReference.m_TableCollectionName
+      value: GUID:16ae8b982f8e5ee458989b4a56cf5915
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
+      propertyPath: translations.Array.data[14].localizedString.m_TableReference.m_TableCollectionName
+      value: GUID:16ae8b982f8e5ee458989b4a56cf5915
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
+      propertyPath: translations.Array.data[15].localizedString.m_TableReference.m_TableCollectionName
+      value: GUID:16ae8b982f8e5ee458989b4a56cf5915
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
+      propertyPath: translations.Array.data[16].localizedString.m_TableReference.m_TableCollectionName
+      value: GUID:16ae8b982f8e5ee458989b4a56cf5915
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2191,6 +2239,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3440923920295226753}
     m_Modifications:
+    - target: {fileID: 369006981578720569, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788976728697199007, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
+      propertyPath: m_textAmmo
+      value: 
+      objectReference: {fileID: 5294929600556978722}
+    - target: {fileID: 1788976728697199007, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
+      propertyPath: keyAdviseReload
+      value: ReloadText
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788976728697199007, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
+      propertyPath: m_textAdviseReload
+      value: 
+      objectReference: {fileID: 7126690816516786931}
+    - target: {fileID: 1788976728697199007, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
+      propertyPath: m_textTranslateSetter
+      value: 
+      objectReference: {fileID: 2227809797993115976}
     - target: {fileID: 3157071061698847865, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
       propertyPath: m_Name
       value: UI
@@ -2295,6 +2363,10 @@ PrefabInstance:
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5409528583988898020, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
+      propertyPath: m_Name
+      value: Text_Ammo
+      objectReference: {fileID: 0}
     - target: {fileID: 5847843039350043193, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
       propertyPath: m_SizeDelta.x
       value: 283.5413
@@ -2314,6 +2386,14 @@ PrefabInstance:
     - target: {fileID: 8584129523173867765, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
       propertyPath: m_ReferenceResolution.y
       value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643092775324889706, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 268.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 8643092775324889706, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 49.007
       objectReference: {fileID: 0}
     - target: {fileID: 8981414862971111170, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2450,6 +2530,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_textMission: {fileID: 6168263784658268984}
   m_translateSetter: {fileID: 2227809797993115976}
+--- !u!114 &5294929600556978722 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3351434612965400040, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
+  m_PrefabInstance: {fileID: 7492281606592663498}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5488134275135941555 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3157071061698847865, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
@@ -2460,3 +2551,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 535659105094577038, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
   m_PrefabInstance: {fileID: 7492281606592663498}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7126690816516786931 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 369006981578720569, guid: 7773b3610adeaef4e9ba3d05ccc59440, type: 3}
+  m_PrefabInstance: {fileID: 7492281606592663498}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

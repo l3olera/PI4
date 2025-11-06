@@ -26,12 +26,12 @@ namespace Player47.Domain.Phase1
             else
                 Debug.Log("EntranceTumb inscrita no evento!");
 
-            TotemManager.Instance.AllTotemsDeactivated += OnAllTotemsDeactivated;
+            TotemManager.Instance.AllTotemsDeactivated.AddListener(OnAllTotemsDeactivated);
         }
 
         void OnDisable()
         {
-            TotemManager.Instance.AllTotemsDeactivated -= OnAllTotemsDeactivated;
+        TotemManager.Instance.AllTotemsDeactivated.RemoveListener(OnAllTotemsDeactivated);
         }
 
         public void Interact()
