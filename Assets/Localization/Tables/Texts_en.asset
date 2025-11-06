@@ -426,6 +426,10 @@ MonoBehaviour:
     m_Localized: Interact with
     m_Metadata:
       m_Items: []
+  - m_Id: 23375245598425088
+    m_Localized: Reloading
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
