@@ -1,4 +1,5 @@
 using Player47.Core.Service;
+using Player47.Domain.Player;
 using Player47.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -30,6 +31,11 @@ namespace Player47.SceneManagement
                 _player.SetActive(false);
                 _pauseManager.SetActive(false);
                 CursorController.UnlockCursor();
+                TorchController.CanUseTorch = false;
+            }
+            else
+            {
+                TorchController.CanUseTorch = true;
             }
         }
 

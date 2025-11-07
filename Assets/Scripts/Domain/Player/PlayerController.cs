@@ -1,6 +1,7 @@
 using UnityEngine;
 using Player47.Core.Managers;
 using Player47.Domain.Weapon.Abstractions;
+using Player47.Core;
 
 namespace Player47.Domain.Player
 {
