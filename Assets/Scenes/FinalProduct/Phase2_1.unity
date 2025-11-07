@@ -2785,6 +2785,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8961260351989802810, guid: e0cd2cd7e993b1842a41b0b5682a213a, type: 3}
+      propertyPath: TopClamp
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8961260351989802810, guid: e0cd2cd7e993b1842a41b0b5682a213a, type: 3}
+      propertyPath: BottomClamp
+      value: -89
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19231,6 +19239,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1493589532}
     m_Modifications:
+    - target: {fileID: 2754657567177832493, guid: 0d5130837d09777438e6a4adfaa5207b, type: 3}
+      propertyPath: m_Size.x
+      value: 1.2426472
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754657567177832493, guid: 0d5130837d09777438e6a4adfaa5207b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7529516
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754657567177832493, guid: 0d5130837d09777438e6a4adfaa5207b, type: 3}
+      propertyPath: m_Size.z
+      value: 1.3269236
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754657567177832493, guid: 0d5130837d09777438e6a4adfaa5207b, type: 3}
+      propertyPath: m_Center.x
+      value: 0.03487301
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754657567177832493, guid: 0d5130837d09777438e6a4adfaa5207b, type: 3}
+      propertyPath: m_Center.y
+      value: 0.41572595
+      objectReference: {fileID: 0}
+    - target: {fileID: 2754657567177832493, guid: 0d5130837d09777438e6a4adfaa5207b, type: 3}
+      propertyPath: m_Center.z
+      value: 1.0905997
+      objectReference: {fileID: 0}
     - target: {fileID: 2868291910426192580, guid: 0d5130837d09777438e6a4adfaa5207b, type: 3}
       propertyPath: _waypoints.Array.size
       value: 11

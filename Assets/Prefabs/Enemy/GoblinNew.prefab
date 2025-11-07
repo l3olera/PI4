@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 7582817151580849243}
   - component: {fileID: 4337604823604918501}
   - component: {fileID: 5427920125093267509}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: HitAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -961,7 +961,7 @@ GameObject:
   - component: {fileID: 1993411209302823644}
   - component: {fileID: 1149047547647641298}
   - component: {fileID: 5824487175581844686}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GoblinNew
   m_TagString: Untagged
   m_Icon: {fileID: 0}

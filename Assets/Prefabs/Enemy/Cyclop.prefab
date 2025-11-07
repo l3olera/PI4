@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2019647323921014520}
   - component: {fileID: 3951607681064013503}
   - component: {fileID: 9002744510761773975}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cyclop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
