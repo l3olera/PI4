@@ -1,6 +1,8 @@
-﻿using Player47.Core.Service;
+﻿using Player47.Core;
+using Player47.Core.Service;
 using Player47.Domain.Combat;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player47.Domain.Player
 {
@@ -50,7 +52,9 @@ namespace Player47.Domain.Player
 
         void Die()
         {
-            Debug.Log("Player Died");
+            SpawnPoint.Instance.RespawnPlayerAtPosition(transform);
+            CurrentHealth.Value = m_maxHealth;
+            CurrentHealth.Invoke();
         }
     }
 }

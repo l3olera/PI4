@@ -3,7 +3,8 @@
     "rootNamespace": "",
     "references": [
         "Player47.Core",
-        "Player47.UI"
+        "Player47.UI",
+        "Player47.Domain.Player"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

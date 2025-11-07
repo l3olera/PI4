@@ -1,0 +1,16 @@
+{
+    "name": "Player47.Domain.Phase2",
+    "rootNamespace": "",
+    "references": [
+        "Player47.Core"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

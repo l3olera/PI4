@@ -17,6 +17,8 @@ namespace Player47.Domain.Player
 
         public static bool TorchEquippedValue => IsTorchEquipped.Value;
 
+        public static bool CanUseTorch = false;
+
         [SerializeField] Light m_torchLight;
 
         public static float Range { get; private set; } = 20f;
@@ -43,6 +45,7 @@ namespace Player47.Domain.Player
 
         public void ToggleTorch()
         {
+            if (!CanUseTorch) return;
             IsTorchEquipped.Value = !IsTorchEquipped.Value;
         }
 
