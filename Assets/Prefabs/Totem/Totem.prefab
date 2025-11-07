@@ -580,7 +580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
-  m_enemyPrefab: {fileID: 6654699334931345846, guid: e49d74a2dbda98947a1857812218fd4f, type: 3}
+  m_enemyPrefab: {fileID: 7571248769377402232, guid: 0503ad5c69989c1418d48e8cf5d4cad2, type: 3}
   m_wayPoints:
   - {fileID: 6749834524050695422}
   - {fileID: 7129545280076439900}

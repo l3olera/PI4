@@ -2,7 +2,7 @@
 
 namespace Player47.Core
 {
-    public interface ITutorialTrigger
+    public interface IEventSource
     {
         event Action Triggered;
     }

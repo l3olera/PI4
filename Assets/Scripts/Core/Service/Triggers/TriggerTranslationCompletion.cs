@@ -1,11 +1,9 @@
-﻿using Player47.Core;
-using Player47.Core.Service;
-using System;
+﻿using System;
 using UnityEngine;
 
-namespace Player47.Domain.Tutorials
+namespace Player47.Core.Service.Triggers
 {
-    public class TutorialBeginPhase1 : MonoBehaviour, ITutorialTrigger
+    public class TriggerTranslationCompletion : MonoBehaviour, IEventSource
     {
         public event Action Triggered;
         bool _wasTriggered;

@@ -1,5 +1,5 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace Player47.Domain.Totem
 {
@@ -12,7 +12,7 @@ namespace Player47.Domain.Totem
 
         public int CurrentDeactivatedTotems { get; private set; } = 0;
 
-        public event Action AllTotemsDeactivated;
+        public UnityEvent AllTotemsDeactivated = new();
 
         void Awake()
         {

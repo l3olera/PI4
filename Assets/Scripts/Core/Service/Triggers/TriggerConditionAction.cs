@@ -1,23 +1,22 @@
-using Player47.Core;
 using UnityEngine;
 
-namespace Player47.Domain.Tutorials
+namespace Player47.Core.Service.Triggers
 {
-    public class TutorialStep : MonoBehaviour
+    public class TriggerConditionAction : MonoBehaviour
     {
         [SerializeField] MonoBehaviour triggerComponent;
         [SerializeField] MonoBehaviour conditionComponent;
         [SerializeField] MonoBehaviour actionComponent;
 
-        ITutorialTrigger trigger;
-        ITutorialCondition condition;
-        ITutorialAction action;
+        IEventSource trigger;
+        ICondition condition;
+        IAction action;
 
         void Awake()
         {
-            trigger = triggerComponent as ITutorialTrigger;
-            condition = conditionComponent as ITutorialCondition;
-            action = actionComponent as ITutorialAction;
+            trigger = triggerComponent as IEventSource;
+            condition = conditionComponent as ICondition;
+            action = actionComponent as IAction;
         }
 
         void OnEnable()
