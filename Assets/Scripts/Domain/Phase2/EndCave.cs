@@ -1,6 +1,5 @@
 using Player47.Core;
 using Player47.Core.Service;
-using Player47.Core.Service.Triggers;
 using UnityEngine;
 
 namespace Player47.Domain.Phase2
