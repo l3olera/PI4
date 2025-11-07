@@ -430,6 +430,10 @@ MonoBehaviour:
     m_Localized: Reloading
     m_Metadata:
       m_Items: []
+  - m_Id: 23568257167294464
+    m_Localized: Interact with the door
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
