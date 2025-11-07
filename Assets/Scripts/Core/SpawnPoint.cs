@@ -16,6 +16,7 @@ namespace Player47.Core
 
         public void RespawnPlayerAtPosition(Transform playerTransform)
         {
+            Debug.Log("Ele setou a posição e rotação do player");
             playerTransform.SetPositionAndRotation(transform.position, transform.rotation);
         }
     }

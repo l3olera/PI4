@@ -2,6 +2,7 @@ using UnityEngine;
 using Player47.Core.Managers;
 using Player47.Domain.Weapon.Abstractions;
 using Player47.Core;
+using UnityEngine.SceneManagement;
 
 namespace Player47.Domain.Player
 {
@@ -15,8 +16,17 @@ namespace Player47.Domain.Player
 
         void OnEnable()
         {
+            SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+
             InputManager.ShootInputPerformed += InputManager_OnShootInputPerformed;
             InputManager.ReloadInputPerformed += InputManager_OnReloadInputPerformed;
+        }
+
+        private void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            if(scene.name == "Menu") return;
+
+            SpawnPoint.Instance.RespawnPlayerAtPosition(transform);
         }
 
         void OnDisable()
