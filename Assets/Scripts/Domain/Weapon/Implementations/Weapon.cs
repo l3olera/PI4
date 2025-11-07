@@ -33,6 +33,10 @@ namespace Player47.Domain.Weapon.Implementations
         [SerializeField] GameObject _muzzleFlashPrefab; // O prefab do efeito
         [SerializeField] Transform _muzzlePoint; // O ponto onde o VFX aparecerá
 
+        [Header("Audio")]
+        [SerializeField] AudioSource _audioSource;
+        [SerializeField] AudioClip _shootSound;
+
         float _nextTimeToFire = 0f;
 
         void Start()
@@ -59,6 +63,11 @@ namespace Player47.Domain.Weapon.Implementations
                         var vfx = Instantiate(_muzzleFlashPrefab, _muzzlePoint.position, _muzzlePoint.rotation);
 
                         vfx.transform.SetParent(_muzzlePoint); //Anexa o VFX ao ponto do cano para que ele se mova com a arma
+                    }
+
+                    if(_audioSource != null && _shootSound != null)
+                    {
+                        _audioSource.PlayOneShot(_shootSound); //Toca o som de tiro
                     }
 
                     _nextTimeToFire = Time.time + 1f / _fireRate; //Armazena o tempo para o próximo tiro
