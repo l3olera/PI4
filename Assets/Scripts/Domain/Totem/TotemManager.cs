@@ -40,5 +40,12 @@ namespace Player47.Domain.Totem
                 CurrentDeactivatedTotems = TotalTotems;
             }
         }
+
+        [ContextMenu("Deactivate All Totems")]
+        void DeactivateAllTotems()
+        {
+            CurrentDeactivatedTotems = TotalTotems;
+            AllTotemsDeactivated?.Invoke();
+        }
     }
 }

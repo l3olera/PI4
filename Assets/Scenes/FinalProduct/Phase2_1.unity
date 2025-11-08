@@ -3411,6 +3411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28165e1af9502584c95190ffcdb3cd4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canDisableCollidersAfterTrigger: 1
 --- !u!114 &290458102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19998,6 +19999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28165e1af9502584c95190ffcdb3cd4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canDisableCollidersAfterTrigger: 1
 --- !u!114 &1743139318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20265,13 +20267,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764649805}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 47.066124, y: 0.168, z: 3.192843}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1765423070
 GameObject:
   m_ObjectHideFlags: 0
