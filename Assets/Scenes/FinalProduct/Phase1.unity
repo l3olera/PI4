@@ -7139,6 +7139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28165e1af9502584c95190ffcdb3cd4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canDisableCollidersAfterTrigger: 1
 --- !u!114 &480848139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14966,6 +14967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28165e1af9502584c95190ffcdb3cd4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canDisableCollidersAfterTrigger: 0
 --- !u!114 &1197285261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21565,6 +21567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28165e1af9502584c95190ffcdb3cd4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canDisableCollidersAfterTrigger: 1
 --- !u!114 &1799636946
 MonoBehaviour:
   m_ObjectHideFlags: 0
