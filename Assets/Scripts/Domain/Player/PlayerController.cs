@@ -22,15 +22,10 @@ namespace Player47.Domain.Player
             InputManager.ReloadInputPerformed += InputManager_OnReloadInputPerformed;
         }
 
-        private void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
-        {
-            if(scene.name == "Menu") return;
-
-            SpawnPoint.Instance.RespawnPlayerAtPosition(transform);
-        }
-
         void OnDisable()
         {
+            SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
+
             InputManager.ShootInputPerformed -= InputManager_OnShootInputPerformed;
             InputManager.ReloadInputPerformed -= InputManager_OnReloadInputPerformed;
         }
@@ -51,6 +46,14 @@ namespace Player47.Domain.Player
         {
             EquipWeapon(_equippedWeapon ?? (IWeapon)_startinWeapon);
         }
+
+        void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            if (scene.name == "Menu") return;
+
+            SpawnPoint.Instance.RespawnPlayerAtPosition(transform);
+        }
+
 
         public void EquipWeapon(IWeapon weapon)
         {

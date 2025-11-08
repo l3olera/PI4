@@ -35,6 +35,7 @@ namespace Player47.SceneManagement
             }
             else
             {
+                if (SceneManager.GetActiveScene().name == "Phase1") return;
                 TorchController.CanUseTorch = true;
             }
         }
@@ -52,7 +53,7 @@ namespace Player47.SceneManagement
             else // gameplay
             {
                 if (_wasInSceneGameplay) return; // evita reativar se ja estava na cena de gameplay
-
+                Debug.Log("<color=blue>Entered gameplay scene</color>");
                 UIManager.Instance.ShowHUDGameplay(true);
                 _player.SetActive(true);
                 _pauseManager.SetActive(true);
