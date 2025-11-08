@@ -45,6 +45,9 @@ namespace Player47.Domain.Player
         void Start()
         {
             EquipWeapon(_equippedWeapon ?? (IWeapon)_startinWeapon);
+#if UNITY_EDITOR
+            SpawnPoint.Instance.RespawnPlayerAtPosition(transform);
+#endif
         }
 
         void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
