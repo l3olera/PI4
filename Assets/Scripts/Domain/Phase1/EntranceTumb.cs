@@ -31,7 +31,7 @@ namespace Player47.Domain.Phase1
 
         void OnDisable()
         {
-        TotemManager.Instance.AllTotemsDeactivated.RemoveListener(OnAllTotemsDeactivated);
+            TotemManager.Instance.AllTotemsDeactivated.RemoveListener(OnAllTotemsDeactivated);
         }
 
         public void Interact()

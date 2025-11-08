@@ -1,7 +1,9 @@
-using UnityEngine;
-using TMPro;
-using Player47.Domain.Player;
 using Player47.Core.Service;
+using Player47.Domain.Player;
+using TMPro;
+using UnityEditor.SearchService;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player47.UI.HUD
 {
@@ -14,10 +16,20 @@ namespace Player47.UI.HUD
         [SerializeField] TextMeshProUGUI m_textAmmo;
         [SerializeField] TextMeshProUGUI m_textAdviseReload;
         [SerializeField] TextUITranslateSetter m_textTranslateSetter;
+        void Awake()
+        {
+            if (m_textTranslateSetter == null)
+                m_textTranslateSetter = GetComponent<TextUITranslateSetter>();
+        }
 
         void OnEnable()
         {
-            LocalizationManager.OnFinishTranslations += Start;
+            if (m_textAdviseReload != null)
+            {
+                Debug.Log("Configurando texto de recarregar no HUD");
+                m_textTranslateSetter.SetTranslateText(m_textAdviseReload, keyAdviseReload);
+            }
+
             PlayerWeaponHandler.BecomeReloading += WeaponManager_ShowAdviseReload;
             PlayerWeaponHandler.FinishedReloading += WeaponManager_HideAdviseReload;
             PlayerWeaponHandler.AmmoChanged += WeaponManager_AmmoChanged;
@@ -25,22 +37,9 @@ namespace Player47.UI.HUD
 
         void OnDisable()
         {
-            LocalizationManager.OnFinishTranslations -= Start;
             PlayerWeaponHandler.BecomeReloading -= WeaponManager_ShowAdviseReload;
             PlayerWeaponHandler.FinishedReloading -= WeaponManager_HideAdviseReload;
             PlayerWeaponHandler.AmmoChanged -= WeaponManager_AmmoChanged;
-        }
-
-        void Awake()
-        {
-            if (m_textTranslateSetter == null)
-                m_textTranslateSetter = GetComponent<TextUITranslateSetter>();
-        }
-
-        void Start()
-        {
-           if(m_textAdviseReload != null)
-                m_textTranslateSetter.SetTranslateText(m_textAdviseReload, keyAdviseReload);
         }
 
         public void WeaponManager_ShowAdviseReload()

@@ -3,22 +3,23 @@ using UnityEngine;
 
 namespace Player47.Core.Service.Triggers
 {
-    public class TriggerTranslationCompletion : MonoBehaviour, IEventSource
+    public class TriggerBeginScene : MonoBehaviour, IEventSource
     {
         public event Action Triggered;
         bool _wasTriggered;
 
         void Start()
         {
-            LocalizationManager.OnFinishTranslations += LocalizationManager_OnFinishTranslations;
+            LocalizationManager.OnFinishTranslations += TriggerEvent;
+            TriggerEvent();
         }
 
         void OnDisable()
         {
-            LocalizationManager.OnFinishTranslations -= LocalizationManager_OnFinishTranslations;
+            LocalizationManager.OnFinishTranslations -= TriggerEvent;
         }
 
-        void LocalizationManager_OnFinishTranslations()
+        void TriggerEvent()
         {
             if (_wasTriggered) return;
 
