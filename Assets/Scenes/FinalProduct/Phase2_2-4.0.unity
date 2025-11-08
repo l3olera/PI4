@@ -5076,7 +5076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2303480242577709337, guid: 5a9bad3f0e472a34eb13886600882324, type: 3}
       propertyPath: m_Intensity
-      value: 100
+      value: 96.06
       objectReference: {fileID: 0}
     - target: {fileID: 2303480242577709337, guid: 5a9bad3f0e472a34eb13886600882324, type: 3}
       propertyPath: m_SpotAngle

@@ -47,7 +47,7 @@ namespace Player47.SceneManagement
             }
             else // gameplay
             {
-                if (SceneManager.GetActiveScene().name != "Phase1" && TorchController.CanUseTorch) //Apenas permite que o jogador use a tocha se ele ja tiver desbloqueado ela (Ou seja, apenas a partir da fase 2
+                if (SceneManager.GetActiveScene().name != "Phase1" && !TorchController.CanUseTorch) //Apenas permite que o jogador use a tocha se ele ja tiver desbloqueado ela (Ou seja, apenas a partir da fase 2
                 {
                     EnableTorch();
                 }
