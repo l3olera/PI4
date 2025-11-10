@@ -14,6 +14,7 @@ namespace Player47.Domain.Enemy.States
         {
             if (animator.TryGetComponent<Enemy>(out Enemy enemy))
             {
+                Debug.Log("Enemy death animation ended.");
                 enemy.OnDeathAnimationEnd();
             }
         }

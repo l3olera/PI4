@@ -8,11 +8,6 @@ namespace Player47.UI.HUD
     {
         [SerializeField] Image _healthBar;
 
-        void OnDisable()
-        {
-           PlayerHealth.Instance.CurrentHealth.RemoveListener(UpdateBar);    
-        }
-
         void Start()
         {
             PlayerHealth.Instance.CurrentHealth.AddListener(UpdateBar);
@@ -21,6 +16,11 @@ namespace Player47.UI.HUD
             {
                 _healthBar = GetComponent<Image>();
             }    
+        }
+
+        void OnDisable()
+        {
+           PlayerHealth.Instance.CurrentHealth.RemoveListener(UpdateBar);    
         }
 
         void UpdateBar(int currentHealth)
