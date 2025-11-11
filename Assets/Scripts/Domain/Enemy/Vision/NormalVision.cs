@@ -6,7 +6,9 @@ namespace Player47.Domain.Enemy.Vision
     {
         public bool CanSeePlayer(Transform enemy, Transform player, EnemyStatsSO stats)
         {
-            if(stats.canAlwaysSee) return true;
+            EnemyManager.Instance.InvokeEnemySawPlayer(stats.idEnemy);
+            if (stats.canAlwaysSee) return true;
+            
 
             Vector3 direction = player.position - enemy.position;
             float angle = Vector3.Angle(direction, enemy.forward);

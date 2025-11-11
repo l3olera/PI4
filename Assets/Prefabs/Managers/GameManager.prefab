@@ -569,6 +569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 4885131434604099861}
   _pauseManager: {fileID: 6995310483331972150}
+  _torchMesh: {fileID: 2788095962286376062}
 --- !u!114 &3167661275651663892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -906,6 +907,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d43ba276768b5ee46b659034a009763a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemySawPlayer:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5703388869249230914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1858,7 +1862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4005735420982759612, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.575
+      value: 1.5749998
       objectReference: {fileID: 0}
     - target: {fileID: 4005735420982759613, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
       propertyPath: m_Lens.FieldOfView
@@ -1930,7 +1934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8634807002363567029, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.066
       objectReference: {fileID: 0}
     - target: {fileID: 8634807002363567029, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1971,6 +1975,26 @@ PrefabInstance:
     - target: {fileID: 9079145267325030210, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079145267325030210, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079145267325030210, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079145267325030210, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079145267325030210, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9079145267325030210, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1366916380894127170, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
@@ -2414,11 +2438,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.066
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.575
+      value: 1.5749998
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2426,7 +2450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2434,7 +2458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalRotation.z
@@ -2524,7 +2548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.size
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[3].key
@@ -2564,42 +2588,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[12].key
-      value: TutorialHolePhase2_1
+      value: TutorialCyclop
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[13].key
-      value: InteractFountainUpgrade
+      value: TutorialHolePhase2_1
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[14].key
-      value: InteractFurnaceUpgrade
+      value: InteractFountainUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[15].key
-      value: InteractAnvilUpgrade
+      value: InteractFurnaceUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[16].key
-      value: ButtonFountainUpgrade
+      value: InteractAnvilUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[17].key
-      value: ButtonFurnanceUpgrade
+      value: ButtonFountainUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[18].key
-      value: ButtonAnvilUpgradeFireRate
+      value: ButtonFurnanceUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[19].key
-      value: ButtonAnvilUpgradeDamage
+      value: ButtonAnvilUpgradeFireRate
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[20].key
-      value: ReloadText
+      value: ButtonAnvilUpgradeDamage
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[21].key
+      value: ReloadText
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
+      propertyPath: translations.Array.data[22].key
       value: InteractDoor
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
@@ -2640,42 +2668,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[12].localizedString.m_TableEntryReference.m_KeyId
-      value: 47
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[13].localizedString.m_TableEntryReference.m_KeyId
-      value: 53
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[14].localizedString.m_TableEntryReference.m_KeyId
-      value: 57
+      value: 53
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[15].localizedString.m_TableEntryReference.m_KeyId
-      value: 61
+      value: 57
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[16].localizedString.m_TableEntryReference.m_KeyId
-      value: 56
+      value: 61
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[17].localizedString.m_TableEntryReference.m_KeyId
-      value: 60
+      value: 56
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[18].localizedString.m_TableEntryReference.m_KeyId
-      value: 64
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[19].localizedString.m_TableEntryReference.m_KeyId
-      value: 66
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[20].localizedString.m_TableEntryReference.m_KeyId
-      value: 23375245598425088
+      value: 66
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[21].localizedString.m_TableEntryReference.m_KeyId
+      value: 23375245598425088
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
+      propertyPath: translations.Array.data[22].localizedString.m_TableEntryReference.m_KeyId
       value: 23568257167294464
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
@@ -2744,6 +2776,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
       propertyPath: translations.Array.data[21].localizedString.m_TableReference.m_TableCollectionName
+      value: GUID:16ae8b982f8e5ee458989b4a56cf5915
+      objectReference: {fileID: 0}
+    - target: {fileID: 7020204831064066920, guid: 4575610fdcd598f4b9ea2136fb7bf2ba, type: 3}
+      propertyPath: translations.Array.data[22].localizedString.m_TableReference.m_TableCollectionName
       value: GUID:16ae8b982f8e5ee458989b4a56cf5915
       objectReference: {fileID: 0}
     m_RemovedComponents: []

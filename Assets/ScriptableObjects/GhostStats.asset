@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5496e74633093df4a876a1cd002fcdfc, type: 3}
   m_Name: GhostStats
   m_EditorClassIdentifier: 
+  idEnemy: 3
   maxHealth: 1000
   moveSpeed: 5
   acceleration: 2
