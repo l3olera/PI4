@@ -17,7 +17,7 @@ namespace Player47.Domain.Upgrade.Actions
         public void ApplyUpgrade(PlayerUpgradeStats player)
         {
             player.TorchRangeLevel++;
-            player.UpgradeTorchRange(1.2f);
+            player.UpgradeTorchRange(1.4f);
         }
     }
 }
