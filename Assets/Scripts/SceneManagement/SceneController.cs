@@ -36,6 +36,16 @@ namespace Player47.SceneManagement
             }
         }
 
+#if UNITY_EDITOR
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                EnableTorch();
+            }
+        }
+#endif
+
         void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
         {                
             if (scene.name == "Menu")

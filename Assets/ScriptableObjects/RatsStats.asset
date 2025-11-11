@@ -17,7 +17,7 @@ MonoBehaviour:
   acceleration: 2
   damage: 5
   attackInterval: 2
-  attackRange: 2
+  attackRange: 1
   visionRange: 20
   visionAngle: 45
   soulReward: 5
