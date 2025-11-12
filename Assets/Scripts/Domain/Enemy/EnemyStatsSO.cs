@@ -8,7 +8,7 @@ public enum IdEnemy
     Cyclop,
     Rat,
     Ghost,
-    Orc
+    Ogre
 }
 
 [CreateAssetMenu(menuName = "Enemy/Stats")]
