@@ -6,7 +6,7 @@ namespace Player47.Core.Service.Triggers
     public class TriggerBeginScene : MonoBehaviour, IEventSource
     {
         public event Action Triggered;
-        bool _wasTriggered;
+        bool m_wasTriggeredByLocalization;
 
         void Start()
         {
@@ -19,12 +19,17 @@ namespace Player47.Core.Service.Triggers
             LocalizationManager.OnFinishTranslations -= TriggerEvent;
         }
 
+        void FinishedTranslations()
+        {
+            TriggerEvent();
+            m_wasTriggeredByLocalization = true;
+        }
+
         void TriggerEvent()
         {
-            if (_wasTriggered) return;
-
+            if (m_wasTriggeredByLocalization) return;
+            Debug.Log("TriggerBeginScene triggered");
             Triggered?.Invoke();
-            _wasTriggered = true;
         }
     }
 }

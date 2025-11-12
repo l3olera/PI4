@@ -9,15 +9,18 @@ namespace Player47.Domain.Mission
     {
         public event Action Triggered;
 
+        public bool canDisableCollidersAfterTrigger = true;
+
         void OnTriggerExit(Collider other)
         {
             if(other.CompareTag("Player"))
             {
                 Triggered?.Invoke();
-                foreach (Collider col in m_colliders)
-                {
-                    col.enabled = false;
-                }
+                if(canDisableCollidersAfterTrigger)
+                    foreach (Collider col in m_colliders)
+                    {
+                        col.enabled = false;
+                    }
             }
         }
     }

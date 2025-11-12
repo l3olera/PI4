@@ -5,9 +5,10 @@ using UnityEngine;
 
 namespace Player47.Domain.Tutorials
 {
-    public class TutorialTriggerCyclop : MonoBehaviour, IEventSource
+    public class TutorialTriggerOnEnemySawPlayer : MonoBehaviour, IEventSource
     {
         public event Action Triggered;
+        public IdEnemy enemyTarget;
 
         void OnEnable()
         {
@@ -21,7 +22,7 @@ namespace Player47.Domain.Tutorials
 
         private void EnemyManager_EnemySawPlayer(IdEnemy id)
         {
-            if(id == IdEnemy.Cyclop)
+            if(id == enemyTarget)
             {
                 Triggered?.Invoke();
                 OnDisable();
