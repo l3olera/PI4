@@ -2299,6 +2299,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: d5e47cc31b5d86e43b075863a1894ea8, type: 3}
     - target: {fileID: 5778038252740899467, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
+      propertyPath: _shootVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778038252740899467, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
+      propertyPath: _reloadVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778038252740899467, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
       propertyPath: _muzzleFlashPrefab
       value: 
       objectReference: {fileID: 1129829857701169747, guid: 11ab4a221cbd05748bd738206a4a2af8, type: 3}
@@ -2362,6 +2370,10 @@ PrefabInstance:
       propertyPath: m_audioController
       value: 
       objectReference: {fileID: 9222757248905391232}
+    - target: {fileID: 8553543131996591615, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
+      propertyPath: GroundLayers.m_Bits
+      value: 129
+      objectReference: {fileID: 0}
     - target: {fileID: 8634807002363567029, guid: 439a411e3d798a74383f4fca85df6e61, type: 3}
       propertyPath: m_LocalPosition.x
       value: -35.477207

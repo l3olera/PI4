@@ -37,6 +37,10 @@ namespace Player47.Domain.Weapon.Implementations
         [SerializeField] AudioSource _audioSource;
         [SerializeField] AudioClip _shootSound;
         [SerializeField] AudioClip _reloadSound;
+        [Range(0f, 1f)]
+        [SerializeField] float _shootVolume = 0.3f;
+        [Range(0f, 1f)]
+        [SerializeField] float _reloadVolume = 1f;
 
         float _nextTimeToFire = 0f;
 
@@ -66,7 +70,7 @@ namespace Player47.Domain.Weapon.Implementations
                         vfx.transform.SetParent(_muzzlePoint); //Anexa o VFX ao ponto do cano para que ele se mova com a arma
                     }
 
-                    PlaySound(_shootSound);
+                    PlaySound(_shootSound, _shootVolume);
 
                     _nextTimeToFire = Time.time + 1f / _fireRate; //Armazena o tempo para o próximo tiro
                 }
@@ -132,7 +136,7 @@ namespace Player47.Domain.Weapon.Implementations
 
             PlayerWeaponHandler.Instance.OnBecomeReloading();
             
-            PlaySound(_reloadSound);
+            PlaySound(_reloadSound, _reloadVolume);
 
             yield return new WaitForSeconds(_reloadTime);
 
@@ -161,11 +165,11 @@ namespace Player47.Domain.Weapon.Implementations
             }
         }
         
-        void PlaySound(AudioClip clip)
+        void PlaySound(AudioClip clip, float vol)
         {
             if (_audioSource != null && clip != null)
             {
-                _audioSource.PlayOneShot(clip);
+                _audioSource.PlayOneShot(clip, vol);
             }
         }
 
