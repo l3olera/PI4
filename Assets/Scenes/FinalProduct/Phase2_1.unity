@@ -9769,6 +9769,10 @@ PrefabInstance:
       propertyPath: m_soundFootstep
       value: 
       objectReference: {fileID: 1228014344}
+    - target: {fileID: 8961260351989802810, guid: e0cd2cd7e993b1842a41b0b5682a213a, type: 3}
+      propertyPath: m_audioController
+      value: 
+      objectReference: {fileID: 1228014344}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14624,12 +14628,26 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0810c6bbffb6c0143984f3145f710f69, type: 3}
   - {fileID: 8300000, guid: ebd381bfafa32b844a6954fc40a08c2e, type: 3}
   - {fileID: 8300000, guid: 5c3c2c44515d6fe44a395faf0741edc0, type: 3}
+  m_jumpConcreteClips:
+  - {fileID: 8300000, guid: eec53751c4e79a7469fc34e774360128, type: 3}
+  - {fileID: 8300000, guid: dbe4405baeea2404ba3d422430b5fd3b, type: 3}
+  m_jumpForestClips:
+  - {fileID: 8300000, guid: c025c43d1749af5469c7dd8af13e162f, type: 3}
+  - {fileID: 8300000, guid: 65713fdea647c1949961f91d42bed416, type: 3}
+  - {fileID: 8300000, guid: 684d90e2defae1547a1d51bec24e6e9d, type: 3}
+  m_jumpRockyClips:
+  - {fileID: 8300000, guid: 622f42e8d781b8a44b119174e4ed9708, type: 3}
+  - {fileID: 8300000, guid: 18524d7f295d11b40a2b7bd3d9ef3561, type: 3}
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
   m_concreteTag: Concrete
   m_forestTag: Forest
   m_rockyTag: Rocky
+  walkVolume: 0.7
+  runVolume: 1
+  walkPitch: 1
+  runPitch: 1.25
 --- !u!4 &1228437479 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7931912406686588213, guid: f2ea49d0a51aea045a19d9ba5770c9df, type: 3}
