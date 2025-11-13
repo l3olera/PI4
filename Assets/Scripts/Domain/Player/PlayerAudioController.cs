@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Codice.Client.Common;
+using System.Collections;
 using UnityEngine;
 
 namespace Player47.Domain.Player
@@ -31,6 +32,8 @@ namespace Player47.Domain.Player
         [SerializeField] float walkPitch = 1f;
         [SerializeField] float runPitch = 1.25f;
 
+        bool m_jumpingAudioIsPlaying = false;
+
         void Awake()
         {
             if (m_audioSource == null)
@@ -60,12 +63,22 @@ namespace Player47.Domain.Player
         // ===============================
         public void PlayJumpSound()
         {
+            if(m_audioSource == null || m_jumpingAudioIsPlaying) return;
+
             AudioClip[] audios = CheckSoundToTheGround(SurfaceSoundType.Jump);
             if (audios == null || audios.Length == 0) return;
 
             m_audioSource.pitch = Random.Range(0.95f, 1.05f);
             m_audioSource.clip = ChooseRandomClip(audios);
             m_audioSource.Play();
+            m_jumpingAudioIsPlaying = true;
+            StartCoroutine(ResetJumpingAudioFlagAfterDelay(m_audioSource.clip.length));
+        }
+
+        IEnumerator ResetJumpingAudioFlagAfterDelay(float length)
+        {
+            yield return new WaitForSeconds(length);
+            m_jumpingAudioIsPlaying = false;
         }
 
         // ===============================
