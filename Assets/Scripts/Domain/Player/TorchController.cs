@@ -1,6 +1,7 @@
 ﻿using Player47.Core.Managers;
 using Player47.Core.Service;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Player47.Domain.Player
 {
@@ -14,6 +15,8 @@ namespace Player47.Domain.Player
         /// </summary>
 
         public static Observer<bool> IsTorchEquipped { get; } = new(false);
+
+        public UnityEvent TorchWasEquipped = new();
 
         public static bool TorchEquippedValue => IsTorchEquipped.Value;
 
@@ -47,6 +50,11 @@ namespace Player47.Domain.Player
         {
             if (!CanUseTorch) return;
             IsTorchEquipped.Value = !IsTorchEquipped.Value;
+
+            if(IsTorchEquipped.Value)
+            {
+                TorchWasEquipped?.Invoke();
+            }   
         }
 
         public void IncreaseRange(float percentage)

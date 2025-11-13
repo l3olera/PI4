@@ -1,4 +1,5 @@
 ﻿using Player47.Core;
+using Player47.Core.Managers;
 using Player47.UI.HUD;
 using System.Collections;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace Player47.Domain.Tutorials
         public void Execute()
         {
             m_speakHUDManager.SetTutorialText(keyText);
+            CharacterSpeakManager.Instance.InitiateDialogue();
             StartCoroutine(HideText());
         }
 

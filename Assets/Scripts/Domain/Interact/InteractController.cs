@@ -1,8 +1,9 @@
-using System.Collections.Generic;
-using UnityEngine;
 using Player47.Core;
 using Player47.Core.Managers;
+using Player47.Core.Service;
 using Player47.UI.HUD;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -79,6 +80,7 @@ public class InteractController : MonoBehaviour
         {
             // Interage com o mais próximo
             IInteractable closest = GetClosestInteractable();
+
             closest?.Interact();
         }
     }
