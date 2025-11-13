@@ -14644,8 +14644,8 @@ MonoBehaviour:
   m_concreteTag: Concrete
   m_forestTag: Forest
   m_rockyTag: Rocky
-  walkVolume: 0.7
-  runVolume: 1
+  walkVolume: 0.3
+  runVolume: 0.5
   walkPitch: 1
   runPitch: 1.25
 --- !u!4 &1228437479 stripped
