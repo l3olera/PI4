@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2019647323921014520}
   - component: {fileID: 3951607681064013503}
   - component: {fileID: 9002744510761773975}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cyclop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ Transform:
   m_GameObject: {fileID: 1633426019508916051}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: -0.03, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:

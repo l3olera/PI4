@@ -29,6 +29,15 @@ namespace Player47.Domain.Weapon.Implementations
         [SerializeField] float _reloadTime;
         [SerializeField] LayerMask _hittableLayers;
 
+        [Header("VFX")]
+        [SerializeField] GameObject _muzzleFlashPrefab; // O prefab do efeito
+        [SerializeField] Transform _muzzlePoint; // O ponto onde o VFX aparecerá
+
+        [Header("Audio")]
+        [SerializeField] AudioSource _audioSource;
+        [SerializeField] AudioClip _shootSound;
+        [SerializeField] AudioClip _reloadSound;
+
         float _nextTimeToFire = 0f;
 
         void Start()
@@ -49,6 +58,15 @@ namespace Player47.Domain.Weapon.Implementations
                     DetectHit(); //Detecta se o tiro atingiu algo e aplica o dano
 
                     RemoveAmmo(1); //Remove uma bala do carregador
+
+                    if (_muzzleFlashPrefab != null && _muzzlePoint != null)
+                    {
+                        var vfx = Instantiate(_muzzleFlashPrefab, _muzzlePoint.position, _muzzlePoint.rotation);
+
+                        vfx.transform.SetParent(_muzzlePoint); //Anexa o VFX ao ponto do cano para que ele se mova com a arma
+                    }
+
+                    PlaySound(_shootSound);
 
                     _nextTimeToFire = Time.time + 1f / _fireRate; //Armazena o tempo para o próximo tiro
                 }
@@ -113,6 +131,8 @@ namespace Player47.Domain.Weapon.Implementations
             isReloading = true;
 
             PlayerWeaponHandler.Instance.OnBecomeReloading();
+            
+            PlaySound(_reloadSound);
 
             yield return new WaitForSeconds(_reloadTime);
 
@@ -138,6 +158,14 @@ namespace Player47.Domain.Weapon.Implementations
                 {
                     damageable.TakeDamage(_damage); //Aplica o dano ao objeto atingido
                 }
+            }
+        }
+        
+        void PlaySound(AudioClip clip)
+        {
+            if (_audioSource != null && clip != null)
+            {
+                _audioSource.PlayOneShot(clip);
             }
         }
 

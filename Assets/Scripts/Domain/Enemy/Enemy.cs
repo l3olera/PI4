@@ -21,7 +21,7 @@ namespace Player47.Domain.Enemy
         [Header("Components")]
         [SerializeField] protected NavMeshAgent _agent;
         [SerializeField] protected Animator _anim;
-        [SerializeField] protected BoxCollider _hitBox;
+        [SerializeField] protected Collider _hitBox;
 
         [Header("Movements and Detection")]
         [SerializeField] protected Transform _player; // Referência a posição do jogador
@@ -38,7 +38,7 @@ namespace Player47.Domain.Enemy
                 _anim = GetComponent<Animator>();
 
             if(_hitBox == null)
-                _hitBox = GetComponent<BoxCollider>();
+                _hitBox = GetComponent<Collider>();
         }
 
         protected virtual void Start()

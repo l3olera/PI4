@@ -2,6 +2,7 @@ using UnityEngine;
 using Player47.Core.Managers;
 using Player47.Domain.Weapon.Abstractions;
 using Player47.Core;
+using UnityEngine.SceneManagement;
 
 namespace Player47.Domain.Player
 {
@@ -15,12 +16,16 @@ namespace Player47.Domain.Player
 
         void OnEnable()
         {
+            SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+
             InputManager.ShootInputPerformed += InputManager_OnShootInputPerformed;
             InputManager.ReloadInputPerformed += InputManager_OnReloadInputPerformed;
         }
 
         void OnDisable()
         {
+            SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
+
             InputManager.ShootInputPerformed -= InputManager_OnShootInputPerformed;
             InputManager.ReloadInputPerformed -= InputManager_OnReloadInputPerformed;
         }
@@ -40,7 +45,18 @@ namespace Player47.Domain.Player
         void Start()
         {
             EquipWeapon(_equippedWeapon ?? (IWeapon)_startinWeapon);
+#if UNITY_EDITOR
+            SpawnPoint.Instance.RespawnPlayerAtPosition(transform);
+#endif
         }
+
+        void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            if (scene.name == "Menu") return;
+
+            SpawnPoint.Instance.RespawnPlayerAtPosition(transform);
+        }
+
 
         public void EquipWeapon(IWeapon weapon)
         {

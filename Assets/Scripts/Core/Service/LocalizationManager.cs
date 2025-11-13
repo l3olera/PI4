@@ -128,6 +128,7 @@ namespace Player47.Core.Service
             if (Instance == null)
             {
                 Instance = this;
+                Debug.Log("<color=red>🗣️ Inicializando LocalizationManager e carregando traduções...</color>");
                 await LoadAllTranslations();
             }
             else

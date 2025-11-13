@@ -8,14 +8,15 @@ namespace Player47.UI.HUD
     {
         [SerializeField] Image _healthBar;
 
-        void OnDisable()
+        void OnEnable()
         {
-           PlayerHealth.Instance.CurrentHealth.RemoveListener(UpdateBar);    
+            if (PlayerHealth.Instance == null) return;
+            PlayerHealth.Instance.CurrentHealth.AddListener(UpdateBar);
         }
 
         void Start()
         {
-            PlayerHealth.Instance.CurrentHealth.AddListener(UpdateBar);
+            OnEnable();
 
             if (_healthBar == null)
             {
@@ -23,9 +24,13 @@ namespace Player47.UI.HUD
             }    
         }
 
+        void OnDisable()
+        {
+           PlayerHealth.Instance.CurrentHealth.RemoveListener(UpdateBar);    
+        }
+
         void UpdateBar(int currentHealth)
         {
-            Debug.Log("Entrou no UpdateBar");
             if (_healthBar == null) return;
 
             _healthBar.fillAmount = (float) currentHealth / PlayerHealth.Instance.MaxHealth;

@@ -3,7 +3,192 @@ guid: 5a9bad3f0e472a34eb13886600882324
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Arcos pilar
+    second: {fileID: 2100000, guid: fdde5151de8ba7842981a67d85a667f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bordas
+    second: {fileID: 2100000, guid: d39618d1be5735d4a9cb5445bde8add0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Ch\xE3o"
+    second: {fileID: 2100000, guid: cf9c451a4c644ad43985744a6506c1b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Paredes Lareais
+    second: {fileID: 2100000, guid: 34c53db7fa5285a45948165c89ec376a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pilar Metal
+    second: {fileID: 2100000, guid: b5e6d7f97a7d4ec4dbe0909bf88675bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pilar base
+    second: {fileID: 2100000, guid: b3fe8c5890689c347914e9e0d220e266, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Piso Preto
+    second: {fileID: 2100000, guid: 3d3819d8ad6f02f4983b09526a0bfe71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Piso branco
+    second: {fileID: 2100000, guid: 20a8179b606e56547bcf0c8b303f7521, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Poliigon_MetalGoldPaint_7253_2K
+    second: {fileID: 2100000, guid: 9b437d0ed9220ad43a7b5b2c148860a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Port\xE3o"
+    second: {fileID: 2100000, guid: dfca18c6c8b3eed43b4d646d98ac494e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Teto Capela
+    second: {fileID: 2100000, guid: f9b5582755ae6914ba7ce813e7f58b71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Toalha
+    second: {fileID: 2100000, guid: 89f60eacfcd963b43aaf758fb8fb1380, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: batentes
+    second: {fileID: 2100000, guid: c8490acba4f17d04b985b59823cea243, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalCorrodedHeavy001_METALNESS_2K_METALNESS
+    second: {fileID: 2800000, guid: 06ffd4023d6594b46a4ede1d008e9af1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MetalCorrodedHeavy001_ROUGHNESS_2K_METALNESS
+    second: {fileID: 2800000, guid: 218bb9d480841854e9ab8b17547d076b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Poliigon_MetalGoldPaint_7253_Metallic
+    second: {fileID: 2800000, guid: fcce264ee6a812c48a094df2d71d536b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Poliigon_MetalGoldPaint_7253_Normal
+    second: {fileID: 2800000, guid: 2b783e24cded24d4089e3f681cf04ee1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Poliigon_MetalGoldPaint_7253_Roughness
+    second: {fileID: 2800000, guid: 1e31f569bdefcbf42998e6b543d38716, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: concrete_floor_painted_arm_2k
+    second: {fileID: 2800000, guid: 6467c87e76bae5a4d8ac5f99de84e372, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: concrete_floor_painted_diff_2k
+    second: {fileID: 2800000, guid: 86cfff9ab5192384697a22bbb486da80, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: concrete_floor_painted_rough_2k
+    second: {fileID: 2800000, guid: 30e3228ac660b9c45bebef9f2bd9a532, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: concrete_wall_006_arm_2k
+    second: {fileID: 2800000, guid: 03852f3f4990b2f4ea7abf44a4d55582, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: concrete_wall_006_diff_2k
+    second: {fileID: 2800000, guid: 9f20524d23235c446a4f0604c4cf2a6c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: concrete_wall_006_rough_2k
+    second: {fileID: 2800000, guid: db018ba8a87e88947be27ed3af11ed35, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: seaside_rock_arm_2k
+    second: {fileID: 2800000, guid: b418448b0eb17e14c8959f66a130a50e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: seaside_rock_diff_2k
+    second: {fileID: 2800000, guid: 583600cdfd358aa439580eca7d5e0614, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: seaside_rock_rough_2k
+    second: {fileID: 2800000, guid: 78f28d2a74508b449984c83852d5c505, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: slab_tiles_arm_2k
+    second: {fileID: 2800000, guid: 5e93b5ebe947fa04f9852ddbbd3e1ede, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: slab_tiles_diff_2k
+    second: {fileID: 2800000, guid: 1a91dc7f5c1a6f14b905656d268e247b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: slab_tiles_disp_2k
+    second: {fileID: 2800000, guid: f0a1cc74a0df01d4da65c9d956468f0f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: slab_tiles_rough_2k
+    second: {fileID: 2800000, guid: 75aae5f3760843e40ac288ffa3aa10d1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wood_cabinet_worn_long_arm_2k
+    second: {fileID: 2800000, guid: d6833dcd276c0e24bad5437b299d2e0d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wood_cabinet_worn_long_diff_2k
+    second: {fileID: 2800000, guid: daeb33db6bfc84a4eb88c58cbf8eb062, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wood_cabinet_worn_long_rough_2k
+    second: {fileID: 2800000, guid: bc95d90f77b12484794124b472cb51ac, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wooden_garage_door_arm_2k
+    second: {fileID: 2800000, guid: 636b869536b2ae0479b80d0288c22d37, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wooden_garage_door_diff_2k
+    second: {fileID: 2800000, guid: 96cf4252655ebc1408dc421b5a1fdcf2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wooden_garage_door_rough_2k
+    second: {fileID: 2800000, guid: d22bb204881a36244bd96da2cfe4c7ae, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -70,7 +255,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 3
+    tangentImportMode: 2
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1

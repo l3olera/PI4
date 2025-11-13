@@ -1,8 +1,10 @@
-using System.Collections.Generic;
-using UnityEngine;
 using Player47.Core;
 using Player47.Core.Managers;
+using Player47.Core.Service;
 using Player47.UI.HUD;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
 /// <summary>
@@ -21,7 +23,13 @@ public class InteractController : MonoBehaviour
 
     void OnEnable()
     {
+        SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         InputManager.InteractInputPerformed += OnInteractInput;
+    }
+
+    private void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Start();
     }
 
     void OnDisable()
@@ -37,6 +45,14 @@ public class InteractController : MonoBehaviour
             m_rb.isKinematic = true; //O rigidbody é usado apenas para detectar colisões, não para física
             m_rb.useGravity = false;
         }
+    }
+
+    void Start()
+    {
+        interactables.Clear();
+        m_lastInteractable = null;
+        m_lastCanShowText = false;
+        m_interactionUI.HideInteractionText();
     }
 
     void Update()
@@ -64,6 +80,7 @@ public class InteractController : MonoBehaviour
         {
             // Interage com o mais próximo
             IInteractable closest = GetClosestInteractable();
+
             closest?.Interact();
         }
     }

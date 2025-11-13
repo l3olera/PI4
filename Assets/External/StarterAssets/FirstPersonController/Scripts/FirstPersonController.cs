@@ -1,4 +1,5 @@
 ﻿using Player47.Core.Managers;
+using Player47.Domain.Player;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -89,7 +90,10 @@ namespace StarterAssets
 			}
 		}
 
-		private void Awake()
+        [SerializeField] PlayerAudioController m_audioController;
+
+
+        private void Awake()
 		{
 			// get a reference to our main camera
 			if (_mainCamera == null)
@@ -224,8 +228,17 @@ namespace StarterAssets
 				inputDirection = transform.right * _input.move.x + transform.forward * _input.move.y;
 			}
 
-			// move the player
-			_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+			// Footstep Sound
+			if (m_audioController != null)
+			{
+				if (_controller.velocity.magnitude > 0.1f && Grounded)
+				{
+					m_audioController.PlayFootstep(_input.sprint);
+                }
+            }
+
+            // move the player
+            _controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 		}
 
 		private void JumpAndGravity()
@@ -246,7 +259,15 @@ namespace StarterAssets
 				{
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
 					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-				}
+
+
+					// Jump Sound
+
+					if (m_audioController != null)
+                    {
+                        m_audioController.PlayJumpSound();
+                    }
+                }
 
 				// jump timeout
 				if (_jumpTimeoutDelta >= 0.0f)

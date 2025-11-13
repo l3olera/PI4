@@ -1622,7 +1622,7 @@ PrefabInstance:
       objectReference: {fileID: 42508748}
     - target: {fileID: 6709950397952226035, guid: 0d5130837d09777438e6a4adfaa5207b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.85
+      value: -4.905
       objectReference: {fileID: 0}
     - target: {fileID: 6709950397952226035, guid: 0d5130837d09777438e6a4adfaa5207b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1662,7 +1662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8648300667716916072, guid: 0d5130837d09777438e6a4adfaa5207b, type: 3}
       propertyPath: m_Name
-      value: Rato
+      value: Rat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1743,7 +1743,7 @@ PrefabInstance:
       objectReference: {fileID: 42508748}
     - target: {fileID: 8034108068904184047, guid: e74c54217ceb74048b91eb92b88d1a69, type: 3}
       propertyPath: m_Name
-      value: Fantasma
+      value: Ghost
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -37,8 +37,9 @@ namespace Player47.Domain.Enemy
         {
             if (_agent != null)
             {
-                _agent.acceleration = 0;
                 _agent.isStopped = true;
+                _agent.velocity = Vector3.zero;
+                _agent.ResetPath();             
             }
         }
 
@@ -46,8 +47,8 @@ namespace Player47.Domain.Enemy
         {
             if (_agent != null)
             {
-                _agent.acceleration = _classEnemy.stats.acceleration;
                 _agent.isStopped = false;
+                _agent.acceleration = _classEnemy.stats.acceleration;
             }
         }
 
