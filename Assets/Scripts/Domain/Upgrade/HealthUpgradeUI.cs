@@ -1,9 +1,8 @@
+using Player47.Domain.Player;
+using Player47.Domain.Upgrade.Actions;
+using Player47.UI;
 using TMPro;
 using UnityEngine;
-using Player47.Domain.Player;
-using Player47.UI;
-using System.Collections.Generic;
-using Player47.Domain.Upgrade.Actions;
 
 namespace Player47.Domain.Upgrade
 {

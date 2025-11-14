@@ -8,10 +8,15 @@ using UnityEngine;
 
 namespace Player47.Domain.Upgrade
 {
+    [RequireComponent(typeof(AudioSource))]
     public abstract class UpgradeUI : MonoBehaviour
     {
         [SerializeField] protected GameObject panel;
         [SerializeField] protected PlayerUpgradeStats player;
+
+        [Header("Audio")]
+        [SerializeField] protected AudioSource m_audioSource;
+        [SerializeField] protected AudioClip m_upgradeClip;
 
         protected UpgradeStation currentStation;
 
@@ -60,6 +65,11 @@ namespace Player47.Domain.Upgrade
 
             SoulsManager.Instance.RemoveSouls(upgrade.Cost);
             upgrade.ApplyUpgrade(player);
+
+            if(m_audioSource != null && m_upgradeClip != null)
+            {
+                m_audioSource.PlayOneShot(m_upgradeClip);
+            }
 
             UpdateUI();
         }

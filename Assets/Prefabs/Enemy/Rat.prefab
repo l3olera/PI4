@@ -1366,8 +1366,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _audioSource: {fileID: 2428674496988706307}
-  _attackClip: {fileID: 0}
-  _deathClip: {fileID: 0}
+  _attackClip: {fileID: 8300000, guid: 33ca46f043078274885da82f16485554, type: 3}
+  _deathClip: {fileID: 8300000, guid: f1d85197c4097b0449995103681ddfe2, type: 3}
+  _ambientClips:
+  - {fileID: 8300000, guid: a6659fef5efede6499841cc22b101162, type: 3}
+  - {fileID: 8300000, guid: af2e2f10d35575448905eafcde9bd613, type: 3}
+  - {fileID: 8300000, guid: 9486e4f922b32134286e1ef0e775fde0, type: 3}
+  - {fileID: 8300000, guid: fb6aa5e2fe1512041a984469420c081d, type: 3}
+  - {fileID: 8300000, guid: 144bdb8dc164e8f418c450076571af4c, type: 3}
+  - {fileID: 8300000, guid: 089277773bdaccb48990fc8f7ca3e4f6, type: 3}
+  _ambientSoundInterval: 8
 --- !u!82 &2428674496988706307
 AudioSource:
   m_ObjectHideFlags: 0
