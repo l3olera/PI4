@@ -30,14 +30,12 @@ namespace Player47.Domain.Enemy.States
 
             if (idleTime <= 0f)
             {
-                Debug.Log("Idle time ended, switching to Patrol");
                 _nextState = new PatrolEnemyState(_enemy, _agent, _animator, _player, _waypoints, _speed,_attackRange, _attackInterval);
                 _stage = EVENT.EXIT;
             }
         }
         public override void Exit()
         {
-            Debug.Log("Saindo do Idle");
             base.Exit();
         }
     }

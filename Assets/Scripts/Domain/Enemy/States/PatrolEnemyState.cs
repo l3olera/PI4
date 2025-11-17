@@ -48,7 +48,6 @@ namespace Player47.Domain.Enemy.States
 
             if (_classEnemy.CanSeePlayer())
             {
-                Debug.Log("Viu o jogador");
                 _nextState = new ChaseEnemyState(_enemy, _agent, _animator, _player, _waypoints, _speed, _attackRange, _attackInterval);
                 _stage = EVENT.EXIT;
             }
