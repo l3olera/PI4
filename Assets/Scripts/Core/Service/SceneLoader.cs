@@ -1,3 +1,4 @@
+using Player47.Core.Managers;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,6 +22,7 @@ namespace Player47.Core.Service
 
         public void LoadSceneAsync(string sceneName)
         {
+            FadeManager.Instance.FadeToBlack();
             StartCoroutine(LoadSceneCoroutine(sceneName));
         }
 
@@ -38,7 +40,6 @@ namespace Player47.Core.Service
                 // Debug.Log(asyncLoad.progress);
                 yield return null;
             }
-
             // Cena carregada
             // Se você desativou allowSceneActivation, poderia ativar aqui
             // asyncLoad.allowSceneActivation = true;

@@ -1,8 +1,9 @@
-using UnityEngine;
-using Player47.Core.Service;
-using UnityEngine.Video;
-using System.Collections;
 using Codice.CM.SEIDInfo;
+using Player47.Core.Managers;
+using Player47.Core.Service;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.Video;
 
 namespace Player47.UI.Menu
 {
@@ -57,10 +58,9 @@ namespace Player47.UI.Menu
         public void StartGame()
         {
             m_videoCanvas.alpha = 1;
-            //m_cutsceneVideo.Play();
+            m_cutsceneVideo.Play();
 
-            SceneLoader.Instance.LoadSceneAsync(nextSceneName);
-            //StartCoroutine(WaitVideoEnd());
+            StartCoroutine(WaitVideoEnd());
         }
 
         IEnumerator WaitVideoEnd()
@@ -69,7 +69,8 @@ namespace Player47.UI.Menu
             yield return new WaitUntil(() => m_cutsceneVideo.isPlaying); //Espera o vídeo tocar
             yield return new WaitUntil(() => !m_cutsceneVideo.isPlaying); //Ai sim, espera o vídeo terminar  
 
-            
+            FadeManager.Instance.FadeToBlack();
+            SceneLoader.Instance.LoadSceneAsync(nextSceneName);
         }
 
         public void ToggleSettings()

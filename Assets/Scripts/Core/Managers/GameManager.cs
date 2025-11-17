@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Player47.Core.Managers
 {
@@ -17,6 +19,29 @@ namespace Player47.Core.Managers
             }
 
             DontDestroyOnLoad(gameObject); // Keep this instance across scenes
+        }
+
+        void Start()
+        {
+            SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+
+            if (FadeManager.Instance != null)
+            {
+                FadeManager.Instance.FadeFromBlack();
+            }
+        }
+
+        void OnDisable()
+        {
+            SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
+        }
+
+        void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            if (FadeManager.Instance != null)
+            {
+                FadeManager.Instance.FadeFromBlack();
+            }
         }
     }
 }

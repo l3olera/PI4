@@ -419,7 +419,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 96
-    m_Localized: '"OBRIGADO POR JOGAR NOSSO JOGO"'
+    m_Localized: OBRIGADO POR JOGAR NOSSO JOGO
     m_Metadata:
       m_Items: []
   - m_Id: 97
