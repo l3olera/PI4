@@ -1,5 +1,8 @@
 using UnityEngine;
 using Player47.Core.Service;
+using UnityEngine.Video;
+using System.Collections;
+using Codice.CM.SEIDInfo;
 
 namespace Player47.UI.Menu
 {
@@ -16,6 +19,10 @@ namespace Player47.UI.Menu
         [SerializeField] GameObject _quitMenu;
 
         [SerializeField] string nextSceneName;
+
+        [Header("Cutscene Video")]
+        [SerializeField] CanvasGroup m_videoCanvas;
+        [SerializeField] VideoPlayer m_cutsceneVideo;
 
         void Start()
         {
@@ -40,11 +47,29 @@ namespace Player47.UI.Menu
             {
                 _quitMenu.SetActive(false);
             }
+
+            if(m_videoCanvas.alpha > 0)
+            {
+                m_videoCanvas.alpha = 0;
+            }
         }
 
         public void StartGame()
         {
+            m_videoCanvas.alpha = 1;
+            //m_cutsceneVideo.Play();
+
             SceneLoader.Instance.LoadSceneAsync(nextSceneName);
+            //StartCoroutine(WaitVideoEnd());
+        }
+
+        IEnumerator WaitVideoEnd()
+        {
+            yield return new WaitUntil(() => m_cutsceneVideo.isPrepared); //Espera o video estar preparado 
+            yield return new WaitUntil(() => m_cutsceneVideo.isPlaying); //Espera o vídeo tocar
+            yield return new WaitUntil(() => !m_cutsceneVideo.isPlaying); //Ai sim, espera o vídeo terminar  
+
+            
         }
 
         public void ToggleSettings()
