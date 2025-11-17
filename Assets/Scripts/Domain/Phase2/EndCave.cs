@@ -1,4 +1,5 @@
 using Player47.Core;
+using Player47.Core.Managers;
 using Player47.Core.Service;
 using System;
 using System.Collections;
@@ -38,6 +39,7 @@ namespace Player47.Domain.Phase2
         {
             yield return new WaitUntil(() => audioEmitter == null || !audioEmitter.IsPlaying);
 
+            FadeManager.Instance.FadeToBlack();
             SceneLoader.Instance.LoadSceneAsync(nextSceneName);
         }
     }

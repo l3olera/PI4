@@ -22,7 +22,6 @@ namespace Player47.Core.Service
 
         public void LoadSceneAsync(string sceneName)
         {
-            FadeManager.Instance.FadeToBlack();
             StartCoroutine(LoadSceneCoroutine(sceneName));
         }
 

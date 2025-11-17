@@ -24,6 +24,9 @@ public class EnterArenaPhase3 : MonoBehaviour, IInteractable
     [SerializeField] AudioSource m_bossAudioSource;
     [SerializeField] Animator m_bossAnimator;
 
+    [Header("Next Scene")]
+    [SerializeField] string m_nextSceneName = "Credits";
+
     void Start()
     {
         if(m_panelConfirm.activeSelf)
@@ -68,6 +71,7 @@ public class EnterArenaPhase3 : MonoBehaviour, IInteractable
         ReturnGame();
 
         StartCoroutine(StartBossAudio());
+
         //Faz a lógica de ir para a fase 3
         for (int i = 0; i < m_doorsAudio.Length; i++)
         {
@@ -83,5 +87,13 @@ public class EnterArenaPhase3 : MonoBehaviour, IInteractable
         m_bossAudioSource.Play();
         m_bossAnimator.SetTrigger("isAttacking");
         m_bossAnimator.speed = 1.5f;
+        StartCoroutine(GoToNextScene());
+    }
+
+    IEnumerator GoToNextScene()
+    {
+        yield return new WaitForSeconds(3f);
+        FadeManager.Instance.FadeToBlack();
+        SceneLoader.Instance.LoadSceneAsync(m_nextSceneName);
     }
 }

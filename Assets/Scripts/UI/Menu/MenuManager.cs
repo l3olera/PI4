@@ -67,6 +67,7 @@ namespace Player47.UI.Menu
         {
             yield return new WaitUntil(() => m_cutsceneVideo.isPrepared); //Espera o video estar preparado 
             yield return new WaitUntil(() => m_cutsceneVideo.isPlaying); //Espera o vídeo tocar
+            CursorController.LockCursor();
             yield return new WaitUntil(() => !m_cutsceneVideo.isPlaying); //Ai sim, espera o vídeo terminar  
 
             FadeManager.Instance.FadeToBlack();

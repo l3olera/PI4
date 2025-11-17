@@ -21,6 +21,7 @@ namespace Player47.Core.Managers
 
         public void LoadPhase2_1()
         {
+            FadeManager.Instance.FadeToBlack();
             SceneLoader.Instance.LoadSceneAsync("Phase2_1");
         }
     }
