@@ -1,4 +1,4 @@
-using Player47.Domain.Combat;
+Ôªøusing Player47.Domain.Combat;
 using Player47.Domain.Enemy.States;
 using Player47.Domain.Enemy.Vision;
 using Player47.Domain.Player;
@@ -8,6 +8,7 @@ using UnityEngine.AI;
 
 namespace Player47.Domain.Enemy
 {
+    [RequireComponent(typeof(AudioSource))]
     public class Enemy : MonoBehaviour, IDamageable
     {
         public EnemyStatsSO stats;
@@ -24,10 +25,22 @@ namespace Player47.Domain.Enemy
         [SerializeField] protected Collider _hitBox;
 
         [Header("Movements and Detection")]
-        [SerializeField] protected Transform _player; // ReferÍncia a posiÁ„o do jogador
+        [SerializeField] protected Transform _player; // Refer√™ncia a posi√ß√£o do jogador
         [SerializeField] protected Transform[] _waypoints; // Pontos de patrulha
 
-        public event Action<Enemy> OnDeath; // evento est·tico para notificar quando qualquer inimigo morrer    
+        [Header("Audios")]
+        [SerializeField] protected AudioSource _audioSource;
+        public AudioSource AudioSource => _audioSource;
+
+
+        [SerializeField] protected AudioClip _attackClip;
+        [SerializeField] protected AudioClip _deathClip;
+        [SerializeField] protected AudioClip[] _ambientClips; // Som ambiente padr√£o (grunhido)
+
+        // Intervalo de tempo entre os sons (configur√°vel)
+        [SerializeField, Min(1f)] private float _ambientSoundInterval = 8f;
+
+        public event Action<Enemy> OnDeath; // evento est√°tico para notificar quando qualquer inimigo morrer    
 
         void Awake()
         {
@@ -39,6 +52,9 @@ namespace Player47.Domain.Enemy
 
             if(_hitBox == null)
                 _hitBox = GetComponent<Collider>();
+
+            if(_audioSource == null)
+                _audioSource = GetComponent<AudioSource>();
         }
 
         protected virtual void Start()
@@ -50,12 +66,15 @@ namespace Player47.Domain.Enemy
                 _player = PlayerController.Instance.transform;
             }
 
-            _currentState = new IdleEnemyState(gameObject, _agent, _anim, _player, _waypoints, stats.moveSpeed, stats.attackRange, stats.attackInterval); // Estado inicial genÈrico  
+            _currentState = new IdleEnemyState(gameObject, _agent, _anim, _player, _waypoints, stats.moveSpeed, stats.attackRange, stats.attackInterval); // Estado inicial gen√©rico  
         }
 
         protected virtual void Update()
         {
             _currentState = _currentState?.Process();
+
+            // Chama o gerenciador central para tentar tocar som
+            EnemyAmbientSoundManager.Instance.TryPlayAmbientSound(this, _ambientClips, _ambientSoundInterval);
         }
 
         public void TakeDamage(int amount)
@@ -77,14 +96,24 @@ namespace Player47.Domain.Enemy
             
             _anim.SetTrigger("isDying");
 
+            if(_deathClip != null)
+                _audioSource.PlayOneShot(_deathClip);
+
             EnemyManager.Instance.InvokeEnemyDied(this);
             OnDeath?.Invoke(this);  // dispara o evento de morte
         }
 
-        // Essa funÁ„o È chamada no final da animaÁ„o pelo Animation Event
+        // Essa fun√ß√£o √© chamada no final da anima√ß√£o pelo Animation Event
         public void OnDeathAnimationEnd()
         {
-            Destroy(gameObject);    // destrÛi o inimigo sÛ no final
+            Destroy(gameObject);    // destr√≥i o inimigo s√≥ no final
+        }
+        
+        public void PlaySoundAttack()
+        {
+            if (_attackClip == null) return;
+
+            _audioSource.PlayOneShot(_attackClip);
         }
 
         public void SetWaypoint(Transform[] waypoints)

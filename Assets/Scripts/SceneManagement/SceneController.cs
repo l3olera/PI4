@@ -27,7 +27,7 @@ namespace Player47.SceneManagement
 
         void Start()
         {
-            if (SceneManager.GetActiveScene().name == "Menu")
+            if (SceneManager.GetActiveScene().name == "Menu" || SceneManager.GetActiveScene().name == "Credits")
             {
                 DeactiveGameplayElements();
                 UnableTorch();
@@ -48,7 +48,7 @@ namespace Player47.SceneManagement
 
         void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
         {                
-            if (scene.name == "Menu")
+            if (scene.name == "Menu" || scene.name == "Credits")
             {
                 DeactiveGameplayElements();
                 UnableTorch();

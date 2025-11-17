@@ -6,9 +6,18 @@ namespace Player47.Domain.Enemy.Weapon
     {
         public EnemyWeaponHitBox weaponHitBox;
 
+        Enemy m_enemy;
+
+        void Awake()
+        {
+            m_enemy = GetComponent<Enemy>();
+        }
+
         public void EnableWeaponHitBox()
         {
             if(weaponHitBox == null) return;
+
+            m_enemy.PlaySoundAttack();
 
             weaponHitBox.EnableDamage();
         }

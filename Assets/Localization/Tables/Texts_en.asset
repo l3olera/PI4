@@ -419,7 +419,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 96
-    m_Localized: '"THANK YOU FOR PLAYING OUR GAME"'
+    m_Localized: THANK YOU FOR PLAYING OUR GAME
     m_Metadata:
       m_Items: []
   - m_Id: 97
