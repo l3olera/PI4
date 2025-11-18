@@ -1,3 +1,4 @@
+using Player47.Core;
 using Player47.Core.Managers;
 using Player47.Core.Service;
 using Player47.Domain.Player;
@@ -12,6 +13,7 @@ namespace Player47.SceneManagement
         [SerializeField] GameObject _player;
         [SerializeField] GameObject _pauseManager;
         [SerializeField] GameObject _torchMesh;
+        [SerializeField] Transform m_playerTransform;
 
         bool _wasInSceneGameplay;
 
@@ -61,6 +63,8 @@ namespace Player47.SceneManagement
                 {
                     EnableTorch();
                 }
+
+                SpawnPoint.Instance.RespawnPlayerAtPosition(m_playerTransform);
 
 
                 if (_wasInSceneGameplay) return; // evita reativar se ja estava na cena de gameplay

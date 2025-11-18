@@ -16,16 +16,12 @@ namespace Player47.Domain.Player
 
         void OnEnable()
         {
-            SceneManager.sceneLoaded += SceneManager_sceneLoaded;
-
             InputManager.ShootInputPerformed += InputManager_OnShootInputPerformed;
             InputManager.ReloadInputPerformed += InputManager_OnReloadInputPerformed;
         }
 
         void OnDisable()
         {
-            SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
-
             InputManager.ShootInputPerformed -= InputManager_OnShootInputPerformed;
             InputManager.ReloadInputPerformed -= InputManager_OnReloadInputPerformed;
         }
@@ -44,8 +40,6 @@ namespace Player47.Domain.Player
 
         void Start()
         {
-            SceneManager.sceneLoaded += SceneManager_sceneLoaded;
-
             EquipWeapon(_equippedWeapon ?? (IWeapon)_startinWeapon);
 #if UNITY_EDITOR
             if(SpawnPoint.Instance == null)
@@ -55,19 +49,6 @@ namespace Player47.Domain.Player
             }
             SpawnPoint.Instance.RespawnPlayerAtPosition(transform);
 #endif
-        }
-
-        void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
-        {
-            Debug.Log($"Scene loaded: {scene.name}");
-            if (scene.name == "Menu") return;
-
-            if(SpawnPoint.Instance == null)
-            {
-                Debug.LogWarning("SpawnPoint instance is null. Make sure there is a SpawnPoint in the scene.");
-                return;
-            }
-            SpawnPoint.Instance.RespawnPlayerAtPosition(transform);
         }
 
 
