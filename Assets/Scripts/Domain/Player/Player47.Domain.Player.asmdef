@@ -1,0 +1,19 @@
+{
+    "name": "Player47.Domain.Player",
+    "rootNamespace": "",
+    "references": [
+        "GUID:4307f53044263cf4b835bd812fc161a4",
+        "GUID:795bc9749db3c7b42bce902d5511bd55",
+        "GUID:e0ae9e3f5616a3f4191ce999933dd217",
+        "GUID:12e299030aa67014d87284eb87264a88"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,18 @@
+{
+    "name": "Player47.Domain.Tutorials",
+    "rootNamespace": "",
+    "references": [
+        "GUID:795bc9749db3c7b42bce902d5511bd55",
+        "GUID:c0e29bb2097c81244b3cddea963fefad",
+        "GUID:efa7fd76e73898746818fb589dd8850e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

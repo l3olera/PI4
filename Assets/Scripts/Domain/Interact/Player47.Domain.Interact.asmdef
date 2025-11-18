@@ -1,0 +1,18 @@
+{
+    "name": "Player47.Domain.Interact",
+    "rootNamespace": "",
+    "references": [
+        "Player47.Core",
+        "Player47.Domain.Enemy",
+        "Player47.UI"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

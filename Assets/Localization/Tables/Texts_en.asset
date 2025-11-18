@@ -1,0 +1,445 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Texts_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 16ae8b982f8e5ee458989b4a56cf5915, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 6749919003178172508
+  m_TableData:
+  - m_Id: 1
+    m_Localized: "User: PlayerN\xBA470058"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Localized: Start Story
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Localized: Credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Localized: Screen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Localized: Keyboard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8
+    m_Localized: Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Localized: Close session
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: Use Torch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Localized: To walk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13
+    m_Localized: Interact
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14
+    m_Localized: Recharge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15
+    m_Localized: Shoot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16
+    m_Localized: Aim
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17
+    m_Localized: Run
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18
+    m_Localized: To jump
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19
+    m_Localized: Network
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20
+    m_Localized: Create Room
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21
+    m_Localized: Enter Room
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22
+    m_Localized: Code
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23
+    m_Localized: Developers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24
+    m_Localized: Tools
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25
+    m_Localized: Thanks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 26
+    m_Localized: Are you sure you want to end your current session? The Oasis is
+      online and open 24/7, so make sure your avatar is in a safe place.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27
+    m_Localized: Continue Logged In
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28
+    m_Localized: Hey "#47", they found the location of the first key for the egg,
+      I can't go after it now, I'm busy with... something else more important. You'll
+      have to go alone, brother, good luck partner, be careful, many people must
+      already be there, I'll give you the coordinates. Hurry!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29
+    m_Localized: Click here to start the game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30
+    m_Localized: It's been a while since I played, let me see if I remember the controls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31
+    m_Localized: 'Use the keyboard to move, shoot, reload, and interact with the
+      game. If you need to consult the keymap again, press "ESC" and the game will
+      pause.
+
+      Your health bar is positioned just below it, and your ammo is
+      infinite, but your weapon overheats as you use it. Enjoy the game :)'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32
+    m_Localized: Complete the Tutorial
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33
+    m_Localized: Find the tomb entrance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34
+    m_Localized: There weren't supposed to be enemies here
+    m_Metadata:
+      m_Items: []
+  - m_Id: 35
+    m_Localized: Kill the enemies and disable the summoning totems
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36
+    m_Localized: I need to disable these totems, otherwise the enemies won't stop
+      appearing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37
+    m_Localized: Disable Totem
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38
+    m_Localized: Find the tomb entrance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39
+    m_Localized: I need a torch to enter the cave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40
+    m_Localized: Enter the tomb
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41
+    m_Localized: Enter the tomb
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42
+    m_Localized: I need to disable these totems before continuing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43
+    m_Localized: Cross the tomb
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44
+    m_Localized: What a dark place, good thing I have a torch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 45
+    m_Localized: I need to be careful with these traps
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46
+    m_Localized: The Cyclopes spot me with the torch in my hand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47
+    m_Localized: That hole looks like a passage to me
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48
+    m_Localized: Tomb
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49
+    m_Localized: This place is very dark, I need to turn on some lights
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50
+    m_Localized: Light drives away ghosts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51
+    m_Localized: I better make some improvements
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52
+    m_Localized: Improve your arsenal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53
+    m_Localized: Interact with the Fountain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 54
+    m_Localized: Fountain of Life
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55
+    m_Localized: current life
+    m_Metadata:
+      m_Items:
+      - rid: 6749919003178172508
+  - m_Id: 56
+    m_Localized: drinking water = cost {0} of souls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57
+    m_Localized: Interact with the Furnace
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58
+    m_Localized: Eternal furnace
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59
+    m_Localized: Current range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 60
+    m_Localized: Enchant torch = cost {0} of souls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61
+    m_Localized: Interact with the Anvil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62
+    m_Localized: Enchanted Anvil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63
+    m_Localized: Current cadence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 64
+    m_Localized: Increase cadence = cost {0} of souls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 65
+    m_Localized: Current damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 66
+    m_Localized: Increase damage = cost {0} of souls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 67
+    m_Localized: Open gate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68
+    m_Localized: Attention
+    m_Metadata:
+      m_Items: []
+  - m_Id: 69
+    m_Localized: Make sure you have made all possible improvements to the improvement
+      room.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70
+    m_Localized: To go back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 72
+    m_Localized: Defeat the boss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73
+    m_Localized: THIS OGRE IS HUGE!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74
+    m_Localized: The altar is a point of healing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75
+    m_Localized: Heal yourself through the altar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 76
+    m_Localized: Finally this was almost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 77
+    m_Localized: There is a door on the side of the altar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78
+    m_Localized: Leave the room
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79
+    m_Localized: Other players?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 80
+    m_Localized: Interact
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81
+    m_Localized: Who are you?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 82
+    m_Localized: We are players just like you, but we arrived earlier and we are
+      ensuring that only those worthy of Holiday's legacy have the opportunity to
+      acquire the first key to the secret EGG, you passed all the challenges we set
+      up hours before your arrival, it shouldn't be long before other players arrive
+      too, wait here with us.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83
+    m_Localized: If you're here, why haven't you gotten the EGG yet?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84
+    m_Localized: Only one person does the challenge per day. We've formed a queue,
+      and you're number 47 in that queue.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 85
+    m_Localized: Seriously? Oh shit, but wait... who was first?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 86
+    m_Localized: "A player named \u201CParzival\u201D found the EGG a few days before,
+      his name is on the competition leaderboard, didn\u2019t you see?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87
+    m_Localized: "No\u2026 but what do we do now?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 88
+    m_Localized: We protect the final challenge room at all costs, IOI must be on
+      their way.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 89
+    m_Localized: Okay, I'll be ready.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90
+    m_Localized: DEVELOPERS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 91
+    m_Localized: TEACHERS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 92
+    m_Localized: SUPPORT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93
+    m_Localized: ACKNOWLEDGMENTS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 94
+    m_Localized: TOOLS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95
+    m_Localized: CONCEPTS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 96
+    m_Localized: THANK YOU FOR PLAYING OUR GAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 97
+    m_Localized: Interact with
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23375245598425088
+    m_Localized: Reloading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23568257167294464
+    m_Localized: Interact with the door
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 6749919003178172508
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 55

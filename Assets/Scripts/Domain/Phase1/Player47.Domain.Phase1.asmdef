@@ -1,0 +1,17 @@
+{
+    "name": "Player47.Domain.Phase1",
+    "rootNamespace": "",
+    "references": [
+        "GUID:795bc9749db3c7b42bce902d5511bd55",
+        "GUID:85e5d75f9f007ac4ab72bad17ba2af8c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,18 @@
+{
+    "name": "Player47.SceneManagement",
+    "rootNamespace": "",
+    "references": [
+        "Player47.Core",
+        "Player47.UI",
+        "Player47.Domain.Player"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

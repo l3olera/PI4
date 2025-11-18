@@ -1,0 +1,18 @@
+{
+    "name": "Player47.Externals",
+    "rootNamespace": "",
+    "references": [
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:795bc9749db3c7b42bce902d5511bd55",
+        "GUID:894f0bf9ac2700c439d7cf23ebf78e1b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
