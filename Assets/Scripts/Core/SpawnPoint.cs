@@ -8,15 +8,13 @@ namespace Player47.Core
 
         void Awake()
         {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
+            Instance = this;
         }
 
         public void RespawnPlayerAtPosition(Transform playerTransform)
         {
             // Define tanto posição quanto rotação
+            Debug.Log("Respawning player at spawn point.");
             playerTransform.SetPositionAndRotation(transform.position, transform.rotation);
         }
     }

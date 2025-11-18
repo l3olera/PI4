@@ -59,7 +59,8 @@ namespace Player47.UI.Menu
             m_videoCanvas.alpha = 1;
             m_cutsceneVideo.Play();
 
-            StartCoroutine(WaitVideoEnd());
+            //StartCoroutine(WaitVideoEnd());
+            SceneLoader.Instance.LoadSceneAsync(nextSceneName);
         }
 
         IEnumerator WaitVideoEnd()
