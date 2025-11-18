@@ -1,6 +1,5 @@
-using UnityEngine;
 using TMPro;
-using Player47.Core.Service;
+using UnityEngine;
 
 namespace Player47.UI.HUD
 {

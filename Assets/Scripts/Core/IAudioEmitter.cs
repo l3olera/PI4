@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Player47.Core
+﻿namespace Player47.Core
 {
     public interface IAudioEmitter
     {

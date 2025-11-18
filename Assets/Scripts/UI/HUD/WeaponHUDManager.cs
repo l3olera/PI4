@@ -1,9 +1,6 @@
-using Player47.Core.Service;
 using Player47.Domain.Player;
 using TMPro;
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Player47.UI.HUD
 {
@@ -57,7 +54,7 @@ namespace Player47.UI.HUD
             if (m_textAmmo != null)
             {
                 Debug.Log("Atualizando munição no HUD");
-                m_textAmmo.SetText("{0} / {1}", amount, PlayerWeaponHandler.Instance.playerCurrentEquippedWeapon == null ? amount : (float) PlayerWeaponHandler.Instance.playerCurrentEquippedWeapon.ScoreMaxAmmo);
+                m_textAmmo.SetText("{0} / {1}", amount, PlayerWeaponHandler.Instance.playerCurrentEquippedWeapon == null ? amount : (float)PlayerWeaponHandler.Instance.playerCurrentEquippedWeapon.ScoreMaxAmmo);
             }
         }
     }

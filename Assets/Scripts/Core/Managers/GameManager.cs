@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,7 +12,8 @@ namespace Player47.Core.Managers
             if (Instance != null && Instance != this)
             {
                 Destroy(gameObject);
-            }else
+            }
+            else
             {
                 Instance = this;
             }

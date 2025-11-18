@@ -1,5 +1,4 @@
-﻿using Codice.Client.Common;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace Player47.Domain.Player
@@ -63,7 +62,7 @@ namespace Player47.Domain.Player
         // ===============================
         public void PlayJumpSound()
         {
-            if(m_audioSource == null || m_jumpingAudioIsPlaying) return;
+            if (m_audioSource == null || m_jumpingAudioIsPlaying) return;
 
             AudioClip[] audios = CheckSoundToTheGround(SurfaceSoundType.Jump);
             if (audios == null || audios.Length == 0) return;

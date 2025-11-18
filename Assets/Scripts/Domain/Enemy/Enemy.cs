@@ -80,7 +80,6 @@ namespace Player47.Domain.Enemy
         public void TakeDamage(int amount)
         {
             _currentHealth -= amount;
-            Debug.Log($"{gameObject.name} took {amount} damage. Current health: {_currentHealth}");
 
             if (_currentHealth <= 0)
             {
