@@ -2,7 +2,6 @@
 using Player47.Core.Service;
 using Player47.Domain.Combat;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Player47.Domain.Player
 {
@@ -18,7 +17,7 @@ namespace Player47.Domain.Player
 
         void Awake()
         {
-            if(Instance == null)
+            if (Instance == null)
             {
                 Instance = this;
             }
@@ -27,7 +26,7 @@ namespace Player47.Domain.Player
                 Destroy(gameObject);
             }
         }
-        
+
         void Start()
         {
             CurrentHealth.Value = m_maxHealth;

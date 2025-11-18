@@ -1,129 +1,133 @@
 using Player47.Core;
 using Player47.Core.Managers;
-using Player47.Core.Service;
 using Player47.UI.HUD;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(Rigidbody))]
+
 /// <summary>
 /// Controla a interação do jogador com objetos interativos <see cref="IInteractable"/>
 /// </summary>
-public class InteractController : MonoBehaviour
+namespace Player47.Domain.Interact
 {
-    readonly List<IInteractable> interactables = new();
-
-    [SerializeField] InteractionUIManager m_interactionUI;
-
-    IInteractable m_lastInteractable = null;
-    bool m_lastCanShowText;
-
-    Rigidbody m_rb;
-
-    void OnEnable()
+    [RequireComponent(typeof(Rigidbody))]
+    public class InteractController : MonoBehaviour
     {
-        SceneManager.sceneLoaded += SceneManager_sceneLoaded;
-        InputManager.InteractInputPerformed += OnInteractInput;
-    }
+        readonly List<IInteractable> interactables = new();
 
-    private void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        Start();
-    }
+        [SerializeField] InteractionUIManager m_interactionUI;
 
-    void OnDisable()
-    {
-        InputManager.InteractInputPerformed -= OnInteractInput;
-    }
+        IInteractable m_lastInteractable = null;
+        bool m_lastCanShowText;
 
-    void Awake() 
-    {
-        if(TryGetComponent<Rigidbody>(out var rb))
+        Rigidbody m_rb;
+
+        void OnEnable()
         {
-            m_rb = rb;
-            m_rb.isKinematic = true; //O rigidbody é usado apenas para detectar colisões, não para física
-            m_rb.useGravity = false;
+            SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+            InputManager.InteractInputPerformed += OnInteractInput;
         }
-    }
 
-    void Start()
-    {
-        interactables.Clear();
-        m_lastInteractable = null;
-        m_lastCanShowText = false;
-        m_interactionUI.HideInteractionText();
-    }
-
-    void Update()
-    {
-        if (interactables.Count == 0) return;
-
-        IInteractable closest = GetClosestInteractable();
-        if (closest == null) return;
-
-        if (closest != m_lastInteractable || closest.CanShowText != m_lastCanShowText)
+        private void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            m_lastInteractable = closest;
-            m_lastCanShowText = closest.CanShowText;
-
-            if (closest.CanShowText)
-                m_interactionUI.ShowInteractionText(closest.TranslateKey);
-            else
-                m_interactionUI.HideInteractionText();
+            Start();
         }
-    }
 
-    void OnInteractInput()
-    {
-        if(interactables.Count > 0)
+        void OnDisable()
         {
-            // Interage com o mais próximo
-            IInteractable closest = GetClosestInteractable();
-
-            closest?.Interact();
+            InputManager.InteractInputPerformed -= OnInteractInput;
         }
-    }
 
-    IInteractable GetClosestInteractable()
-    {
-        float minDist = Mathf.Infinity;
-        IInteractable closest = null;
-
-        foreach (var i in interactables)
+        void Awake()
         {
-            float dist = Vector3.Distance(transform.position, ((MonoBehaviour)i).transform.position);
-            if (dist < minDist)
+            if (TryGetComponent<Rigidbody>(out var rb))
             {
-                minDist = dist;
-                closest = i;
+                m_rb = rb;
+                m_rb.isKinematic = true; //O rigidbody é usado apenas para detectar colisões, não para física
+                m_rb.useGravity = false;
             }
         }
-        return closest;
-    }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.TryGetComponent<IInteractable>(out var interactable))
+        void Start()
         {
-            Debug.Log($"{other.name} entrou no interactable");
-            if (!interactables.Contains(interactable))
-                interactables.Add(interactable);
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.TryGetComponent<IInteractable>(out var interactable))
-        {
-            interactables.Remove(interactable);
+            interactables.Clear();
             m_lastInteractable = null;
             m_lastCanShowText = false;
-        }
-
-        if(interactables.Count == 0)
-        {
             m_interactionUI.HideInteractionText();
         }
+
+        void Update()
+        {
+            if (interactables.Count == 0) return;
+
+            IInteractable closest = GetClosestInteractable();
+            if (closest == null) return;
+
+            if (closest != m_lastInteractable || closest.CanShowText != m_lastCanShowText)
+            {
+                m_lastInteractable = closest;
+                m_lastCanShowText = closest.CanShowText;
+
+                if (closest.CanShowText)
+                    m_interactionUI.ShowInteractionText(closest.TranslateKey);
+                else
+                    m_interactionUI.HideInteractionText();
+            }
+        }
+
+        void OnInteractInput()
+        {
+            if (interactables.Count > 0)
+            {
+                // Interage com o mais próximo
+                IInteractable closest = GetClosestInteractable();
+
+                closest?.Interact();
+            }
+        }
+
+        IInteractable GetClosestInteractable()
+        {
+            float minDist = Mathf.Infinity;
+            IInteractable closest = null;
+
+            foreach (var i in interactables)
+            {
+                float dist = Vector3.Distance(transform.position, ((MonoBehaviour)i).transform.position);
+                if (dist < minDist)
+                {
+                    minDist = dist;
+                    closest = i;
+                }
+            }
+            return closest;
+        }
+
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent<IInteractable>(out var interactable))
+            {
+                Debug.Log($"{other.name} entrou no interactable");
+                if (!interactables.Contains(interactable))
+                    interactables.Add(interactable);
+            }
+        }
+
+        void OnTriggerExit(Collider other)
+        {
+            if (other.TryGetComponent<IInteractable>(out var interactable))
+            {
+                interactables.Remove(interactable);
+                m_lastInteractable = null;
+                m_lastCanShowText = false;
+            }
+
+            if (interactables.Count == 0)
+            {
+                m_interactionUI.HideInteractionText();
+            }
+        }
     }
+
 }

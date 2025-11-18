@@ -1,4 +1,3 @@
-using UnityEditorInternal;
 using UnityEngine;
 
 namespace Player47.Core.Service
@@ -72,5 +71,5 @@ namespace Player47.Core.Service
                 panel.SetActive(panel == panelToShow);
             }
         }
-    } 
+    }
 }

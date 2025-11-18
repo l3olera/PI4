@@ -1,4 +1,3 @@
-using Codice.CM.SEIDInfo;
 using Player47.Core.Managers;
 using Player47.Core.Service;
 using System.Collections;
@@ -29,7 +28,7 @@ namespace Player47.UI.Menu
         {
             CursorController.UnlockCursor();
 
-            if(_settingsMenu != null && _settingsMenu.activeSelf)
+            if (_settingsMenu != null && _settingsMenu.activeSelf)
             {
                 _settingsMenu.SetActive(false);
             }
@@ -49,7 +48,7 @@ namespace Player47.UI.Menu
                 _quitMenu.SetActive(false);
             }
 
-            if(m_videoCanvas.alpha > 0)
+            if (m_videoCanvas.alpha > 0)
             {
                 m_videoCanvas.alpha = 0;
             }
@@ -109,7 +108,7 @@ namespace Player47.UI.Menu
 
             _switcher.TogglePanel(obj, _panels);
         }
-        
+
     }
 
 }

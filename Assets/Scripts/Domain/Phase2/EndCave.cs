@@ -1,7 +1,6 @@
 using Player47.Core;
 using Player47.Core.Managers;
 using Player47.Core.Service;
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -32,7 +31,7 @@ namespace Player47.Domain.Phase2
             audioEmitter?.PlaySound();
 
             StartCoroutine(LoadSceneAfterAudio());
-            
+
         }
 
         IEnumerator LoadSceneAfterAudio()

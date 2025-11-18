@@ -1,5 +1,4 @@
 ﻿using Player47.Domain.Player;
-using System.Collections;
 using UnityEngine;
 
 namespace Player47.Domain.Enemy.Vision
@@ -8,7 +7,7 @@ namespace Player47.Domain.Enemy.Vision
     {
         public bool CanSeePlayer(Transform enemy, Transform player, EnemyStatsSO stats)
         {
-            if(TorchController.TorchEquippedValue) return false; 
+            if (TorchController.TorchEquippedValue) return false;
 
             return new NormalVision().CanSeePlayer(enemy, player, stats);
         }

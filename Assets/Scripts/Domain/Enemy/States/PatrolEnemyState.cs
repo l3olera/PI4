@@ -1,5 +1,4 @@
-﻿using UnityEditor.SceneManagement;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 namespace Player47.Domain.Enemy.States
@@ -36,7 +35,7 @@ namespace Player47.Domain.Enemy.States
 
         public override void Update()
         {
-            if(_agent.remainingDistance < 1)
+            if (_agent.remainingDistance < 1)
             {
                 if (_currentIndex >= _waypoints.Length - 1)
                     _currentIndex = 0;

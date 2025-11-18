@@ -1,4 +1,3 @@
-using Player47.Core.Managers;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;

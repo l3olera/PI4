@@ -1,4 +1,3 @@
-using Codice.Client.Common;
 using Player47.Core;
 using Player47.Core.Managers;
 using Player47.Core.Service;
@@ -29,7 +28,7 @@ public class EnterArenaPhase3 : MonoBehaviour, IInteractable
 
     void Start()
     {
-        if(m_panelConfirm.activeSelf)
+        if (m_panelConfirm.activeSelf)
             m_panelConfirm.SetActive(false);
     }
 
@@ -64,7 +63,7 @@ public class EnterArenaPhase3 : MonoBehaviour, IInteractable
     }
 
     public void GoToPhase3()
-    {        
+    {
         m_canShowText = false;
         m_canInteract = false;
         m_panelConfirm.SetActive(false);

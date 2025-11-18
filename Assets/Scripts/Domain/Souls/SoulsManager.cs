@@ -1,5 +1,4 @@
 using Player47.Core.Service;
-using System.Drawing;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -18,7 +17,7 @@ namespace Player47.Domain.Souls
 
         void Awake()
         {
-            if(Instance == null)
+            if (Instance == null)
             {
                 Instance = this;
             }
@@ -32,7 +31,7 @@ namespace Player47.Domain.Souls
         private void Update()
         {
             // Código de teste para adicionar almas pressionando a tecla "K"
-            if(Input.GetKeyDown(KeyCode.K))
+            if (Input.GetKeyDown(KeyCode.K))
             {
                 AddSouls(100);
             }
@@ -47,7 +46,7 @@ namespace Player47.Domain.Souls
         {
             _souls.Value -= amount;
 
-            if(_souls.Value < 0)
+            if (_souls.Value < 0)
             {
                 _souls.Value = 0;
             }
