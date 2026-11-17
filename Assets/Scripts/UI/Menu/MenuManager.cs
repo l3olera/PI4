@@ -20,10 +20,11 @@ namespace Player47.UI.Menu
 
         [SerializeField] string nextSceneName;
 
+        /*
         [Header("Cutscene Video")]
         [SerializeField] CanvasGroup m_videoCanvas;
         [SerializeField] VideoPlayer m_cutsceneVideo;
-
+        */
         void Start()
         {
             CursorController.UnlockCursor();
@@ -48,30 +49,39 @@ namespace Player47.UI.Menu
                 _quitMenu.SetActive(false);
             }
 
+            /*
             if (m_videoCanvas.alpha > 0)
             {
                 m_videoCanvas.alpha = 0;
             }
+            */
         }
 
         public void StartGame()
         {
+            // Inicia direto o jogo sem o vídeo
+            FadeManager.Instance.FadeToBlack();
+            SceneLoader.Instance.LoadSceneAsync(nextSceneName);
+            /*
             m_videoCanvas.alpha = 1;
             m_cutsceneVideo.Play();
 
             StartCoroutine(WaitVideoEnd());
+            */
         }
 
+        /*
         IEnumerator WaitVideoEnd()
         {
             yield return new WaitUntil(() => m_cutsceneVideo.isPrepared); //Espera o video estar preparado 
             yield return new WaitUntil(() => m_cutsceneVideo.isPlaying); //Espera o vídeo tocar
             CursorController.LockCursor();
             yield return new WaitUntil(() => !m_cutsceneVideo.isPlaying); //Ai sim, espera o vídeo terminar  
-
+         
             FadeManager.Instance.FadeToBlack();
             SceneLoader.Instance.LoadSceneAsync(nextSceneName);
         }
+        */
 
         public void ToggleSettings()
         {

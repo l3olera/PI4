@@ -1,13 +1,13 @@
-using Player47.Core.Managers;
+Ôªøusing Player47.Core.Managers;
 using Player47.Core.Service;
 using UnityEngine;
 
 namespace Player47.UI.Pause
 {
     /// <summary>
-    /// Respons·vel por gerenciar a interface de usu·rio (UI) do menu de pausa. 
+    /// Respons√°vel por gerenciar a interface de usu√°rio (UI) do menu de pausa. 
     /// 
-    /// Desativa o HUD quando o jogo est· pausado e ativa o menu de pausa.
+    /// Desativa o HUD quando o jogo est√° pausado e ativa o menu de pausa.
     /// Se inscrevendo no evento do <see cref="PauseManager"/> para atualizar a UI conforme o estado de pausa do jogo.
     /// </summary>
     public class PauseUIManager : MonoBehaviour
@@ -19,7 +19,7 @@ namespace Player47.UI.Pause
         {
             Debug.Log("Ativado");
             PauseManager.IsGamePaused.AddListener(PauseManager_IsGamePaused);
-            PauseManager_IsGamePaused(PauseManager.IsGamePaused.Value); // j· forÁa atualizar com valor atual
+            PauseManager_IsGamePaused(PauseManager.IsGamePaused.Value); // j√° for√ßa atualizar com valor atual
         }
 
         void OnDisable()
@@ -29,6 +29,8 @@ namespace Player47.UI.Pause
 
         void PauseManager_IsGamePaused(bool active)
         {
+            if (this == null || m_pauseMenuUI == null || m_HUDMenuUi == null) return;
+
             Debug.Log("Entrou no handle do UI do pause");
             if (!PauseManager.CanListenInputPause) return;
 
