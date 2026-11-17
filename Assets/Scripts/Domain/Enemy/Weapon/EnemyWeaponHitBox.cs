@@ -1,4 +1,4 @@
-using Player47.Domain.Combat;
+Ôªøusing Player47.Domain.Combat;
 using UnityEngine;
 
 namespace Player47.Domain.Enemy.Weapon
@@ -7,11 +7,17 @@ namespace Player47.Domain.Enemy.Weapon
     {
         int m_damage;
 
-        bool _canDamage;//Controla se o inimigo pode causar dano ou n„o
+        bool _canDamage;//Controla se o inimigo pode causar dano ou n√£o
         bool _hasHit; //Para evitar que o inimigo acerte mais de uma vez no mesmo ataque
 
         void Start()
         {
+            int ignoreRaycastLayer = LayerMask.NameToLayer("Ignore Raycast");
+            if (ignoreRaycastLayer != -1)
+            {
+                gameObject.layer = ignoreRaycastLayer;
+            }
+
             GetComponentInParent<EnemyWeaponController>().weaponHitBox = this;  //Instancia o hitbox no seu controlador
             m_damage = GetComponentInParent<Enemy>().stats.damage; //Pega o dano do inimigo
         }
@@ -19,23 +25,23 @@ namespace Player47.Domain.Enemy.Weapon
         void OnTriggerStay(Collider other)
         {
             if (_canDamage && other.CompareTag("Player")){ 
-                if(_hasHit) return; //Se j· acertou, n„o acerta de novo
+                if(_hasHit) return; //Se j√° acertou, n√£o acerta de novo
                 if (other.TryGetComponent<IDamageable>(out IDamageable damageable))
                 {
                     damageable.TakeDamage(m_damage);
-                    _hasHit = true; //Marca que j· acertou
+                    _hasHit = true; //Marca que j√° acertou
                 }
             }
         }
 
-        //… chamado no comeÁo da animaÁ„o de ataque
+        //√â chamado no come√ßo da anima√ß√£o de ataque
         public void EnableDamage()
         {
             _canDamage = true;
             _hasHit = false;
         }
 
-        //… chamado no fim da animaÁ„o de ataque
+        //√â chamado no fim da anima√ß√£o de ataque
         public void DisableDamage()
         {
             _canDamage = false;

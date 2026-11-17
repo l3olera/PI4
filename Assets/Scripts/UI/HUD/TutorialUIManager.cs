@@ -2,6 +2,7 @@
 using Player47.Core.Managers;
 using Player47.Core;
 using System;
+using System.Collections;
 
 namespace Player47.UI.HUD
 {
@@ -13,24 +14,45 @@ namespace Player47.UI.HUD
 
         void Start()
         {
+            InputManager.PauseInputPerformed -= ExitTutorialHUD;
             InputManager.PauseInputPerformed += ExitTutorialHUD;
 
             Triggered?.Invoke();
-            m_tutorialCanvas.SetActive(true);
+            if (m_tutorialCanvas != null)
+                m_tutorialCanvas.SetActive(true);
             PauseManager.CanListenInputPause = false;
 
-            if(InputManager.CanListenGameplayInputs.Value)
+            if (InputManager.CanListenGameplayInputs.Value)
                 InputManager.CanListenGameplayInputs.Value = false;
         }
 
+        void OnDisable()
+        {
+            InputManager.PauseInputPerformed -= ExitTutorialHUD;
+        }
 
-        void ExitTutorialHUD() {
+        void OnDestroy()
+        {
+            InputManager.PauseInputPerformed -= ExitTutorialHUD;
+        }
+
+        void ExitTutorialHUD()
+        {
+            InputManager.PauseInputPerformed -= ExitTutorialHUD;
+
+            if (this == null || m_tutorialCanvas == null) return;
+
             Debug.Log("Entrou no método que tira o tutorial do HUD");
             m_tutorialCanvas.SetActive(false);
 
-            PauseManager.CanListenInputPause = true;
             InputManager.CanListenGameplayInputs.Value = true;
-            InputManager.PauseInputPerformed -= ExitTutorialHUD;
+            StartCoroutine(EnablePauseNextFrame());
+        }
+
+        IEnumerator EnablePauseNextFrame()
+        {
+            yield return null;
+            PauseManager.CanListenInputPause = true;
         }
     }
 }

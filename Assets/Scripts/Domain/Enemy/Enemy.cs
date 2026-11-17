@@ -15,6 +15,7 @@ namespace Player47.Domain.Enemy
 
         EnemyState _currentState;
         protected int _currentHealth;
+        protected bool _isDead;
 
         [Header("Vision")]
         [SerializeField] protected IEnemyVision _vision;
@@ -66,11 +67,42 @@ namespace Player47.Domain.Enemy
                 _player = PlayerController.Instance.transform;
             }
 
+            EnsureAgentOnNavMesh();
+
             _currentState = new IdleEnemyState(gameObject, _agent, _anim, _player, _waypoints, stats.moveSpeed, stats.attackRange, stats.attackInterval); // Estado inicial genérico  
+        }
+
+        protected void EnsureAgentOnNavMesh()
+        {
+            if (_agent == null || !_agent.enabled || _agent.isOnNavMesh)
+                return;
+
+            int[] candidateAgentTypes = new int[] { _agent.agentTypeID, 1479372276, 0 };
+            foreach (int agentType in candidateAgentTypes)
+            {
+                NavMeshQueryFilter filter = new NavMeshQueryFilter
+                {
+                    agentTypeID = agentType,
+                    areaMask = NavMesh.AllAreas
+                };
+
+                if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 5f, filter))
+                {
+                    if (_agent.agentTypeID != agentType)
+                    {
+                        _agent.agentTypeID = agentType;
+                    }
+                    _agent.Warp(hit.position);
+                    if (_agent.isOnNavMesh)
+                        return;
+                }
+            }
         }
 
         protected virtual void Update()
         {
+            if (_isDead) return;
+
             _currentState = _currentState?.Process();
 
             // Chama o gerenciador central para tentar tocar som
@@ -79,6 +111,8 @@ namespace Player47.Domain.Enemy
 
         public void TakeDamage(int amount)
         {
+            if (_isDead) return;
+
             _currentHealth -= amount;
 
             if (_currentHealth <= 0)
@@ -89,9 +123,17 @@ namespace Player47.Domain.Enemy
 
         protected virtual void Die()
         {
-            _agent.isStopped = true; // Para de se mover
+            _isDead = true;
+            _currentState = null;
+
+            if (_agent != null && _agent.isOnNavMesh)
+            {
+                _agent.isStopped = true; // Para de se mover
+                _agent.ResetPath();
+            }
             
-            _hitBox.enabled = false; // Desativa o hitbox para evitar mais danos
+            if (_hitBox != null)
+                _hitBox.enabled = false; // Desativa o hitbox para evitar mais danos
             
             _anim.SetTrigger("isDying");
 

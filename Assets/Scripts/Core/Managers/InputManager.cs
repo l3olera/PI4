@@ -1,4 +1,4 @@
-using Player47.Core.Service;
+ï»¿using Player47.Core.Service;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 namespace Player47.Core.Managers
 {
     /// <summary>
-    /// Responsável por gerenciar as entradas do jogador.
+    /// ResponsÃ¡vel por gerenciar as entradas do jogador.
     /// </summary>
     public class InputManager : MonoBehaviour
     {
@@ -46,34 +46,51 @@ namespace Player47.Core.Managers
 
         void OnDisable()
         {
-            // Desativa mapas de ação
-            inputActions.FindActionMap("Player").Disable();
-            inputActions.FindActionMap("ToolsMap").Disable();
-            inputActions.FindActionMap("UI").Disable();
-            inputActions.FindActionMap("Combat").Disable();
+            if (Instance != this) return;
+
+            if (inputActions != null)
+            {
+                // Desativa mapas de aÃ§Ã£o
+                inputActions.FindActionMap("Player")?.Disable();
+                inputActions.FindActionMap("ToolsMap")?.Disable();
+                inputActions.FindActionMap("UI")?.Disable();
+                inputActions.FindActionMap("Combat")?.Disable();
+
+                // Remove outros eventos
+                var reload = inputActions.FindAction("Reload");
+                if (reload != null) reload.performed -= OnReload;
+
+                var useTorch = inputActions.FindAction("UseTorch");
+                if (useTorch != null) useTorch.performed -= OnUseTorch;
+
+                var pause = inputActions.FindAction("Pause");
+                if (pause != null) pause.performed -= OnPause;
+
+                var interact = inputActions.FindAction("Interact");
+                if (interact != null) interact.performed -= OnInteract;
+            }
 
             // Remove eventos de mira
-            _aimAction.started -= _aimStartedDelegate;
-            _aimAction.canceled -= _aimCanceledDelegate;
-
-            // Remove outros eventos
-            inputActions.FindAction("Reload").performed -= OnReload;
-            inputActions.FindAction("UseTorch").performed -= OnUseTorch;
-            inputActions.FindAction("Pause").performed -= OnPause;
-            inputActions.FindAction("Interact").performed -= OnInteract;
+            if (_aimAction != null)
+            {
+                _aimAction.started -= _aimStartedDelegate;
+                _aimAction.canceled -= _aimCanceledDelegate;
+            }
 
             PauseManager.IsGamePaused.RemoveListener(PauseManager_IsGamePaused);
         }
 
         void Start()
         {
-            // Ativa os mapas de ação
+            if (Instance != this) return;
+
+            // Ativa os mapas de aÃ§Ã£o
             inputActions.FindActionMap("Player").Enable();
             inputActions.FindActionMap("ToolsMap").Enable();
             inputActions.FindActionMap("UI").Enable();
             inputActions.FindActionMap("Combat").Enable();
 
-            // Pega as ações específicas de atirar e mirar
+            // Pega as aÃ§Ãµes especÃ­ficas de atirar e mirar
             _shootAction = inputActions.FindAction("Shoot");
             _aimAction = inputActions.FindAction("Aim");
 
@@ -94,6 +111,8 @@ namespace Player47.Core.Managers
 
         void Update()
         {
+            if (_shootAction == null) return;
+
             float value = _shootAction.ReadValue<float>();
             
             if(value > 0.5f)
@@ -116,7 +135,7 @@ namespace Player47.Core.Managers
             if (!CanListenGameplayInputs.Value || (!IsShooting && !value)) return;
 
             IsShooting = value;
-            ShootInputPerformed?.Invoke(value);
+            InvokeSafe(ref ShootInputPerformed, value);
             if (value) Debug.Log("Atirou");
         }
 
@@ -125,30 +144,60 @@ namespace Player47.Core.Managers
             if (!CanListenGameplayInputs.Value || IsAiming == value) return;
 
             IsAiming = value;
-            AimInputPerformed?.Invoke(value);
+            InvokeSafe(ref AimInputPerformed, value);
         }
 
         void OnReload(InputAction.CallbackContext ctx)
         {
             if (!CanListenGameplayInputs.Value) return;
-            ReloadInputPerformed?.Invoke();
+            InvokeSafe(ref ReloadInputPerformed);
         }
 
         void OnUseTorch(InputAction.CallbackContext ctx)
         {
             if (!CanListenGameplayInputs.Value) return;
-            TorchInputPerformed?.Invoke();
+            InvokeSafe(ref TorchInputPerformed);
         }
 
         void OnPause(InputAction.CallbackContext ctx)
         {
-            PauseInputPerformed?.Invoke();
+            InvokeSafe(ref PauseInputPerformed);
         }
 
         void OnInteract(InputAction.CallbackContext ctx)
         {
             if (!CanListenGameplayInputs.Value) return;
-            InteractInputPerformed?.Invoke();
+            InvokeSafe(ref InteractInputPerformed);
+        }
+
+        static void InvokeSafe(ref Action eventAction)
+        {
+            if (eventAction == null) return;
+
+            foreach (Delegate d in eventAction.GetInvocationList())
+            {
+                if (d.Target is UnityEngine.Object unityObj && unityObj == null)
+                {
+                    eventAction -= (Action)d;
+                    continue;
+                }
+                ((Action)d).Invoke();
+            }
+        }
+
+        static void InvokeSafe<T>(ref Action<T> eventAction, T arg)
+        {
+            if (eventAction == null) return;
+
+            foreach (Delegate d in eventAction.GetInvocationList())
+            {
+                if (d.Target is UnityEngine.Object unityObj && unityObj == null)
+                {
+                    eventAction -= (Action<T>)d;
+                    continue;
+                }
+                ((Action<T>)d).Invoke(arg);
+            }
         }
     }
 }

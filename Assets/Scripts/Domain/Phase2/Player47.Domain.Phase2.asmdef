@@ -2,7 +2,8 @@
     "name": "Player47.Domain.Phase2",
     "rootNamespace": "",
     "references": [
-        "Player47.Core"
+        "Player47.Core",
+        "Player47.Domain.Enemy"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

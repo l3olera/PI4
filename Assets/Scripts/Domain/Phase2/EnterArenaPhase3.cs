@@ -1,6 +1,8 @@
-using Player47.Core;
+ï»¿using Player47.Core;
 using Player47.Core.Managers;
 using Player47.Core.Service;
+using Player47.Domain.Enemy;
+using Player47.Domain.Enemy.Types;
 using System.Collections;
 using UnityEngine;
 
@@ -19,17 +21,30 @@ public class EnterArenaPhase3 : MonoBehaviour, IInteractable
     [SerializeField] Animator[] m_doorsAnim;
     [SerializeField] AudioSource[] m_doorsAudio;
 
-    [Header("Boss Audio")]
+    [Header("Boss")]
     [SerializeField] AudioSource m_bossAudioSource;
     [SerializeField] Animator m_bossAnimator;
+    [SerializeField] OgreEnemy m_bossEnemy;
 
     [Header("Next Scene")]
     [SerializeField] string m_nextSceneName = "Credits";
 
     void Start()
     {
-        if (m_panelConfirm.activeSelf)
+        if (m_panelConfirm != null && m_panelConfirm.activeSelf)
             m_panelConfirm.SetActive(false);
+
+        if (m_bossEnemy == null && m_bossAnimator != null)
+            m_bossEnemy = m_bossAnimator.GetComponent<OgreEnemy>();
+
+        if (m_bossEnemy != null)
+            m_bossEnemy.OnDeath += OnBossDied;
+    }
+
+    void OnDestroy()
+    {
+        if (m_bossEnemy != null)
+            m_bossEnemy.OnDeath -= OnBossDied;
     }
 
     public void Interact()
@@ -69,9 +84,14 @@ public class EnterArenaPhase3 : MonoBehaviour, IInteractable
         m_panelConfirm.SetActive(false);
         ReturnGame();
 
+        if (TryGetComponent<Collider>(out Collider doorCollider))
+        {
+            doorCollider.enabled = false;
+        }
+
         StartCoroutine(StartBossAudio());
 
-        //Faz a lógica de ir para a fase 3
+        // Abre as portas para o jogador enfrentar o boss na arena
         for (int i = 0; i < m_doorsAudio.Length; i++)
         {
             m_doorsAudio[i].Play();
@@ -83,9 +103,17 @@ public class EnterArenaPhase3 : MonoBehaviour, IInteractable
     {
         yield return new WaitForSeconds(1f);
 
-        m_bossAudioSource.Play();
-        m_bossAnimator.SetTrigger("isAttacking");
-        m_bossAnimator.speed = 1.5f;
+        if (m_bossAudioSource != null)
+            m_bossAudioSource.Play();
+
+        if (m_bossEnemy != null)
+        {
+            m_bossEnemy.ActivateBoss();
+        }
+    }
+
+    void OnBossDied(Enemy boss)
+    {
         StartCoroutine(GoToNextScene());
     }
 

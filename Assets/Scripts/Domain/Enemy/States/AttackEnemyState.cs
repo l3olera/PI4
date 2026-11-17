@@ -35,6 +35,17 @@ namespace Player47.Domain.Enemy.States
                 _stage = EVENT.EXIT;
                 return;
             }
+
+            Vector3 lookDirection = _player.position - _enemy.transform.position;
+            lookDirection.y = 0f;
+            if (lookDirection.sqrMagnitude > 0.001f)
+            {
+                _enemy.transform.rotation = Quaternion.Slerp(
+                    _enemy.transform.rotation,
+                    Quaternion.LookRotation(lookDirection),
+                    Time.deltaTime * 5f
+                );
+            }
         
             if (Time.time >= _lastAttackTime + _attackInterval)
             {

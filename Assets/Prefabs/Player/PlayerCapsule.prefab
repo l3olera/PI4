@@ -705,7 +705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4457798289484612858, guid: a84f886a48c19e24e9bfb6e9c851530e, type: 3}
       propertyPath: _range
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4457798289484612858, guid: a84f886a48c19e24e9bfb6e9c851530e, type: 3}
       propertyPath: _hittableLayers.m_Bits
