@@ -1,17 +1,17 @@
-using Player47.Core.State;
+ï»¿using Player47.Core.State;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Player47.Domain.Enemy
 {
     /// <summary>
-    /// Método base para estados de inimigos
+    /// MÃ©todo base para estados de inimigos
     /// 
     /// Possui enums para nome do estado e eventos (entrar, atualizar, sair)
     /// 
-    /// Os estados específicos (Idle, Patrol, Chase, Attack) irão herdar dessa classe
+    /// Os estados especÃ­ficos (Idle, Patrol, Chase, Attack) irÃ£o herdar dessa classe
     /// 
-    /// Todos os estados terão referência ao inimigo, NavMeshAgent e Animator
+    /// Todos os estados terÃ£o referÃªncia ao inimigo, NavMeshAgent e Animator
     /// </summary>
     public class EnemyState : IState
     {
@@ -35,7 +35,7 @@ namespace Player47.Domain.Enemy
 
         protected void StopAgent()
         {
-            if (_agent != null)
+            if (_agent != null && _agent.isActiveAndEnabled && _agent.isOnNavMesh)
             {
                 _agent.isStopped = true;
                 _agent.velocity = Vector3.zero;
@@ -45,7 +45,7 @@ namespace Player47.Domain.Enemy
 
         protected void StartAgent()
         {
-            if (_agent != null)
+            if (_agent != null && _agent.isActiveAndEnabled && _agent.isOnNavMesh)
             {
                 _agent.isStopped = false;
                 _agent.acceleration = _classEnemy.stats.acceleration;

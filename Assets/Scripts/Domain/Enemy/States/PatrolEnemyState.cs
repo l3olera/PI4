@@ -18,13 +18,18 @@ namespace Player47.Domain.Enemy.States
             StartAgent();
             float lastDist = Mathf.Infinity;
 
-            for (int i = 0; i < _waypoints.Length; i++)
+            if (_waypoints != null)
             {
-                float dist = Vector3.Distance(_enemy.transform.position, _waypoints[i].position);
-                if (dist < lastDist)
+                for (int i = 0; i < _waypoints.Length; i++)
                 {
-                    _currentIndex = i - 1;
-                    lastDist = dist;
+                    if (_waypoints[i] == null) continue;
+
+                    float dist = Vector3.Distance(_enemy.transform.position, _waypoints[i].position);
+                    if (dist < lastDist)
+                    {
+                        _currentIndex = i - 1;
+                        lastDist = dist;
+                    }
                 }
             }
 
@@ -35,7 +40,7 @@ namespace Player47.Domain.Enemy.States
 
         public override void Update()
         {
-            if (_waypoints != null && _waypoints.Length > 0 && !_agent.pathPending && _agent.remainingDistance < 1)
+            if (_agent != null && _agent.isActiveAndEnabled && _agent.isOnNavMesh && _waypoints != null && _waypoints.Length > 0 && !_agent.pathPending && _agent.remainingDistance < 1)
             {
                 if (_currentIndex >= _waypoints.Length - 1)
                     _currentIndex = 0;

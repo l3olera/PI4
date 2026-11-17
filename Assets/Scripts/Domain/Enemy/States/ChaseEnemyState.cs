@@ -20,6 +20,9 @@ namespace Player47.Domain.Enemy.States
 
         public override void Update()
         {
+            if (_agent == null || !_agent.isActiveAndEnabled || !_agent.isOnNavMesh)
+                return;
+
             _agent.SetDestination(_player.position);
 
             if (_agent.hasPath)

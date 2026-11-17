@@ -67,7 +67,36 @@ namespace Player47.Domain.Enemy
                 _player = PlayerController.Instance.transform;
             }
 
+            EnsureAgentOnNavMesh();
+
             _currentState = new IdleEnemyState(gameObject, _agent, _anim, _player, _waypoints, stats.moveSpeed, stats.attackRange, stats.attackInterval); // Estado inicial genérico  
+        }
+
+        protected void EnsureAgentOnNavMesh()
+        {
+            if (_agent == null || !_agent.enabled || _agent.isOnNavMesh)
+                return;
+
+            int[] candidateAgentTypes = new int[] { _agent.agentTypeID, 1479372276, 0 };
+            foreach (int agentType in candidateAgentTypes)
+            {
+                NavMeshQueryFilter filter = new NavMeshQueryFilter
+                {
+                    agentTypeID = agentType,
+                    areaMask = NavMesh.AllAreas
+                };
+
+                if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 5f, filter))
+                {
+                    if (_agent.agentTypeID != agentType)
+                    {
+                        _agent.agentTypeID = agentType;
+                    }
+                    _agent.Warp(hit.position);
+                    if (_agent.isOnNavMesh)
+                        return;
+                }
+            }
         }
 
         protected virtual void Update()

@@ -37,6 +37,7 @@ namespace Player47.Domain.Enemy.Types
 
         public void ActivateBoss()
         {
+            EnsureAgentOnNavMesh();
             _isActive = true;
             if (_anim != null)
             {
