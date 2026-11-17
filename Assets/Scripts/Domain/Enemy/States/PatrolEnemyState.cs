@@ -35,14 +35,15 @@ namespace Player47.Domain.Enemy.States
 
         public override void Update()
         {
-            if (_agent.remainingDistance < 1)
+            if (_waypoints != null && _waypoints.Length > 0 && !_agent.pathPending && _agent.remainingDistance < 1)
             {
                 if (_currentIndex >= _waypoints.Length - 1)
                     _currentIndex = 0;
                 else
                     _currentIndex++;
 
-                _agent.SetDestination(_waypoints[_currentIndex].position);
+                if (_waypoints[_currentIndex] != null)
+                    _agent.SetDestination(_waypoints[_currentIndex].position);
             }
 
             if (_classEnemy.CanSeePlayer())

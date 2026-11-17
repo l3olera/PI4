@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using UnityEngine;
 using Player47.Domain.Combat;
 using Player47.Domain.Weapon.Abstractions;
@@ -19,7 +19,7 @@ namespace Player47.Domain.Weapon.Implementations
         [Header("Componentes da arma")]
         [SerializeField] Camera _playerCamera;
 
-        [Header("ConfiguraÁ„o da arma")]
+        [Header("Configura√ß√£o da arma")]
         public int _currentAmmo;
         [SerializeField] int _ammoCapacity;
         [SerializeField] int _damage = 10;
@@ -31,7 +31,7 @@ namespace Player47.Domain.Weapon.Implementations
 
         [Header("VFX")]
         [SerializeField] GameObject _muzzleFlashPrefab; // O prefab do efeito
-        [SerializeField] Transform _muzzlePoint; // O ponto onde o VFX aparecer·
+        [SerializeField] Transform _muzzlePoint; // O ponto onde o VFX aparecer√°
 
         [Header("Audio")]
         [SerializeField] AudioSource _audioSource;
@@ -72,22 +72,22 @@ namespace Player47.Domain.Weapon.Implementations
 
                     PlaySound(_shootSound, _shootVolume);
 
-                    _nextTimeToFire = Time.time + 1f / _fireRate; //Armazena o tempo para o prÛximo tiro
+                    _nextTimeToFire = Time.time + 1f / _fireRate; //Armazena o tempo para o pr√≥ximo tiro
                 }
             }
         }
 
         public void Reload()
         {
-            if (isReloading || _currentAmmo == _ammoCapacity) //Impede o jogador de recarregar se j· estiver recarregando ou se o carregador estiver cheio
+            if (isReloading || _currentAmmo == _ammoCapacity) //Impede o jogador de recarregar se j√° estiver recarregando ou se o carregador estiver cheio
                 return;
             StartCoroutine(ReloadCourotine());
         }
 
         /// <summary>
-        /// Define o m·ximo e a capacidade de muniÁ„o do carregador.
+        /// Define o m√°ximo e a capacidade de muni√ß√£o do carregador.
         /// </summary>
-        /// <param name="amount">Quantidade a ser definido o m·ximo da capacidade</param>
+        /// <param name="amount">Quantidade a ser definido o m√°ximo da capacidade</param>
         public void SetMaxAmmo(int amount)
         {
             _ammoCapacity = amount;
@@ -96,9 +96,9 @@ namespace Player47.Domain.Weapon.Implementations
         }
 
         /// <summary>
-        /// Adiciona uma quantidade especÌfica de muniÁ„o do carregador.
+        /// Adiciona uma quantidade espec√≠fica de muni√ß√£o do carregador.
         /// </summary>
-        /// <param name="amount">Quantidade de muniÁ„o a ser adcionada</param>
+        /// <param name="amount">Quantidade de muni√ß√£o a ser adcionada</param>
         public void AddAmmo(int amount)
         {
             _currentAmmo += amount;
@@ -111,9 +111,9 @@ namespace Player47.Domain.Weapon.Implementations
         }
 
         /// <summary>
-        /// Remove uma quantidade especÌfica de muniÁ„o do carregador.
+        /// Remove uma quantidade espec√≠fica de muni√ß√£o do carregador.
         /// </summary>
-        /// <param name="amount">Quantidade de muniÁ„o a ser tirada</param>
+        /// <param name="amount">Quantidade de muni√ß√£o a ser tirada</param>
         public void RemoveAmmo(int amount)
         {
             _currentAmmo -= amount;
@@ -140,7 +140,7 @@ namespace Player47.Domain.Weapon.Implementations
 
             yield return new WaitForSeconds(_reloadTime);
 
-            AddAmmo(_ammoCapacity); //Recarrega a arma para o m·ximo de muniÁ„o
+            AddAmmo(_ammoCapacity); //Recarrega a arma para o m√°ximo de muni√ß√£o
 
             isReloading = false;
 
@@ -154,11 +154,12 @@ namespace Player47.Domain.Weapon.Implementations
         {
             Ray ray = _playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f)); //Cria um raio a partir do centro da tela
 #if UNITY_EDITOR
-            Debug.DrawRay(ray.origin, ray.direction * _range, Color.red, 1f); //Desenha o raio para fins de depuraÁ„o
+            Debug.DrawRay(ray.origin, ray.direction * _range, Color.red, 1f); //Desenha o raio para fins de depura√ß√£o
 #endif
-            if (Physics.Raycast(ray, out RaycastHit hitInfo, _range, _hittableLayers))
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, _range, _hittableLayers, QueryTriggerInteraction.Ignore))
             {
-                if (hitInfo.collider.TryGetComponent<IDamageable>(out IDamageable damageable))
+                IDamageable damageable = hitInfo.collider.GetComponentInParent<IDamageable>();
+                if (damageable != null)
                 {
                     damageable.TakeDamage(_damage); //Aplica o dano ao objeto atingido
                 }
