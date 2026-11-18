@@ -727,6 +727,7 @@ MonoBehaviour:
   _player: {fileID: 4885131434604099861}
   _pauseManager: {fileID: 6995310483331972150}
   _torchMesh: {fileID: 2788095962286376062}
+  m_playerTransform: {fileID: 8581356628263353735}
 --- !u!114 &3167661275651663892
 MonoBehaviour:
   m_ObjectHideFlags: 0

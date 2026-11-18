@@ -1,4 +1,4 @@
-using Player47.Core;
+﻿using Player47.Core;
 using Player47.Core.Managers;
 using Player47.Core.Service;
 using Player47.Domain.Player;
@@ -64,13 +64,34 @@ namespace Player47.SceneManagement
                     EnableTorch();
                 }
 
-                SpawnPoint.Instance.RespawnPlayerAtPosition(m_playerTransform);
+                if (m_playerTransform == null)
+                {
+                    if (PlayerController.Instance != null)
+                    {
+                        m_playerTransform = PlayerController.Instance.transform;
+                    }
+                    else if (_player != null)
+                    {
+                        CharacterController cc = _player.GetComponentInChildren<CharacterController>(true);
+                        m_playerTransform = cc != null ? cc.transform : _player.transform;
+                    }
+                }
 
+                SpawnPoint spawnPoint = SpawnPoint.Instance != null ? SpawnPoint.Instance : FindFirstObjectByType<SpawnPoint>();
+                if (spawnPoint != null)
+                {
+                    spawnPoint.RespawnPlayerAtPosition(m_playerTransform);
+                }
 
                 if (_wasInSceneGameplay) return; // evita reativar se ja estava na cena de gameplay
 
                 Debug.Log("<color=blue>Entered gameplay scene</color>");
                 ActiveGameplayElements();
+
+                if (spawnPoint != null)
+                {
+                    spawnPoint.RespawnPlayerAtPosition(m_playerTransform);
+                }
                 
                 _wasInSceneGameplay = true;
             }

@@ -41,14 +41,13 @@ namespace Player47.Domain.Player
         void Start()
         {
             EquipWeapon(_equippedWeapon ?? (IWeapon)_startinWeapon);
-#if UNITY_EDITOR
-            if(SpawnPoint.Instance == null)
+
+            if (SpawnPoint.Instance == null)
             {
                 Debug.LogWarning("SpawnPoint instance is null. Make sure there is a SpawnPoint in the scene.");
                 return;
             }
             SpawnPoint.Instance.RespawnPlayerAtPosition(transform);
-#endif
         }
 
 
